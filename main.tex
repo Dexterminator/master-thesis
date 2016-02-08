@@ -1,0 +1,71 @@
+\documentclass[a4paper,11pt]{kth-mag}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+\usepackage[latin1]{inputenc}
+\usepackage[swedish,english]{babel}
+\usepackage{csquotes}
+\usepackage{modifications}
+\usepackage[                    % References
+        backend=biber
+    ]{biblatex}
+    \addbibresource{references.bib}
+\usepackage{standalone}
+
+\title{hello ipsum dolor sit amet, sed diam nonummy nibh eui
+       mod tincidunt ut laoreet dol}
+
+\subtitle{Duis autem vel eum iruire dolor in hendrerit in
+          vulputate velit esse molestie consequat, vel illum
+          dolore eu feugiat null}
+\foreigntitle{Lorem ipsum dolor sit amet, sed diam nonummy nibh eui
+              mod tincidunt ut laoreet dol}
+\author{Dexter Gramfors}
+\date{June 2016}
+\blurb{Master's Thesis at NADA\\Supervisor: Stefano Markidis\\Examiner: Erwin Laure}
+\trita{TRITA xxx yyyy-nn}
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+\removepagenumbers
+\maketitle
+\selectlanguage{english}
+\begin{abstract}
+    \input{Content/0_1_abstract}
+\end{abstract}
+\clearpage
+\begin{foreignabstract}{swedish}
+    \input{Content/0_2_foreign_abstract}
+\end{foreignabstract}
+\clearpage
+\tableofcontents*
+\mainmatter
+\pagestyle{newchap}
+\chapter{Introduction}
+    \input{Content/1_introduction}
+\chapter{Background}
+    \input{Content/2_background}
+\chapter{Method}
+    \input{Content/3_method}
+\chapter{Results}
+    \input{Content/4_results}
+\chapter{Discussion}
+    \input{Content/5_discussion}
+    
+\nocite{*}
+\printbibliography
+
+\appendix
+\addappheadtotoc
+\chapter{RDF}\label{appA}
+
+\begin{figure}[ht]
+\begin{center}
+And here is a figure
+\caption{\small{Several statements describing the same resource.}}\label{RDF_4}
+\end{center}
+\end{figure}
+
+that we refer to here: \ref{RDF_4}
+
+\end{document}
