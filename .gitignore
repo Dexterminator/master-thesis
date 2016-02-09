@@ -1,6 +1,6 @@
-
 # Created by https://www.gitignore.io/api/osx,latex
 
+*.swp
 ### OSX ###
 .DS_Store
 .AppleDouble
@@ -65,4 +65,5 @@ Temporary Items
 *.vrb
 *.xdy
 *.tdo
+*.pdf
 
