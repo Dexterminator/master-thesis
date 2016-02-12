@@ -1,15 +1,57 @@
-
 Purpose of chapter, TODO
 
 \section{Processor architectures}
-\section{Calculating parallel speedup}
+\section{Performance models for parallel speedup}
 \subsection{Amdahl's law}
 \subsection{Expanding Amdahl's law}
-
+\subsection{Work-span model}
 \section{Python performance and parallel capabilities}
 \subsection{Performance}
 \subsection{The GIL, Global Interpreter Lock}
 \subsection{Threading}
 \subsection{Multiprocessing}
+
 \section{Related work}
+\subsection{Efficient parallelization of path planning workload on single-chip shared-memory multicores}
+Ahmad et al. \cite{ahmad_2015_efficient_epoppwossm} parallelize path planning algoriths such as Dijkstra's algorithm using C/C++ and
+Python in order to compare the results and evaluate each language's suitability for parallel computing. For the Python implementation,
+both the \code{multiprocessing} \code{threading} packages are used. The authors identify Python as the preferable choice 
+in application development, due to its safe nature in comparison to C and C++. The implementation using the \code{threading}
+module resulted in no speedup over the sequential implementation. Parallelization using the \code{multithreading} module resulted
+in a speedup of 2.5x for sparse graphs, and a speedup of 6.5x for dense graphs. The overhead introduced by the interpreted nature
+of Python, as well as the extra costs associated with Python multiprocessing, was evident as the C/C++ implementations showed both
+better performance and better scalability. However, the authors note that the parallel Python implementation exhibits scalability
+in comparison to its sequential implementation.
+\\\\
+The experiments were conducted on a machine with 4 cores with 2-way hyperthreading.
+
+
+\subsection{Harnessing multicores: Strategies and implementations in ATLAS}
+Binet et al. \cite{binet_2010_harnessing_hmsaiia} present a case study where parts of the ATLAS software used in
+LHC (Large Hadron Collider) experiments are parallelized. Because of the complexity and sensitivity of the system,
+one of the goals of the study is to minimize the code changes when implementing the parallelization. The authors highlight several
+benefits of using multiple processes with IPC (interprocess communication) instead of traditional multithreading, including ease of 
+implementation, explicit data sharing, and easier error recovery. The Python \code{multiprocessing} module was used to parallelize
+the program, and the authors emphasize the decreased burden thanks to not having to implement explicit IPC and synchronization.
+Finding the parts of the program that is embarassingly parallel (DEFINE THIS) and parallelizing these is
+identified as the preferred approach in order to avoid a large increase in complexity while still producing a significant perormance boost.
+The parallel implementation was tested by measuring the user and real time (DEFINE THESE) for different numbers of processes.
+These measurements show a clear increase in user time because of additional overhead, but also a steady decrease in real time.
+
+\subsection{On the Performance of the Python Programming Language for Serial and Parallel Scientific Computations}
+Cai et al. \cite{cai_2005_performance_otpotpplfsapsc}
+
+\subsection{Parallel astronomical data processing with Python: Recipes for multicore machines}
+Singh et al. \cite{singh_2013_parallel_padpwprfmm}
+
+\subsection{Parallel optimal choropleth map classification in PySAL}
+Rey et al. \cite{rey_2013_parallel_pocmcip}
+
+\subsection{PEP 0371}
+Noller and Oudkerk \cite{noller_pep_p0}
+
+\subsection{Three Unique Implementations of Processes for PyCSP.}
+Friborg et al. \cite{friborg_2009_three_tuiopfp}
+
+\subsection{Summary of related work}
 

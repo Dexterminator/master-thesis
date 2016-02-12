@@ -1,11 +1,183 @@
-@article{leis_how_2015,
-	title = {How good are query optimizers, really?},
-	volume = {9},
-	url = {http://dl.acm.org/citation.cfm?id=2850594},
-	pages = {204--215},
-	number = {3},
-	journaltitle = {Proceedings of the {VLDB} Endowment},
-	author = {Leis, Viktor and Gubichev, Andrey and Mirchev, Atanas and Boncz, Peter and Kemper, Alfons and Neumann, Thomas},
-	urldate = {2016-01-21},
-	date = {2015}
+
+@unpublished{beazley_150745UTC_introduction_aitpc,
+  title = {An {{Introduction}} to {{Python Concurrency}}},
+  url = {http://www.slideshare.net/dabeaz/an-introduction-to-python-concurrency?next_slideshow=1},
+  timestamp = {2016-02-12T13:48:09Z},
+  author = {Beazley, David},
+  urldate = {2016-02-01},
+  year = {15:07:45 UTC}
 }
+
+@article{moore_1998_cramming_cmcoic,
+  title = {Cramming {{More Components Onto Integrated Circuits}}},
+  volume = {86},
+  issn = {0018-9219},
+  doi = {10.1109/JPROC.1998.658762},
+  abstract = {Not Available},
+  timestamp = {2016-02-01T13:43:05Z},
+  number = {1},
+  journaltitle = {Proceedings of the IEEE},
+  shortjournal = {Proc. IEEE},
+  author = {Moore, G.E.},
+  date = {1998-01},
+  pages = {82--85},
+  keywords = {Aerospace electronics,Costs,Home computing,Integrated circuit reliability,Integrated circuit technology,Portable computers,Semiconductor films,Space technology,Switches,Telephony},
+  file = {IEEE Xplore Abstract Record:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/C7W9IH2C/articleDetails.html:;IEEE Xplore Full Text PDF:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/NZ2TG838/Moore - 1998 - Cramming More Components Onto Integrated Circuits.pdf:application/pdf}
+}
+
+@inproceedings{ahmad_2015_efficient_epoppwossm,
+  title = {Efficient parallelization of path planning workload on single-chip shared-memory multicores},
+  doi = {10.1109/HPEC.2015.7322455},
+  abstract = {Path planning problems greatly arise in many applications where the objective is to find the shortest path from a given source to destination. In this paper, we explore the comparison of programming languages in the context of parallel workload analysis. We characterize parallel versions of path planning algorithms, such as the Dijkstra's Algorithm, across C/C++ and Python languages. Programming language comparisons are done to analyze fine grain scalability and efficiency using a single-socket shared memory multicore processor. Architectural studies, such as understanding cache effects, are also undertaken to analyze bottlenecks for each parallelization strategy. Our results show that a right parallelization strategy for path planning yields scalability on a commercial multicore processor. However, several shortcomings exist in the parallel Python language that must be accounted for by HPC researchers.},
+  eventtitle = {2015 IEEE High Performance Extreme Computing Conference (HPEC)},
+  timestamp = {2016-02-01T16:30:38Z},
+  booktitle = {2015 {{IEEE High Performance Extreme Computing Conference}} ({{HPEC}})},
+  author = {Ahmad, M. and Lakshminarasimhan, K. and Khan, O.},
+  date = {2015-09},
+  pages = {1--6},
+  keywords = {Convergence,graph theory,graph workload parallelization,high performance computing,HPC,Instruction sets,parallel algorithm,parallel algorithms,Parallel processing,parallel Python language,path planning,programming language,programming languages,Roads,Scalability,shared memory systems,Signal processing algorithms,single-chip shared-memory multicore},
+  file = {path-planning.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/K9ZSIHBA/path-planning.pdf:application/pdf;IEEE Xplore Abstract Record:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/KWQ3ZS5T/login.html:}
+}
+
+@article{binet_2010_harnessing_hmsaiia,
+  title = {Harnessing multicores: {{Strategies}} and implementations in {{ATLAS}}},
+  volume = {219},
+  issn = {1742-6596},
+  url = {http://stacks.iop.org/1742-6596/219/i=4/a=042002},
+  doi = {10.1088/1742-6596/219/4/042002},
+  shorttitle = {Harnessing multicores},
+  abstract = {Computers are no longer getting faster: instead, they are growing more and more CPUs, each of which is no faster than the previous generation. This increase in the number of cores evidently calls for more parallelism in HENP software. If end-users' stand-alone analysis applications are relatively easy to modify, LHC experiments frameworks, being mostly written with a single 'thread' of execution in mind and consequent code bases, are on the other hand more challenging to parallelize. Widespread and inconsiderate changes so close to data taking are out of the equation: we need clear strategies and guidelines to reap the benefits out of the multicore/manycore era while minimizing the code changes.},
+  timestamp = {2016-01-29T15:15:46Z},
+  langid = {english},
+  number = {4},
+  journaltitle = {Journal of Physics: Conference Series},
+  shortjournal = {J. Phys.: Conf. Ser.},
+  author = {Binet, S. and Calafiura, P. and Snyder, S. and Wiedenmann, W. and Winklmeier, F.},
+  urldate = {2016-01-29},
+  date = {2010},
+  pages = {042002},
+  file = {IOP Full Text PDF:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/DGSUWQWJ/Binet et al. - 2010 - Harnessing multicores Strategies and implementati.pdf:application/pdf}
+}
+
+@article{cai_2005_performance_otpotpplfsapsc,
+  title = {On the {{Performance}} of the {{Python Programming Language}} for {{Serial}} and {{Parallel Scientific Computations}}},
+  volume = {13},
+  issn = {1058-9244},
+  url = {http://www.hindawi.com/journals/sp/2005/619804/abs/},
+  doi = {10.1155/2005/619804},
+  abstract = {This article addresses the performance of scientific applications that use the Python programming language. First, we investigate several techniques for improving the computational efficiency of serial Python codes. Then, we discuss the basic programming techniques in Python for parallelizing serial scientific applications. It is shown that an efficient implementation of the array-related operations is essential for achieving good parallel performance, as for the serial case. Once the array-related operations are efficiently implemented, probably using a mixed-language implementation, good serial and parallel performance become achievable. This is confirmed by a set of numerical experiments. Python is also shown to be well suited for writing high-level parallel programs.},
+  timestamp = {2016-01-21T15:01:01Z},
+  langid = {english},
+  number = {1},
+  journaltitle = {Scientific Programming},
+  shortjournal = {Sci. Program.},
+  author = {Cai, Xing and Langtangen, Hans Petter and Moe, Halvard},
+  urldate = {2016-01-21},
+  date = {2005},
+  pages = {31--56},
+  file = {Full Text PDF:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/9RRB6MCC/Cai et al. - 2005 - On the Performance of the Python Programming Langu.pdf:application/pdf;Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/SIXQNZJA/abs.html:}
+}
+
+@article{singh_2013_parallel_padpwprfmm,
+  title = {Parallel astronomical data processing with {{Python}}: {{Recipes}} for multicore machines},
+  volume = {2},
+  issn = {2213-1337},
+  url = {http://www.sciencedirect.com/science/article/pii/S2213133713000085},
+  doi = {10.1016/j.ascom.2013.04.002},
+  shorttitle = {Parallel astronomical data processing with {{Python}}},
+  abstract = {High performance computing has been used in various fields of astrophysical research. But most of it is implemented on massively parallel systems (supercomputers) or graphical processing unit clusters. With the advent of multicore processors in the last decade, many serial software codes have been re-implemented in parallel mode to utilize the full potential of these processors. In this paper, we propose parallel processing recipes for multicore machines for astronomical data processing. The target audience is astronomers who use Python as their preferred scripting language and who may be using PyRAF/IRAF for data processing. Three problems of varied complexity were benchmarked on three different types of multicore processors to demonstrate the benefits, in terms of execution time, of parallelizing data processing tasks. The native multiprocessing module available in Python makes it a relatively trivial task to implement the parallel code. We have also compared the three multiprocessing approaches—Pool/Map, Process/Queue and Parallel Python. Our test codes are freely available and can be downloaded from our website.},
+  timestamp = {2016-01-27T09:30:37Z},
+  journaltitle = {Astronomy and Computing},
+  shortjournal = {Astronomy and Computing},
+  author = {Singh, Navtej and Browne, Lisa-Marie and Butler, Ray},
+  urldate = {2016-01-27},
+  date = {2013-08},
+  pages = {1--10},
+  keywords = {Astronomical data processing,Deconvolution,Multicore programming,Parallel computing,Parallel Python,Python multiprocessing},
+  file = {ScienceDirect Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/CABXFQ5G/S2213133713000085.html:;parallel-astro.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/INH7C6Q7/parallel-astro.pdf:application/pdf}
+}
+
+@article{rey_2013_parallel_pocmcip,
+  title = {Parallel optimal choropleth map classification in {{PySAL}}},
+  volume = {27},
+  issn = {1365-8816},
+  url = {http://www-tandfonline-com.focus.lib.kth.se/doi/abs/10.1080/13658816.2012.752094},
+  doi = {10.1080/13658816.2012.752094},
+  timestamp = {2016-02-04T15:27:52Z},
+  number = {5},
+  journaltitle = {International Journal of Geographical Information Science},
+  shortjournal = {International Journal of Geographical Information Science},
+  author = {Rey, Sergio J. and Anselin, Luc and Pahle, Robert and Kang, Xing and Stephens, Philip},
+  urldate = {2016-02-04},
+  date = {2013-05-01},
+  pages = {1023--1039},
+  file = {Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/QI4V67RF/13658816.2012.html:;pysal-parallel.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/W5GZZKXD/pysal-parallel.pdf:application/pdf}
+}
+
+@online{noller_pep_p0,
+  title = {{{PEP}} 0371},
+  url = {https://www.python.org/dev/peps/pep-0371/},
+  abstract = {The official home of the Python Programming Language},
+  timestamp = {2016-02-12T14:39:21Z},
+  titleaddon = {Python.org},
+  author = {Noller, Jesse and Oudkerk, Richard},
+  urldate = {2016-01-29},
+  file = {Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/46PS726P/pep-0371.html:}
+}
+
+@online{krill_2015_python_psnhilp,
+  title = {Python scales new heights in language popularity},
+  url = {http://www.infoworld.com/article/3012442/application-development/python-scales-new-heights-in-language-popularity.html},
+  abstract = {Python is increasingly in use as a first language in high school and universities, propelling it to its highest spot ever on the Tiobe index as well as a high ranking on the PyPL index},
+  timestamp = {2016-02-12T12:59:25Z},
+  titleaddon = {InfoWorld},
+  author = {Krill, Paul},
+  urldate = {2016-02-12},
+  year = {2015-12-08T03:00-05:00},
+  file = {Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/RQAD7ECC/python-scales-new-heights-in-language-popularity.html:}
+}
+
+@book{mccool_2012_structured_spppfec,
+  location = {{Amsterdam; Boston}},
+  edition = {1 edition},
+  title = {Structured {{Parallel Programming}}: {{Patterns}} for {{Efficient Computation}}},
+  isbn = {978-0-12-415993-8},
+  shorttitle = {Structured {{Parallel Programming}}},
+  abstract = {Programming is now parallel programming. Much as structured programming revolutionized traditional serial programming decades ago, a new kind of structured programming, based on patterns, is relevant to parallel programming today. Parallel computing experts and industry insiders Michael McCool, Arch Robison, and James Reinders describe how to design and implement maintainable and efficient parallel algorithms using a pattern-based approach. They present both theory and practice, and give detailed concrete examples using multiple programming models. Examples are primarily given using two of the most popular and cutting edge programming models for parallel programming: Threading Building Blocks, and Cilk Plus. These architecture-independent models enable easy integration into existing applications, preserve investments in existing code, and speed the development of parallel applications. Examples from realistic contexts illustrate patterns and themes in parallel algorithm design that are widely applicable regardless of implementation technology.The patterns-based approach offers structure and insight that developers can apply to a variety of parallel programming modelsDevelops a composable, structured, scalable, and machine-independent approach to parallel computingIncludes detailed examples in both Cilk Plus and the latest Threading Building Blocks, which support a wide variety of computers},
+  pagetotal = {432},
+  timestamp = {2016-02-11T10:13:33Z},
+  langid = {english},
+  publisher = {{Morgan Kaufmann}},
+  author = {McCool, Michael and Reinders, James and Robison, Arch},
+  date = {2012-07-09},
+  file = {StructuredPP.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/X8P2IAKP/StructuredPP.pdf:application/pdf}
+}
+
+@book{herlihy_2012_art_taomprr,
+  title = {The {{Art}} of {{Multiprocessor Programming}}, {{Revised Reprint}}},
+  isbn = {978-0-12-397795-3},
+  url = {http://proquest.safaribooksonline.com.focus.lib.kth.se/book/programming/9780123973375},
+  abstract = {Revised and updated with improvements conceived in parallel programming courses, The Art of Multiprocessor Programming is an authoritative guide to multicore programming. It introduces a higher level set of software development skills than that needed for efficient single-core programming. This book provides comprehensive coverage of the new principles, algorithms, and tools necessary for effective multiprocessor programming. Students and professionals alike will benefit from thorough coverage of key multiprocessor programming issues. This revised edition incorporates much-demanded updates throughout the book, based on feedback and corrections reported from classrooms since 2008 Learn the fundamentals of programming multiple threads accessing shared memory Explore mainstream concurrent data structures and the key elements of their design, as well as synchronization techniques from simple locks to transactional memory systems Visit the companion site and download materials to support and enhance the learning experience},
+  pagetotal = {536},
+  timestamp = {2016-01-21T15:01:43Z},
+  langid = {english},
+  publisher = {{Morgan Kaufmann}},
+  author = {Herlihy, Maurice and Shavit, Nir},
+  urldate = {2016-01-21},
+  date = {2012-06-25},
+  file = {The_art_of_multiprocessor_programming.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/FQENXWK8/The_art_of_multiprocessor_programming.pdf:application/pdf}
+}
+
+@inproceedings{friborg_2009_three_tuiopfp,
+  title = {Three {{Unique Implementations}} of {{Processes}} for {{PyCSP}}.},
+  url = {http://www.researchgate.net/profile/Brian_Vinter/publication/221004402_Three_Unique_Implementations_of_Processes_for_PyCSP/links/0046352c13f97306f5000000.pdf},
+  timestamp = {2016-01-29T15:38:08Z},
+  booktitle = {{{CPA}}},
+  author = {Friborg, Rune Møllegaard and Bjørndalen, John Markus and Vinter, Brian},
+  urldate = {2016-01-29},
+  date = {2009},
+  pages = {277--292},
+  file = {[PDF] from researchgate.net:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/PNDSP5PN/Friborg et al. - 2009 - Three Unique Implementations of Processes for PyCS.pdf:application/pdf}
+}
+
+
