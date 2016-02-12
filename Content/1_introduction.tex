@@ -1,4 +1,19 @@
-\section{Area of interest/background}
+\section{Area of interest}
+The subject of parallel computing is one that has become highly relevant and important in recent years.
+Moore's law, the observed pattern that the number of transistors in a dense integrated circuit doubles approximately every two
+years \cite{moore_1998_cramming_cmcoic},
+has lost its relevance. The increased processor clock speed that the doubling in processors implies is no longer present because of
+overheating issues \cite[Ch. 1]{herlihy_2012_art_taomprr}. Because of this, manufacturers of processors now have
+largely turned to \emph{multicore} processors. In a multicore architecture, several cores which work as individual processors execute
+code simultaneously. Using this type of architecture to work on a single task to increase performance is known as \emph{parallelism}.
+
+Efforts to exploit parallelism automatically from a program has been made; however, the benefits of these have reached their
+limit \cite{mccool_2012_structured_spppfec}. In order to fully utilize the performance increase that multicore architectures promise, 
+programmers today must instead turn to explicit parallel programming.
+
+Python is one of world's most popular programming languages \cite{krill_2015_python_psnhilp}. It is used extensively both at schools and
+in the industry, and its benefits include expressiveness, portability, and the fact that it is easy to learn. Python has support for
+parallel programming, although it has caveats and overheads mainly as a result of a mechanism called the \emph{Global Interpreter Lock}.
 
 \section{Problem statement}
 
