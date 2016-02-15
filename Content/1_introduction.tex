@@ -7,13 +7,16 @@ overheating issues \cite[Ch. 1]{herlihy_2012_art_taomprr}. Because of this, manu
 largely turned to \emph{multicore} processors. In a multicore architecture, several cores which work as individual processors execute
 code simultaneously. Using this type of architecture to work on a single task to increase performance is known as \emph{parallelism}.
 
-Efforts to exploit parallelism automatically from a program has been made; however, the benefits of these have reached their
-limit \cite{mccool_2012_structured_spppfec}. In order to fully utilize the performance increase that multicore architectures promise, 
+Efforts to exploit parallelism automatically from a program have been made; however, the benefits of these have reached their
+limit \cite{mccool_2012_structured_spppfec}. In order to fully utilize the increase in performance that multicore architectures promise, 
 programmers today must instead turn to explicit parallel programming.
 
 Python is one of world's most popular programming languages \cite{krill_2015_python_psnhilp}. It is used extensively both at schools and
 in the industry, and its benefits include expressiveness, portability, and the fact that it is easy to learn. Python has support for
-parallel programming, although it has caveats and overheads mainly as a result of a mechanism called the \emph{Global Interpreter Lock}.
+parallel programming, although it has caveats and overheads mainly as a result of a concurrency-hampering mechanism called the
+\emph{Global Interpreter Lock} \cite{beazley_150745UTC_introduction_aitpc}.
+
+This thesis concerns a combination of the areas mentioned above: parallel computing using Python.
 
 \section{Trioptima}
 

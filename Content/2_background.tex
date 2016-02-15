@@ -1,6 +1,22 @@
 Purpose of chapter, TODO
 
-\section{Processor architectures}
+\section{Definitions}
+\begin{itemize}
+  \item IPC
+  \item MPI
+  \item Embarrassingly parallel
+\end{itemize}
+
+\section{Multicore architecture} %Find a better name?
+\subsection{Threads}
+\cite{cai_2005_performance_otpotpplfsapsc}
+\subsection{Processes}
+\cite{cai_2005_performance_otpotpplfsapsc}
+\subsection{Scheduling}
+\subsection{Cache effects}
+\subsection{Shared memory systems and distributed systems}
+\subsection{Data parallelism}
+\subsection{Task parallelism}
 \section{Performance models for parallel speedup}
 \subsection{Amdahl's law}
 \subsection{Expanding Amdahl's law}
@@ -13,16 +29,17 @@ Purpose of chapter, TODO
 
 \section{Related work}
 \subsection{Efficient parallelization of path planning workload on single-chip shared-memory multicores}
-Ahmad et al. \cite{ahmad_2015_efficient_epoppwossm} parallelize path planning algoriths such as Dijkstra's algorithm using C/C++ and
+Ahmad et al. \cite{ahmad_2015_efficient_epoppwossm} parallelize path planning algorithms such as Dijkstra's algorithm using C/C++ and
 Python in order to compare the results and evaluate each language's suitability for parallel computing. For the Python implementation,
-both the \code{multiprocessing} \code{threading} packages are used. The authors identify Python as the preferable choice 
+both the \code{multiprocessing} and \code{threading} packages are used. The authors identify Python as the preferable choice 
 in application development, due to its safe nature in comparison to C and C++. The implementation using the \code{threading}
 module resulted in no speedup over the sequential implementation. Parallelization using the \code{multithreading} module resulted
 in a speedup of 2.5x for sparse graphs, and a speedup of 6.5x for dense graphs. The overhead introduced by the interpreted nature
 of Python, as well as the extra costs associated with Python multiprocessing, was evident as the C/C++ implementations showed both
-better performance and better scalability. However, the authors note that the parallel Python implementation exhibits scalability
-in comparison to its sequential implementation.
-\\\\
+better performance and better scalability. The slowdowns for sparse graph of Python compared to C/C++ ranged between
+20x to 700x depending on the graphs.
+However, the authors note that the parallel Python implementation exhibits scalability in comparison to its sequential implementation.
+
 The experiments were conducted on a machine with 4 cores with 2-way hyperthreading.
 
 
@@ -33,25 +50,70 @@ one of the goals of the study is to minimize the code changes when implementing 
 benefits of using multiple processes with IPC (interprocess communication) instead of traditional multithreading, including ease of 
 implementation, explicit data sharing, and easier error recovery. The Python \code{multiprocessing} module was used to parallelize
 the program, and the authors emphasize the decreased burden thanks to not having to implement explicit IPC and synchronization.
-Finding the parts of the program that is embarassingly parallel (DEFINE THIS) and parallelizing these is
-identified as the preferred approach in order to avoid a large increase in complexity while still producing a significant perormance boost.
+Finding the parts of the program that is embarrassingly parallel (DEFINE THIS) and parallelizing these is
+identified as the preferred approach in order to avoid an undesirably large increase in complexity while
+still producing a significant performance boost.
+
 The parallel implementation was tested by measuring the user and real time (DEFINE THESE) for different numbers of processes.
 These measurements show a clear increase in user time because of additional overhead, but also a steady decrease in real time.
 
 \subsection{On the Performance of the Python Programming Language for Serial and Parallel Scientific Computations}
-Cai et al. \cite{cai_2005_performance_otpotpplfsapsc}
+Cai et al. \cite{cai_2005_performance_otpotpplfsapsc} note that Python is suitable for scientific programming thanks to its richness and
+power, as well as its interfacing capabilities with legacy software written in other languages. Among other experiments on Python
+efficiency in scientific computing, its parallel capabilities are investigated. The Python MPI (DEFINE) package \code{Pypar} is used for
+the parallelization, using typical MPI operations such as send and receive. The calculations, such as wave simulations, 
+are made with the help of the \code{numpy} package for increased efficiency. The authors conclude that while communication 
+introduces overhead, Python is sufficiently efficient for scientific parallel computing.
 
 \subsection{Parallel astronomical data processing with Python: Recipes for multicore machines}
-Singh et al. \cite{singh_2013_parallel_padpwprfmm}
+Singh et al. \cite{singh_2013_parallel_padpwprfmm} present Python as a fitting language for parallel computing, and use the
+\code{multiprocessing} module as well as the standalone \code{Parallel Python} package in their experiments. Because of the
+communication overhead in Python, the study focuses on embarrassingly parallel problems where little communication is needed.
+Different means of parallelization are
+compared: the Pool/Map approach, the Process Queue approach, and the Parallel Python approach. %TODO: Maybe define the approaches?
+The results in general show significant time savings even though the approaches taken are relatively straightforward.
+The best performance is achieved when the number of processes is equal to the number of physical cores on the computer.
+The Process/Queue is shown to perform better than both Pool/Map and parallel Python. This comes at the cost of a slightly less
+straightforward implementation. The impact of load balancing and chunk size is also discussed, with the conclusion that work load
+should be evenly distributed among cores as computation is limited by the core that takes the longest to finish.
 
 \subsection{Parallel optimal choropleth map classification in PySAL}
-Rey et al. \cite{rey_2013_parallel_pocmcip}
+Rey et al. \cite{rey_2013_parallel_pocmcip} compare \code{multiprocessing} and \code{Parallel Python} with the GPU-based parallel
+module \code{PyOpenCI} when attempting to parallelize portions of the spatial analysis library PySAL. In particular, different
+versions of the Fisher-Jenks algorithm for classification are compared. For the smallest sample sizes, the overhead of the
+different parallel implementations produce slower code, but as the sample sizes grow larger the speedup grow relatively quickly.
+For the largest of the sample sizes, the speedup curve generally flattens out; the authors state this as counter-intuitive and
+express an interest in investigating this further. In general, the CPU-based modules \code{multiprocessing} and \code{Parallel Python}
+perform better than the GPU-based PyOpenCI. The \code{multiprocessing} module produced similar or better results than the
+\code{Parallel Python} module.
+While the parallel versions of the algorithm perform better, the larger implementation effort is noted.
 
 \subsection{PEP 0371}
-Noller and Oudkerk \cite{noller_pep_p0}
+In their proposal for the inclusion of the multiprocessing module into the Python standard library,
+Noller and Oudkerk \cite{noller_pep_p0} include several benchmarks where the multiprocessing module's performance is compare to
+that of the threading module. They emphasize the fact that the benchmarks are not as applicable on platforms with slow forking
+time. The benchmarks show that while of course slower than sequential execution, multiprocessing performs better than
+threading when just spawning workers and executing an empty function. For the CPU-bound task of computing Fibonacci numbers,
+multiprocessing shows significantly better result than threading (which is in fact slower than sequential code). For I/O bound
+calculations, which is an application considered suitable for the threading module, the multiprocessing module is still shown to have
+the best performance when 4 or more workers are used.
+
+The benchmarks where performed using the following hardware:
+\begin{itemize}
+  \item 4 Core Intel Xeon CPU @ 3.00GHz
+  \item 16 GB of RAM
+  \item Python 2.5.2 compiled on Gentoo Linux (kernel 2.6.18.6)
+  \item pyProcessing 0.52
+\end{itemize}
 
 \subsection{Three Unique Implementations of Processes for PyCSP.}
-Friborg et al. \cite{friborg_2009_three_tuiopfp}
+Friborg et al. \cite{friborg_2009_three_tuiopfp} explore the use of processes, threads and greenlets in their process abstraction
+library PyCSP. The authors observe the clear performance benefits of using multiprocessing over threads due to the circumvention of the GIL
+that the multiprocessing module allows. Greenlets are user-level threads that execute in the same thread and are unable to utilize
+several cores. On Microsoft Windows, where the fork() system call is not available, the process creation is observed as
+significantly slower than on UNIX-based platforms. While serialization and communication has a negative impact on performance when
+using multiprocessing, the authors state that this produces the positive side-effect of processes not being able to
+modify data received from other processes.
 
 \subsection{Summary of related work}
 
