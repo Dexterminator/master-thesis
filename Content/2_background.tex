@@ -76,7 +76,8 @@ effect, not allowing true parallelism and hampering efficient use of multicore m
 
 \subsection{Multiprocessing}
 The \code{multiprocessing} module has a similar API to the \code{threading} module, but avoids the negative effects of the GIL by spawning
-separate processes instead of user threads. These are represented by the \code{multiprocessing.Process} class.
+separate processes instead of user threads. This works since the processes have separate GILs, which do not affect each other and
+enables the processes to utilize true parallelism. The processes are represented by the \code{multiprocessing.Process} class.
 
 The \code{multiprocessing} module provides two main mechanisms for performing IPC, listed below \cite{palach_2014_parallel_ppwp}.
 
