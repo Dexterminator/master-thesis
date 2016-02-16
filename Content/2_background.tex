@@ -26,7 +26,11 @@ reasons, including issuing a time-consuming memory request.
 
 \subsection{Multicore communication and caching}
 Multiple processors communicate with each other through a bus or a network \cite[Appendix B]{herlihy_2012_art_taomprr}. Since the
-means of communication between the processes is a finite resource, too much traffic may result in delays.
+means of communication between the processes is a finite resource, too much traffic may result in delays. The processors typically
+have their own cache. In order to avoid unnecessary reads from the slower main memory, processors may read from another processor
+that has the requested data cached. In a process called \emph{cache coherence}, shared cached values are kept up to date using one
+of several protocols. The effect that these different means of communication between processors has on performance in
+multiprocessor programs should not be ignored.
 
 \subsection{Data parallelism}
 \subsection{Task parallelism}
