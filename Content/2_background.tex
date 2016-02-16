@@ -2,19 +2,32 @@ Purpose of chapter, TODO
 
 \section{Definitions}
 \begin{itemize}
-  \item IPC
-  \item MPI
-  \item Embarrassingly parallel
+  \item \emph{IPC} Interprocess communication.
+  \item \emph{MPI}
+  \item \emph{Embarrassingly parallel}
+  \item \emph{User time}
+  \item \emph{Real time}
 \end{itemize}
 
 \section{Multicore architecture} %Find a better name?
-\subsection{Threads}
-\cite{cai_2005_performance_otpotpplfsapsc}
-\subsection{Processes}
-\cite{cai_2005_performance_otpotpplfsapsc}
+\subsection{Processes vs threads}
+while both threads and processes represent contexts in which a program is run, they have a few differences. A thread is run inside
+a process, and the threads within the process share memory and state with each other and the parent
+process \cite{cai_2005_performance_otpotpplfsapsc}. Individual processes do not share memory with each other, and any
+communication between processes must be done with message passing rather than with shared memory. Consequently, communication
+between threads is generally faster than between processes.
+Typically, different threads can be scheduled on different cores, which is also true for different processes. %Fixa citation
+
 \subsection{Scheduling}
-\subsection{Cache effects}
-\subsection{Shared memory systems and distributed systems}
+Threads and processes are scheduled by the operating system, and the exact mechanism for choosing what to schedule when differs
+between platforms and implementations \cite[Appendix B]{herlihy_2012_art_taomprr}. Scheduling may imply running truly parallel
+on different cores, or on the same core using time-slicing. Threads and processes may be descheduled from running temporarily for several
+reasons, including issuing a time-consuming memory request.
+
+\subsection{Multicore communication and caching}
+Multiple processors communicate with each other through a bus or a network \cite[Appendix B]{herlihy_2012_art_taomprr}. Since the
+means of communication between the processes is a finite resource, too much traffic may result in delays.
+
 \subsection{Data parallelism}
 \subsection{Task parallelism}
 \section{Performance models for parallel speedup}
@@ -86,7 +99,7 @@ For the largest of the sample sizes, the speedup curve generally flattens out; t
 express an interest in investigating this further. In general, the CPU-based modules \code{multiprocessing} and \code{Parallel Python}
 perform better than the GPU-based PyOpenCI. The \code{multiprocessing} module produced similar or better results than the
 \code{Parallel Python} module.
-While the parallel versions of the algorithm perform better, the larger implementation effort is noted.
+While the parallel versions of the algorithm perform better, the bigger implementation effort associated with it is noted.
 
 \subsection{PEP 0371}
 In their proposal for the inclusion of the multiprocessing module into the Python standard library,
@@ -106,7 +119,7 @@ The benchmarks where performed using the following hardware:
   \item pyProcessing 0.52
 \end{itemize}
 
-\subsection{Three Unique Implementations of Processes for PyCSP.}
+\subsection{Three Unique Implementations of Processes for PyCSP}
 Friborg et al. \cite{friborg_2009_three_tuiopfp} explore the use of processes, threads and greenlets in their process abstraction
 library PyCSP. The authors observe the clear performance benefits of using multiprocessing over threads due to the circumvention of the GIL
 that the multiprocessing module allows. Greenlets are user-level threads that execute in the same thread and are unable to utilize
@@ -116,4 +129,13 @@ using multiprocessing, the authors state that this produces the positive side-ef
 modify data received from other processes.
 
 \subsection{Summary of related work}
+Common themes and conclusions in the related work presented above include.
 
+\begin{itemize}
+  \item Python is a suitable language for parallel programming.
+  \item The multiprocessing module is successful in circumventing the GIL often shows the same or better performance than other
+    methods, even for I/O bound programs.
+  \item The overhead that IPC introduces when creating parallel Python programs makes it imperative to minimize communication and
+    synchronization. Consequently, embarrassingly parallel programs are preferable when using Python.
+  \item For existing larger systems, extensive parallelization may produce undesired complexity.
+\end{itemize}
