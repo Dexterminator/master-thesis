@@ -43,12 +43,28 @@ across several processors or computers \cite{singh_2013_parallel_padpwprfmm}. It
 sizes increase, since more parallelism can be exploited for larger data sets \cite[p. 24]{mccool_2012_structured_spppfec}.
 
 \subsection{Task parallelism}
+In task parallelism, tasks that are independent are run in parallel. Tasks that depend on each other cannot be run in parallel,
+and must instead be run sequentially. 
 
 \section{Performance models for parallel speedup}
 
 \subsection{Amdahl's law}
+Amdahl's law \cite{mdahl_2013_computer_caaal} states that:
+\begin{displayquote}
+The effort expended on achieving high parallel processing rates is wasted unless it is accompanied by
+achievements in sequential processing rates of very nearly the same magnitude.
+\end{displayquote}
+
 \subsection{Expanding Amdahl's law}
+Che and Nguyen expand on Amdahl's law and adapts it to modern multicore processors \cite{che_2014_amdahl_alfmmp}.
+Yavits et al. come to similar conclusions \cite{yavits_2014_effect_teocasoalims}.
+
+\subsection{Gustafson's law}
+Gustafson's law \cite{gustafson_1988_reevaluating_ral}
+
 \subsection{Work-span model}
+
+\subsection{Little's formula}
 
 \section{Python performance and parallel capabilities}
 There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular Python implementation, and also the one that TriOptima uses.
@@ -96,7 +112,7 @@ The two main facilities that the \code{multiprocessing} module provides for IPC 
 
 In addition to the parallel programming utilities mentioned above, the \code{multiprocessing} module provides the \code{Pool} abstraction
 for specifying a number of workers as well as several ways of assigning functions for the workers to be performed in parallel. For
-example, a programmer can use \code{pool.map} to make the workers in the pool execute a specified function on each element in a
+example, a programmer can use \code{Pool.map} to make the workers in the pool execute a specified function on each element in a
 collection.
 
 \section{Related work}
@@ -142,7 +158,7 @@ Singh et al. \cite{singh_2013_parallel_padpwprfmm} present Python as a fitting l
 \code{multiprocessing} module as well as the standalone \code{Parallel Python} package in their experiments. Because of the
 communication overhead in Python, the study focuses on embarrassingly parallel problems where little communication is needed.
 Different means of parallelization are
-compared: the Pool/Map approach, the Process/Queue approach, and the Parallel Python approach. %TODO: Maybe define the approaches?
+compared: the Pool/Map approach, the Process/Queue approach, and the Parallel Python approach. 
 In the Pool/Map approach, the simple functions of \code{multiprocessing.Pool} is used to specify a number of processes, a data
 set, and the function to be executed with each element in the data set as a parameter. In the Process/Queue approach, a
 \code{multiprocessing.Queue} is spawned and filled with chunks of data. Several \code{multiprocessing.Process} objects are then

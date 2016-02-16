@@ -15,6 +15,25 @@
   file = {16.6. multiprocessing — Process-based “threading” interface — Python 2.7.11 documentation:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/AH9DP6ZD/multiprocessing.html:}
 }
 
+@article{che_2014_amdahl_alfmmp,
+  title = {Amdahl’s law for multithreaded multicore processors},
+  volume = {74},
+  issn = {0743-7315},
+  url = {http://www.sciencedirect.com/science/article/pii/S0743731514001142},
+  doi = {10.1016/j.jpdc.2014.06.012},
+  abstract = {In this paper, we conduct performance scaling analysis of multithreaded multicore processors (MMPs) for parallel computing. We propose a thread-level closed-queuing network model covering a fairly large design space, accounting for hardware scaling models, coarse-grain, fine-grain, and simultaneous multithreading (SMT) cores, shared resources, including cache, memory, and critical sections. We then derive a closed-form solution for this model in terms of speedup performance measure. This solution makes it possible to analyze performance scaling properties of MMPs along multiple dimensions. In particular, we show that for the parallelizable part of the workload, the speedup, in the absence of resource contention, is no longer just a linear function of parallel processing unit counts, as predicted by Amdahl’s law, but also a strong function of workload characteristics, ranging from strong memory-bound to strong CPU-bound workloads. We also find that with core multithreading, super linear speedup, higher than that predicted by Amdahl’s law, may be achieved for the parallelizable part of the workload, if core threads exhibit strong cache affinity and the workload is strongly memory-bound. Then, we derive a tight speedup upper bound in the presence of both memory resource contention and critical section for multicore processors with single-threaded cores. This speedup upper bound indicates that with resource contention among threads, whether it is due to shared memory or critical section, a sequential term is guaranteed to emerge from the parallelizable part of the workload, fundamentally limiting the scalability of multicore processors for parallel computing, in addition to the sequential part of the workload, as dictated by Amdahl’s law. As a result, to improve speedup performance for MMPs, one should strive to enhance memory parallelism and confine critical sections as locally as possible, e.g.,~to the smallest possible number of threads in the same core.},
+  timestamp = {2016-01-22T10:27:37Z},
+  number = {10},
+  journaltitle = {Journal of Parallel and Distributed Computing},
+  shortjournal = {Journal of Parallel and Distributed Computing},
+  author = {Che, Hao and Nguyen, Minh},
+  urldate = {2016-01-22},
+  date = {2014-10},
+  pages = {3056--3069},
+  keywords = {Amdahl’s law,Closed queuing network,Multithreaded multicore processor,Speedup},
+  file = {ScienceDirect Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/BFKWFIFE/S0743731514001142.html:;amdahls-law-for-multicore.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/EURDANJI/amdahls-law-for-multicore.pdf:application/pdf}
+}
+
 @unpublished{beazley_150745UTC_introduction_aitpc,
   title = {An {{Introduction}} to {{Python Concurrency}}},
   url = {http://www.slideshare.net/dabeaz/an-introduction-to-python-concurrency?next_slideshow=1},
@@ -22,6 +41,23 @@
   author = {Beazley, David},
   urldate = {2016-02-01},
   year = {15:07:45 UTC}
+}
+
+@article{amdahl_2013_computer_caaal,
+  title = {Computer {{Architecture}} and {{Amdahl}}'s {{Law}}},
+  volume = {46},
+  issn = {0018-9162},
+  doi = {10.1109/MC.2013.418},
+  abstract = {An autobiographical overview of Gene Amdah's professional career reviews his early achievements and describes for the first time some important details of his talk at the 1967 Spring Joint Computer Conference in Atlantic City and the heated discussions that followed. The author provides much-needed clarifications, most notably his original performance formula as presented nearly 50 years ago.},
+  timestamp = {2016-01-22T10:30:00Z},
+  number = {12},
+  journaltitle = {Computer},
+  shortjournal = {Computer},
+  author = {Amdahl, G.M.},
+  date = {2013-12},
+  pages = {38--46},
+  keywords = {Amdahl's Law,Biographies,computer architecture,Gene Amdah,performance analysis,professional career},
+  file = {IEEE Xplore Abstract Record:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/63AM5SMM/abs_all.html:;IEEE Xplore Full Text PDF:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/TSPUNDRH/Amdahl - 2013 - Computer Architecture and Amdahl's Law.pdf:application/pdf}
 }
 
 @article{moore_1998_cramming_cmcoic,
@@ -209,6 +245,23 @@
   file = {Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/RQAD7ECC/python-scales-new-heights-in-language-popularity.html:}
 }
 
+@article{gustafson_1988_reevaluating_ral,
+  title = {Reevaluating {{Amdahl}}'s {{Law}}},
+  volume = {31},
+  issn = {0001-0782},
+  url = {http://doi.acm.org/10.1145/42411.42415},
+  doi = {10.1145/42411.42415},
+  timestamp = {2016-01-22T10:38:07Z},
+  number = {5},
+  journaltitle = {Commun. ACM},
+  shortjournal = {Commun ACM},
+  author = {Gustafson, John L.},
+  urldate = {2016-01-22},
+  date = {1988-05},
+  pages = {532--533},
+  file = {gustafson-amdahl.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/2URXQ6C7/gustafson-amdahl.pdf:application/pdf}
+}
+
 @book{mccool_2012_structured_spppfec,
   location = {{Amsterdam; Boston}},
   edition = {1 edition},
@@ -238,6 +291,25 @@
   urldate = {2016-01-21},
   date = {2012-06-25},
   file = {The_art_of_multiprocessor_programming.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/FQENXWK8/The_art_of_multiprocessor_programming.pdf:application/pdf}
+}
+
+@article{yavits_2014_effect_teocasoalims,
+  title = {The effect of communication and synchronization on {{Amdahl}}’s law in multicore systems},
+  volume = {40},
+  issn = {0167-8191},
+  url = {http://www.sciencedirect.com/science/article/pii/S0167819113001324},
+  doi = {10.1016/j.parco.2013.11.001},
+  abstract = {This work analyses the effects of sequential-to-parallel synchronization and inter-core communication on multicore performance, speedup and scaling from Amdahl’s law perspective. Analytical modeling supported by simulation leads to a modification of Amdahl’s law, reflecting lower than originally predicted speedup, due to these effects. In applications with high degree of data sharing, leading to intense inter-core connectivity requirements, the workload should be executed on a smaller number of larger cores. Applications requiring intense sequential-to-parallel synchronization, even highly parallelizable ones, may better be executed by the sequential core. To improve the scalability and performance speedup of a multicore, it is as important to address the synchronization and connectivity intensities of parallel algorithms as their parallelization factor.},
+  timestamp = {2016-01-22T10:39:14Z},
+  number = {1},
+  journaltitle = {Parallel Computing},
+  shortjournal = {Parallel Computing},
+  author = {Yavits, L. and Morad, A. and Ginosar, R.},
+  urldate = {2016-01-22},
+  date = {2014-01},
+  pages = {1--16},
+  keywords = {Amdahl’s law,Analytical Performance Models,Multicore},
+  file = {effect-of-communication.pdf:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/4N6TPWRP/effect-of-communication.pdf:application/pdf;ScienceDirect Snapshot:/Users/dexterg/Library/Application Support/Zotero/Profiles/e340dsms.default/zotero/storage/AMJBGIGH/S0167819113001324.html:}
 }
 
 @inproceedings{friborg_2009_three_tuiopfp,
