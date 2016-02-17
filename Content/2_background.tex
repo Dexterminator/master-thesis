@@ -12,6 +12,7 @@ Purpose of chapter, TODO
   \item \textbf{Real time} - The total time it takes for a call to finish.
   \item \textbf{User time} - The time a call takes, excluding system overhead; the time the call spends in user mode.
   \item \textbf{System time} - The time in a call that is consumed by system overhead; the time the call spends in kernel mode.
+  \item \textbf{DAG/Directed acyclic graph} A directed graph that contains no directed cycles.
 \end{itemize}
 
 \section{Multicore architecture} %Find a better name?
@@ -44,30 +45,84 @@ sizes increase, since more parallelism can be exploited for larger data sets \ci
 
 \subsection{Task parallelism}
 In task parallelism, tasks that are independent are run in parallel. Tasks that depend on each other cannot be run in parallel,
-and must instead be run sequentially. 
+and must instead be run sequentially.
 
 \section{Performance models for parallel speedup}
 
 \subsection{Amdahl's law}
-Amdahl's law \cite{mdahl_2013_computer_caaal} states that:
+Amdahl's law \cite{amdahl_2013_computer_caaal} states that:
 \begin{displayquote}
 The effort expended on achieving high parallel processing rates is wasted unless it is accompanied by
 achievements in sequential processing rates of very nearly the same magnitude.
 \end{displayquote}
 
-\subsection{Expanding Amdahl's law}
-Che and Nguyen expand on Amdahl's law and adapts it to modern multicore processors \cite{che_2014_amdahl_alfmmp}.
-Yavits et al. come to similar conclusions \cite{yavits_2014_effect_teocasoalims}.
+Amdahl divides programs into two distinct parts: a parallelizable part and an inherently serial part
+\cite[p. 13]{herlihy_2012_art_taomprr}.
+If the time it takes for a single worker (for example, a process) to complete the program is $1$, Amdahl's law says
+that the speedup $S$ of the program with $n$ workers with the parallel fraction of the program $p$ is:
+\begin{displaymath}
+  S = \frac{1}{1 - p + \frac{p}{n}}
+  \label{amdahl}
+\end{displaymath}
+
+The law has the following implication: if the number of workers is infinite, the time it takes for a program to finish is still
+limited by its inherently serial fraction. This is illustrated below:
+
+\begin{displaymath}
+  \lim_{n \to \infty} \frac{1}{1 - p + \frac{p}{n}} = \frac{1}{1 - p}
+  \label{amdahl_lim}
+\end{displaymath}
+
+$1-p$ is the serial fraction which clearly limits the speedup of the program even with an unlimited number of processors.
+
+\subsection{Extensions of Amdahl's law}
+Che and Nguyen expand on Amdahl's law and adapts it to modern multicore processors \cite{che_2014_amdahl_alfmmp}. They find that
+more factors than the number of workers affect the performance of the parallelizable part of a program, such as if the work is
+more memory bound or CPU bound. In addition, they find that with core threading (such as hyperthreading), superlinear speedup of a
+program is achievable and that the parallelizable part of a program is guaranteed to also yield a sequential term due to resource
+contention.
+
+Yavits et al. come to similar conclusions \cite{yavits_2014_effect_teocasoalims}. They find that it is important to minimize the
+intensity of synchronization operations even in programs that are highly parallel.
 
 \subsection{Gustafson's law}
-Gustafson's law \cite{gustafson_1988_reevaluating_ral}
+Gustafson's law \cite{gustafson_1988_reevaluating_ral} is a result of the observation that problem sizes often grow with the
+number of processors, an assumption that Amdahl's law dismisses, keeping the problem size fixed. With this premise, a program can
+be run with a larger problem size in the same time as more workers are added. This view is less pessimistic than Amdahl's law, as
+it implies that the impact that the serial fraction of a program becomes less significant with many workers and a large problem
+size \cite[p. 61-62]{mccool_2012_structured_spppfec}.
+
+The speedup $S$, for $n$ workers, and $s$ and $p$ as the time spent in the serial and parallel parts in the parallel system,
+respecively, is acheived by:
+
+\begin{displaymath}
+  S = n + (1-n) * s
+\end{displaymath}
 
 \subsection{Work-span model}
+The tasks that need to be performed in a program can be arranged to form a directed acyclic graph, where a task that
+has to be completed before another precedes it in the graph. The work-span model introduces the following terms:
+\begin{itemize}
+  \item \textbf{Work} - The work of a program is the time it takes to complete with a single worker, and equals the total time it
+    takes to complete all of the tasks. The work is denoted $T_1$.
+  \item \textbf{Span} - The span of a program is the time it takes for the program to complete with an infinite number of workers.
+    The span is denoted $T_\infty$.
+  \item \textbf{Critical path} - The tasks that are included in the path that has the maximum number of tasks that need
+    to be executed in sequence. The span is equal to the length of the critical path.
+\end{itemize}
+
+In the work-span model, the following bound on the speedup $S$ holds:
+
+\begin{displaymath}
+  S \leq \frac{T_1}{T_\infty}
+\end{displaymath}
+
 
 \subsection{Little's formula}
 
 \section{Python performance and parallel capabilities}
-There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular Python implementation, and also the one that TriOptima uses.
+There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular
+Python implementation, and also the one that TriOptima uses.
 
 \subsection{Performance}
 The general performance of CPython is slower than many other languages for several
@@ -212,7 +267,7 @@ using \code{multiprocessing}, the authors state that this produces the positive 
 modify data received from other processes.
 
 \subsection{Summary of related work}
-Common themes and conclusions in the related work presented above include.
+Common themes and conclusions in the related work presented above include:
 
 \begin{itemize}
   \item Python is a suitable language for parallel programming.
