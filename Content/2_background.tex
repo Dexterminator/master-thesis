@@ -44,8 +44,8 @@ across several processors or computers \cite{singh_2013_parallel_padpwprfmm}. It
 sizes increase, since more parallelism can be exploited for larger data sets \cite[p. 24]{mccool_2012_structured_spppfec}.
 
 \subsection{Task parallelism}
-In task parallelism, tasks that are independent are run in parallel. Tasks that depend on each other cannot be run in parallel,
-and must instead be run sequentially.
+In task parallelism, tasks that are independent are run in parallel \cite{singh_2013_parallel_padpwprfmm}.
+Tasks that depend on each other cannot be run in parallel, and must instead be run sequentially.
 
 \section{Performance models for parallel speedup}
 
@@ -93,7 +93,7 @@ it implies that the impact that the serial fraction of a program becomes less si
 size \cite[p. 61-62]{mccool_2012_structured_spppfec}.
 
 The speedup $S$, for $n$ workers, and $s$ and $p$ as the time spent in the serial and parallel parts in the parallel system,
-respecively, is acheived by:
+respectively, is achieved by:
 
 \begin{displaymath}
   S = n + (1-n) * s
@@ -101,7 +101,8 @@ respecively, is acheived by:
 
 \subsection{Work-span model}
 The tasks that need to be performed in a program can be arranged to form a directed acyclic graph, where a task that
-has to be completed before another precedes it in the graph. The work-span model introduces the following terms:
+has to be completed before another precedes it in the graph. The work-span model introduces the following terms
+\cite{mccool_2012_structured_spppfec}:
 \begin{itemize}
   \item \textbf{Work} - The work of a program is the time it takes to complete with a single worker, and equals the total time it
     takes to complete all of the tasks. The work is denoted $T_1$.
@@ -111,14 +112,33 @@ has to be completed before another precedes it in the graph. The work-span model
     to be executed in sequence. The span is equal to the length of the critical path.
 \end{itemize}
 
+An example of a task DAG can be found in figure \ref{fig:dag_example}.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/task_dag_example.pdf}
+  \caption[Example of work-span model task DAG]{An example of a task DAG used in the work-span model. Assuming each task takes 
+    time 1 to complete, this DAG has a \textit{work} of 9 and a \textit{span} of 5.}
+  \label{fig:dag_example}
+\end{figure}
+
 In the work-span model, the following bound on the speedup $S$ holds:
 
 \begin{displaymath}
   S \leq \frac{T_1}{T_\infty}
 \end{displaymath}
 
+With $n$ workers and running time $T_n$, the following speedup condition can be derived:
+\begin{displaymath}
+  S = \frac{T_1}{T_n} \approx P if \frac{T_1}{T_\infty} \gg P
+\end{displaymath}
 
-\subsection{Little's formula}
+In essence, this means that linear speedup can be achieved under the condition that the work divided by the span is significantly
+larger than the number of workers.
+
+The work-span model implies that increasing the work in an excessive manner when parallelizing may result in disappointing
+results. It also implies that the span of the program should be kept as small as possible in order to utilize parallelization as
+much as possible.
 
 \section{Python performance and parallel capabilities}
 There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular
@@ -160,15 +180,39 @@ The two main facilities that the \code{multiprocessing} module provides for IPC 
 \begin{itemize}
   \item \code{multiprocessing.Pipe}, which serves as a way for two processes to communicate using the operations \code{send()}
     and \code{recv()} (receive). The Pipe is represented through two connection objects which correspond to each end of the pipe.
+    See figure \ref{fig:code_pipe_example} for an example.
   \item \code{multiprocessing.Queue}, which closely mimics the behaviour and API of the standard Python \code{queue.Queue}, but
     can be used by several processes at the same time without concurrency issues. This \code{multiprocessing} queue internally
     synchronizes access by multiple processes using locks, and uses a \emph{feeder thread} to transfer data to other processes.
+    See figure \ref{fig:code_queue_example} for an example.
 \end{itemize}
 
 In addition to the parallel programming utilities mentioned above, the \code{multiprocessing} module provides the \code{Pool} abstraction
 for specifying a number of workers as well as several ways of assigning functions for the workers to be performed in parallel. For
 example, a programmer can use \code{Pool.map} to make the workers in the pool execute a specified function on each element in a
 collection.
+See figure \ref{fig:code_pool_example} for an example.
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/pipe_example.py}
+  \caption{\code{multiprocessing.Pipe} example}
+  \label{fig:code_pipe_example}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/queue_example.py}
+  \caption{\code{multiprocessing.Queue} example}
+  \label{fig:code_queue_example}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/pool_example.py}
+  \caption{\code{multiprocessing.Pool} example}
+  \label{fig:code_pool_example}
+\end{figure}
 
 \section{Related work}
 \subsection{Efficient parallelization of path planning workload on single-chip shared-memory multicores}

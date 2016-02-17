@@ -5,6 +5,48 @@
 \usepackage[utf8]{inputenc}
 \usepackage[swedish,english]{babel}
 \usepackage{csquotes}
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
+
+% Custom colors
+\usepackage{color}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{listings}
+
+% Python style for highlighting
+\newcommand\pythonstyle{\lstset{
+language=Python,
+basicstyle=\ttm,
+otherkeywords={self},             % Add keywords here
+keywordstyle=\ttb\color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle=\ttb\color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false            % 
+}}
+
+
+% Python environment
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+% Python for external files
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+% Python for inline
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
 \usepackage{modifications}
 \usepackage[                    % References
         backend=biber
@@ -13,8 +55,7 @@
 \usepackage{standalone}
 \def\code#1{\texttt{#1}}
 
-\title{Lorem ipsum dolor sit amet, sed diam nonummy nibh eui
-       mod tincidunt ut laoreet dol}
+\title{Optimizing parallel transformation of data sets with processing order constraints in Python}
 
 \subtitle{Duis autem vel eum iruire dolor in hendrerit in
           vulputate velit esse molestie consequat, vel illum
@@ -40,6 +81,8 @@
 \end{foreignabstract}
 \clearpage
 \tableofcontents*
+\clearpage
+\listoffigures
 \mainmatter
 \pagestyle{newchap}
 \chapter{Introduction}
@@ -56,17 +99,18 @@
 \nocite{*}
 \printbibliography
 
-\appendix
+%\appendix
 \addappheadtotoc
-\chapter{RDF}\label{appA}
+%\chapter{RDF}\label{appA}
 
-\begin{figure}[ht]
-\begin{center}
-And here is a figure
-\caption{\small{Several statements describing the same resource.}}\label{RDF_4}
-\end{center}
-\end{figure}
 
-that we refer to here: \ref{RDF_4}
+%\begin{figure}[ht]
+%\begin{center}
+%And here is a figure
+%\caption{\small{Several statements describing the same resource.}}\label{RDF_4}
+%\end{center}
+%\end{figure}
+
+%that we refer to here: \ref{RDF_4}
 
 \end{document}
