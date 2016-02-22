@@ -1,4 +1,8 @@
-Purpose of chapter, TODO
+In this chapter, theory related to multicore architecture and parallel programming is
+explained in order to give the reader the foundation needed to understand these aspects of
+the thesis. Also, the parallel capabilities of the Python programming language, including
+drawbacks, are lined out. Finally, work related to this thesis is summarized in order to
+utilize the conclusions drawn by others when solving problems similar to that of this thesis.
 
 \section{Definitions}
 \begin{itemize}
@@ -89,7 +93,7 @@ intensity of synchronization operations even in programs that are highly paralle
 Gustafson's law \cite{gustafson_1988_reevaluating_ral} is a result of the observation that problem sizes often grow with the
 number of processors, an assumption that Amdahl's law dismisses, keeping the problem size fixed. With this premise, a program can
 be run with a larger problem size in the same time as more workers are added. This view is less pessimistic than Amdahl's law, as
-it implies that the impact that the serial fraction of a program becomes less significant with many workers and a large problem
+it implies that the impact of the serial fraction of a program becomes less significant with many workers and a large problem
 size \cite[p. 61-62]{mccool_2012_structured_spppfec}.
 
 The speedup $S$, for $n$ workers, and $s$ and $p$ as the time spent in the serial and parallel parts in the parallel system,
@@ -130,7 +134,7 @@ In the work-span model, the following bound on the speedup $S$ holds:
 
 With $n$ workers and running time $T_n$, the following speedup condition can be derived:
 \begin{displaymath}
-  S = \frac{T_1}{T_n} \approx P if \frac{T_1}{T_\infty} \gg P
+  S = \frac{T_1}{T_n} \approx P \text{ if } \frac{T_1}{T_\infty} \gg P
 \end{displaymath}
 
 In essence, this means that linear speedup can be achieved under the condition that the work divided by the span is significantly
@@ -237,17 +241,17 @@ one of the goals of the study is to minimize the code changes when implementing 
 benefits of using multiple processes with IPC (interprocess communication) instead of traditional multithreading, including ease of 
 implementation, explicit data sharing, and easier error recovery. The Python \code{multiprocessing} module was used to parallelize
 the program, and the authors emphasize the decreased burden thanks to not having to implement explicit IPC and synchronization.
-Finding the parts of the program that is embarrassingly parallel (DEFINE THIS) and parallelizing these is
+Finding the parts of the program that is embarrassingly parallel and parallelizing these is
 identified as the preferred approach in order to avoid an undesirably large increase in complexity while
 still producing a significant performance boost.
 
-The parallel implementation was tested by measuring the user and real time (DEFINE THESE) for different numbers of processes.
+The parallel implementation was tested by measuring the user and real time for different numbers of processes.
 These measurements show a clear increase in user time because of additional overhead, but also a steady decrease in real time.
 
 \subsection{On the Performance of the Python Programming Language for Serial and Parallel Scientific Computations}
 Cai et al. \cite{cai_2005_performance_otpotpplfsapsc} note that Python is suitable for scientific programming thanks to its richness and
 power, as well as its interfacing capabilities with legacy software written in other languages. Among other experiments on Python
-efficiency in scientific computing, its parallel capabilities are investigated. The Python MPI (DEFINE) package \code{Pypar} is used for
+efficiency in scientific computing, its parallel capabilities are investigated. The Python MPI package \code{Pypar} is used for
 the parallelization, using typical MPI operations such as send and receive. The calculations, such as wave simulations, 
 are made with the help of the \code{numpy} package for increased efficiency. The authors conclude that while communication 
 introduces overhead, Python is sufficiently efficient for scientific parallel computing.
@@ -276,7 +280,7 @@ should be evenly distributed among cores as computation is limited by the core t
 Rey et al. \cite{rey_2013_parallel_pocmcip} compare \code{multiprocessing} and \code{Parallel Python} with the GPU-based parallel
 module \code{PyOpenCI} when attempting to parallelize portions of the spatial analysis library PySAL. In particular, different
 versions of the Fisher-Jenks algorithm for classification are compared. For the smallest sample sizes, the overhead of the
-different parallel implementations produce slower code, but as the sample sizes grow larger the speedup grow relatively quickly.
+different parallel implementations produce slower code, but as the sample sizes grow larger the speedup grows relatively quickly.
 For the largest of the sample sizes, the speedup curve generally flattens out; the authors state this as counter-intuitive and
 express an interest in investigating this further. In general, the CPU-based modules \code{multiprocessing} and \code{Parallel Python}
 perform better than the GPU-based PyOpenCI. The \code{multiprocessing} module produced similar or better results than the
@@ -285,7 +289,8 @@ While the parallel versions of the algorithm perform better, the bigger implemen
 
 \subsection{PEP 0371}
 In their proposal for the inclusion of the \code{multiprocessing} module into the Python standard library,
-Noller and Oudkerk \cite{noller_pep_p0} include several benchmarks where the \code{multiprocessing} module's performance is compare to
+Noller and Oudkerk \cite{noller_pep_p0} include several benchmarks where the \code{multiprocessing} module's performance is
+compared to
 that of the \code{threading} module. They emphasize the fact that the benchmarks are not as applicable on platforms with slow forking
 time. The benchmarks show that while of course slower than sequential execution, \code{multiprocessing} performs better than
 \code{threading} when just spawning workers and executing an empty function. For the CPU-bound task of computing Fibonacci numbers,
