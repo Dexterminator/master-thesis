@@ -9,7 +9,7 @@ utilize the conclusions drawn by others when solving problems similar to that of
   \item \textbf{IPC} - Interprocess communication.
   \item \textbf{MPI} - Message Passing Interface. Standardized interface for message passing between processes.
   \item \textbf{Embarrassingly parallel} - A problem that is embarrassingly parallel can easily be broken down into components that
-    can be run in parallel. %Cite astro? python hpc?
+    can be run in parallel. %Cite astro? Python hpc?
   \item \textbf{CPU bound} - Calculation where the bottleneck is the time it takes for a processor to execute it.
   \item \textbf{I/O bound} - Calculation where the bottleneck is the time it takes for some input/output call, such as file accesses
     and network operations.
@@ -26,7 +26,7 @@ a process, and the threads within the process share memory and state with each o
 process \cite{singh_2013_parallel_padpwprfmm}. Individual processes do not share memory with each other, and any
 communication between processes must be done with message passing rather than with shared memory. Consequently, communication
 between threads is generally faster than between processes.
-Typically, different threads can be scheduled on different cores, which is also true for different processes. %Fixa citation
+Typically, different threads can be scheduled on different cores, which is also true for different processes.
 
 \subsection{Scheduling}
 Threads and processes are scheduled by the operating system, and the exact mechanism for choosing what to schedule when differs
@@ -48,19 +48,21 @@ across several processors or computers \cite{singh_2013_parallel_padpwprfmm}. It
 sizes increase, since more parallelism can be exploited for larger data sets \cite[p. 24]{mccool_2012_structured_spppfec}.
 
 \subsection{Task parallelism}
-In task parallelism, tasks that are independent are run in parallel \cite{singh_2013_parallel_padpwprfmm}.
+In task parallelism, groups of tasks that are independent are run in parallel \cite{chow_2015_pipeline_ppiaote}.
 Tasks that depend on each other cannot be run in parallel, and must instead be run sequentially.
+A group of tasks is embarrassingly parallel if none of the tasks in the group depend on each other.
 
 \section{Performance models for parallel speedup}
 
 \subsection{Amdahl's law}
 Amdahl's law \cite{amdahl_2013_computer_caaal} states that:
 \begin{displayquote}
-The effort expended on achieving high parallel processing rates is wasted unless it is accompanied by
-achievements in sequential processing rates of very nearly the same magnitude.
+The effort expended on achieving high parallel processing rates is wasted unless it is
+accompanied by achievements in sequential processing rates of very nearly the same magnitude.
 \end{displayquote}
 
-Amdahl divides programs into two distinct parts: a parallelizable part and an inherently serial part
+Amdahl divides programs into two distinct parts: a parallelizable part and an inherently
+serial part
 \cite[p. 13]{herlihy_2012_art_taomprr}.
 If the time it takes for a single worker (for example, a process) to complete the program is $1$, Amdahl's law says
 that the speedup $S$ of the program with $n$ workers with the parallel fraction of the program $p$ is:
@@ -175,7 +177,7 @@ separate processes instead of user threads. This works since the processes have 
 enables the processes to utilize true parallelism \cite{slatkin_2015_effective_ep5swtwbp}. The processes are represented by the \code{multiprocessing.Process} class.
 
 The \code{multiprocessing} module provides mechanisms for performing IPC.
-In order for the data to be tranferred between processes, it needs to be serializable through the use of the Python \code{pickle}
+In order for the data to be transferred between processes, it needs to be serializable through the use of the Python \code{pickle}
 module \cite[p. 143]{slatkin_2015_effective_ep5swtwbp}. When transferring data, it is serialized, sent to another process through
 a local socket, and then deserialized. These operations, in conjunction with the creation of the processes, gives the
 \code{multiprocessing} module a high overhead when performing IPC.
@@ -184,7 +186,7 @@ The two main facilities that the \code{multiprocessing} module provides for IPC 
 \begin{itemize}
   \item \code{multiprocessing.Pipe}, which serves as a way for two processes to communicate using the operations \code{send()}
     and \code{recv()} (receive). The Pipe is represented through two connection objects which correspond to each end of the pipe.
-    See figure \ref{fig:code_pipe_example} for an example.
+    See figure ref{fig:code_pipe_example} for an example.
   \item \code{multiprocessing.Queue}, which closely mimics the behaviour and API of the standard Python \code{queue.Queue}, but
     can be used by several processes at the same time without concurrency issues. This \code{multiprocessing} queue internally
     synchronizes access by multiple processes using locks, and uses a \emph{feeder thread} to transfer data to other processes.
