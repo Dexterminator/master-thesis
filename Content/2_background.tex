@@ -151,7 +151,7 @@ There are several implementations of the Python language. This section will focu
 Python implementation, and also the one that TriOptima uses.
 
 \subsection{Performance}
-The general performance of CPython is slower than many other languages for several
+The general performance of CPython is slower than other popular languages such as C and Java for several
 reasons \cite{barany_2014_python_pipd}. Overhead is introduced due to the fact that all operations need to dispatched dynamically,
 and accessing data demands the dereferencing of a pointer to a heap data structure. Also, the fact that late binding is employed
 for function calls, the automatic memory memory management in the form of reference counting, and the boxing and unboxing of
@@ -186,7 +186,7 @@ The two main facilities that the \code{multiprocessing} module provides for IPC 
 \begin{itemize}
   \item \code{multiprocessing.Pipe}, which serves as a way for two processes to communicate using the operations \code{send()}
     and \code{recv()} (receive). The Pipe is represented through two connection objects which correspond to each end of the pipe.
-    See figure ref{fig:code_pipe_example} for an example.
+    See figure \ref{fig:code_pipe_example} for an example.
   \item \code{multiprocessing.Queue}, which closely mimics the behaviour and API of the standard Python \code{queue.Queue}, but
     can be used by several processes at the same time without concurrency issues. This \code{multiprocessing} queue internally
     synchronizes access by multiple processes using locks, and uses a \emph{feeder thread} to transfer data to other processes.
