@@ -1,5 +1,15 @@
 Purpose of chapter, TODO
 
+\section{Trade files and file formats}
+%\csvautotabular[respect all]{figures/EFET.csv}
+\begin{tabular}{|l|c|c|c|}%
+  \hline
+  \bfseries Party ID & \bfseries CP ID & \bfseries Trade ID & \bfseries Product class% specify table head
+  \csvreader[respect all,head to column names]{figures/EFET.csv}{PARTY_ID=\pid, CP_ID=\cpid, TRADE_ID=\tid, PRODUCT_CLASS=\pcls}% use head of csv as column names
+  {\\\hline \pid & \cpid & \tid & \pcls}% specify your coloumns here
+  \\ \hline
+\end{tabular}
+
 \section{Program/data analysis}
 
 \section{Dependency graph generation}
