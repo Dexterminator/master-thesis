@@ -2,11 +2,11 @@ Purpose of chapter, TODO
 
 \section{Trade files and file formats}
 %\csvautotabular[respect all]{figures/EFET.csv}
-\begin{tabular}{|l|c|c|c|}%
+\begin{tabular}{|c|c|c|c|c|}%
   \hline
-  \bfseries Party ID & \bfseries CP ID & \bfseries Trade ID & \bfseries Product class% specify table head
-  \csvreader[respect all,head to column names]{figures/EFET.csv}{PARTY_ID=\pid, CP_ID=\cpid, TRADE_ID=\tid, PRODUCT_CLASS=\pcls}% use head of csv as column names
-  {\\\hline \pid & \cpid & \tid & \pcls}% specify your coloumns here
+  \bfseries Party ID & \bfseries CP ID & \bfseries Trade ID & \bfseries Product class & \bfseries Trade curr
+  \csvreader[respect all,head to column names]{figures/EFET.csv}{PARTY_ID=\pid, CP_ID=\cpid, TRADE_ID=\tid, PRODUCT_CLASS=\pcls, TRADE_CURR=\tc}
+  {\\\hline \pid & \cpid & \tid & \pcls & \tc}
   \\ \hline
 \end{tabular}
 
