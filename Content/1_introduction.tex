@@ -24,14 +24,38 @@ OTC derivatives concern trading directly between two parties, and the customers 
 include portfolio compression, reconciliation, dispute resolution, and risk management. The services deal with substantial
 amounts of data, and face challenges such as high security demands, availability requirements, and speed optimization
 for data transformations and risk calculations. In their reconciliation and dispute resolution service,
-triResolve, customers upload data sets representing trades. These data sets need to be processed in order to convert
-them into a standard format which makes comparison between data from different customers possible.
+triResolve, customers upload data sets representing trades. 
 
 \section{Problem statement}
+The data sets mentioned in the previous section need to be processed in order to convert them into a standard format
+which makes comparisons between data from different customers possible. 
+In some cases, the size of the data set is large enough that this transformation is slow, and could conceivably be sped up through
+the use of parallelization.  The sizes are aptly measured in number of rows, and range between 2 rows to about 1490000 rows. The time
+it takes to process the data sets range between 0.06 seconds and 15200 seconds 2 (4.2 hours).
+
+The data sets are associated with a file format. The format specifies a set of rules, known as filters, which at times pose restrictions on the processing order in the file.
+These restrictions reduce the possible benefits of parallelization as they enforce inherently serial parts of the program. Since the size of the data sets as
+well as the type and number of their associated filters varies, it is plausible that the benefits of parallelization will differ significantly between
+different data sets. An overhead is associated with creating new threads or processes. This overhead is increased in Python as the data shared
+between processes needs to serialized. Therefore, it is possible that parallelization of data sets will result in slower execution in some cases.
+Consequently, it is interesting to find the combinations of data set sizes, as well as their constraints, that result in beneficial parallelization,
+and which do not.
 
 \section{Research question}
+\emph{Given the size of a data set and its set of filters, is is possible to the determine 
+if parallelization of the data transformation using Python will be beneficial or not?}
+
+The thesis question gives rise to the following subquestions:
+\begin{itemize}
+    \item What is the best approach for parallelizing code in Python in order to minimize data races and maintain performance?
+    \item How should the parallel performance be measured?
+    \item What kind of data dependencies exist and how do they affect parallelization?
+    \item What kind of overhead does parallelization introduce?
+\end{itemize}
 
 \section{Objective}
+The objective of this thesis is to answer the questions stated above using a literature study and by implementing a working parallelization
+of the existing data set processing program.
 
 \section{Motivation}
 
