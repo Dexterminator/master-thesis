@@ -8,10 +8,10 @@ Purpose of chapter, TODO
 
 \subsection{Cassandra}
 
-\section{Trade files}
-As mentioned briefly in the background section, users of the triResolve service upload \textit{trade files}, which contain rows of trade data 
-such as party id, counterparty id, trade id, notional, and so on. An example of a trade file (with some columns omitted) can be seen in figure
-\ref{fig:trade_file_example}.
+\section{Trade files and data sets}
+As mentioned briefly in the background section, users of the triResolve service upload \textit{trade files}, which contain one or several data sets with
+rows of trade data such as party id, counterparty id, trade id, notional, and so on. An example of a trade data set (with some columns omitted) can be seen in figure
+\ref{fig:data_set_example}.
 
 \begin{figure}[ht]
 \begin{tabular}{|c|c|c|p{3cm}|c|c|}%
@@ -22,10 +22,20 @@ such as party id, counterparty id, trade id, notional, and so on. An example of 
   \\ \hline
 \end{tabular}
   %\centering
-\caption[Example of trade file]{A simplified example of a trade file uploaded by the users of triResolve.}
-  \label{fig:trade_file_example}
+\caption[Example of data set]{A simplified example of a trade data set uploaded by the users of triResolve.}
+  \label{fig:data_set_example}
 \end{figure}
 
-\subsection{File formats}
+\section{File formats and filters}
+Different customers may have different ways of formatting their data sets, with different names for headers, varying column orders, extra fields,
+and special rules. In order to convert these into a common format that make it possible to use the files in the same contexts, a file format specifying
+how the data set in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the data set.
+
+\subsection{Mapping}
+
+\section{Implementation}
+
+\subsection{Analyzing filters for parallelizability}
+
 
 \section{Evaluation}
