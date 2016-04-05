@@ -1,6 +1,19 @@
 Purpose of chapter, TODO
 
-\section{Trade files and file formats}
+\section{Technology}
+
+\subsection{Django}
+
+\subsection{MySQL}
+
+\subsection{Cassandra}
+
+\section{Trade files}
+As mentioned briefly in the background section, users of the triResolve service upload \textit{trade files}, which contain rows of trade data 
+such as party id, counterparty id, trade id, notional, and so on. An example of a trade file (with some columns omitted) can be seen in figure
+\ref{fig:trade_file_example}.
+
+\begin{figure}[ht]
 \begin{tabular}{|c|c|c|p{3cm}|c|c|}%
   \hline
   \bfseries Party ID & \bfseries CP ID & \bfseries Trade ID & \bfseries Product class & \bfseries Trade curr & \bfseries Notional
@@ -8,15 +21,11 @@ Purpose of chapter, TODO
   {\\\hline \pid & \cpid & \tid & \pcls & \tc & \notional}
   \\ \hline
 \end{tabular}
+  %\centering
+\caption[Example of trade file]{A simplified example of a trade file uploaded by the users of triResolve.}
+  \label{fig:trade_file_example}
+\end{figure}
 
-\section{Program/data analysis}
-
-\section{Dependency graph generation}
-
-\section{Parallelization}
-
-\subsection{Multiprocessing}
-
-\subsection{Threading}
+\subsection{File formats}
 
 \section{Evaluation}
