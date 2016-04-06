@@ -1,12 +1,19 @@
 Purpose of chapter, TODO
 
 \section{Technology}
+In this section, technologies used in triResolve that will be mentioned throughout this chapter are briefly described.
 
 \subsection{Django}
+Django is a Python web development framework \cite{holovaty_chapter_c1itd}. It implements a version of the MVC (Model-View-Controller) pattern, which decouples request routing, data access, and
+presentation. Django's model layer allows the programmer to retrieve and modify entities in an SQL database through Python code, without writing SQL.
 
 \subsection{MySQL}
+MySQL is an open source relational database system \cite{what_wim}. It is used by TriOptima as the database backend for Django.
 
 \subsection{Cassandra}
+Cassandra is a column-oriented \textit{NoSQL} database \cite[p. 1-9]{mishra_2014_beginning_bacd}. It features dynamic schemas, meaning that columns can be added to a schema as needed, and that
+the number of columns may vary from row to row. Cassandra is designed to have no single point of failure, and instead uses a number of nodes in a peer-to-peer structure. This design is
+employed in order to ensure high availability, with data replicated across the nodes. It uses the query language CQL (Cassandra Query Language), which is similar to relational database SQL.
 
 \section{Trade files and data sets}
 As mentioned briefly in the background section, users of the triResolve service upload \textit{trade files}, which contain one or several data sets with
@@ -22,7 +29,7 @@ rows of trade data such as party id, counterparty id, trade id, notional, and so
   \\ \hline
 \end{tabular}
   %\centering
-\caption[Example of data set]{A simplified example of a trade data set uploaded by the users of triResolve.}
+\caption[Example of trade data set]{A simplified example of a trade data set uploaded by the users of triResolve.}
   \label{fig:data_set_example}
 \end{figure}
 
@@ -31,7 +38,7 @@ Different customers may have different ways of formatting their data sets, with 
 and special rules. In order to convert these into a common format that make it possible to use the files in the same contexts, a file format specifying
 how the data set in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the data set.
 
-\subsection{Mapping}
+\subsection{Field mapping}
 
 \section{Implementation}
 

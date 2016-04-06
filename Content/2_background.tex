@@ -123,7 +123,7 @@ An example of a task DAG can be found in figure \ref{fig:dag_example}.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=120mm]{figures/task_dag_example.pdf}
-  \caption[Example of work-span model task DAG]{An example of a task DAG used in the work-span model. Assuming each task takes 
+  \caption[Example of work-span model task DAG]{An example of a task DAG used in the work-span model. Assuming each task takes
     time 1 to complete, this DAG has a \textit{work} of 9 and a \textit{span} of 5.}
   \label{fig:dag_example}
 \end{figure}
@@ -322,7 +322,7 @@ Common themes and conclusions in the related work presented above include:
 
 \begin{itemize}
   \item Python is a suitable language for parallel programming.
-  \item The \code{multiprocessing} module is successful in circumventing the GIL often shows the same or better performance than other
+  \item The \code{multiprocessing} module is successful in circumventing the GIL and often shows the same or better performance than other
     methods, even for I/O bound programs.
   \item The overhead that IPC introduces when creating parallel Python programs makes it imperative to minimize communication and
     synchronization. Consequently, embarrassingly parallel programs are preferable when using Python.
