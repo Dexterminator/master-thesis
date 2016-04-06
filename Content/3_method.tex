@@ -33,16 +33,54 @@ rows of trade data such as party id, counterparty id, trade id, notional, and so
   \label{fig:data_set_example}
 \end{figure}
 
-\section{File formats and filters}
+\section{File formats}
 Different customers may have different ways of formatting their data sets, with different names for headers, varying column orders, extra fields,
 and special rules. In order to convert these into a common format that make it possible to use the files in the same contexts, a file format specifying
 how the data set in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the data set.
+The different filter configurations may affect how parallelizable the processing of data set is. The result of this processing is called a \textit{verification result},
+and consists of rows in a Cassandra schema.
 
-\subsection{Field mapping}
+\section{Filters}
+All filters used to create a verification result are outlined below.
 
-\section{Implementation}
+\subsection{Mapping}
+
+\subsection{Dataset translation}
+
+\subsection{Dataset information}
+
+\subsection{Tradefile information}
+
+\subsection{NullTranslationFilter}
+
+\subsection{Relation currency}
+
+\subsection{Global variable}
+
+\subsection{State variable}
+
+\subsection{Temporary variable}
+
+\subsection{Conditional block}
+
+\subsection{Logger}
+
+\subsection{Skip row}
+
+\subsection{Stop processing}
+
+\subsection{ThirdPartyAutoMapper}
+
+\subsection{Set value}
+
+\subsection{RegExp extract}
+
+\subsection{RegExp replace}
+
 
 \subsection{Analyzing filters for parallelizability}
+Since the filters specify what the processing program should to to each row in a data set, they are the prime candidates for parallelization analysis.
 
+\section{Implementation}
 
 \section{Evaluation}
