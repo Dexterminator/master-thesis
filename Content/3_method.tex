@@ -44,39 +44,66 @@ and consists of rows in a Cassandra schema.
 All filters used to create a verification result are outlined below.
 
 \subsection{Mapping}
+Maps a value from a column in the data set to a specified output column in the verification result. This is usually specified for each of the columns in the input
+data set, and is the most common filter. The mappings may have small extra tuning attached to them, such as specifying a date format or extracting only part of the
+text using regex. One of these extra tunings is attached to the trade id column, and is called \textit{Make unique}. This tuning keeps track of all trade id:s that
+have been encountered so far, and, if it finds a duplicate, adds a suffix to it in order to ensure that all trade id:s are unique.
 
 \subsection{Dataset translation}
+A dataset translation is similar to a mapping, but uses specified columns in an external dataset to map input columns to output columns.
 
 \subsection{Dataset information}
+Extracts information about the dataset, such as the name or owner.
 
 \subsection{Tradefile information}
+Similar to the dataset information filter, except that it extracts information about the trade file that contains the data set.
 
 \subsection{NullTranslationFilter}
+In some data sets, other values than \code{NULL} are used to convey the absence of a value. This filter allows the user to specify which other values
+should be interpreted as \code{NULL}.
 
 \subsection{Relation currency}
+If the currency that is supposed to be used in a relation (a party and a counterparty) is stored in the database and should be mapped to an output column, this
+filter retrieves this information.
 
 \subsection{Global variable}
+A global variable filter writes a value to a variable that is accessed by subsequent filters on the same row, and by all filters on the rest of the rows in the data
+set. A global variable can be written several times throughout the processing of a data set.
 
 \subsection{State variable}
+A state variable is similar to a global variable, but is always written to before all other processing of the data set begins.
 
 \subsection{Temporary variable}
+Similar to the other variables, except for the fact that it is only accessible during processing of the row where it was written. When the row has finished being
+processed, the variable is cleared.
 
 \subsection{Conditional block}
+A conditional block works like the programming construct \code{if}. Performs a specified filter (which may also be a conditional block) only if a certain
+condition is fulfilled. Most commonly, the condition take the form \code{field = value}, but may also involve more complex expressions in the form of a
+subset of Python.
 
 \subsection{Logger}
+A logger filter simply logs the specified output. Can for instance be used when a user wants to know whenever a conditional block has been entered.
 
 \subsection{Skip row}
+Ignores the current row when processing. Usually used in a conditional block.
 
 \subsection{Stop processing}
+Stops processing the dataset, ignoring all subsequent rows. Can be used when the footer of the dataset contains information that should not be interpreted
+as a trade.
 
 \subsection{ThirdPartyAutoMapper}
+When a customer has uploaded a trade file on behalf of another customer, this filter extracts the information needed to make sure that the data is loaded
+for the correct customer.
 
 \subsection{Set value}
+Simply sets the value of the output column to the value that is entered.
 
 \subsection{RegExp extract}
+Extracts text from a column using regex, and writes matching groups to other columns
 
 \subsection{RegExp replace}
-
+Replaces column text matching some regex with a specified value.
 
 \subsection{Analyzing filters for parallelizability}
 Since the filters specify what the processing program should to to each row in a data set, they are the prime candidates for parallelization analysis.
