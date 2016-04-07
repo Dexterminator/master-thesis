@@ -38,7 +38,7 @@ Different customers may have different ways of formatting their datasets, with d
 and special rules. In order to convert these into a common format that make it possible to use the files in the same contexts, a file format specifying
 how the dataset in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the dataset.
 The different filter configurations may affect how parallelizable the processing of dataset is. The result of this processing is called a \textit{verification result},
-and consists of rows in a Cassandra schema.
+and consists of rows in a Cassandra schema as well as metadata in MySQL.
 
 \section{Filters}
 All filters used to create a verification result are outlined below.
