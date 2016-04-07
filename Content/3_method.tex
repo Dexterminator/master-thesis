@@ -119,7 +119,7 @@ section \ref{work-span}. When applying the model to the problem of analyzing fil
 the tasks that need to be completed before other tasks, the filters that result in state that is accessed by subsequent rows or otherwise
 affect the total processing of the dataset need to be identified.
 
-Looking through the filters, we can see that Dataset translation, NullTranslationFilter, Relation currency,
+Examining the filters, it is apparent that Dataset translation, NullTranslationFilter, Relation currency,
 ThirdPartyAutomapper, Set value, RegExp extract, and RegExp replace only operate on the current dataset row, with no side effects.
 This means that they produce no state changes that affect subsequent rows, which means that they do not affect the parallelizability of a dataset.
 
@@ -186,7 +186,7 @@ any rows are processed in different processes (as rows that should not be includ
   \label{fig:global_dag}
 \end{figure}
 
-\subsection{Parallelization}
+\subsection{Parallelization} %TODO: skriv om ordning i dataset
 In accordance with section \ref{related_work}, the Python \code{multiprocessing} module was used to implement the parallelization of the program. Additionally, measures where taken to send as little
 data as possible between processes and to avoid introducing excessive complexity to the codebase. The \code{multiprocessing.Queue} facility was chosen for communication between processes due to its
 noted performance and built-in synchronization \cite{singh_2013_parallel_padpwprfmm}.
