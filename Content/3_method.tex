@@ -43,9 +43,15 @@ and consists of rows in a Cassandra schema.
 \section{Filters}
 All filters used to create a verification result are outlined below.
 
+\subsection{Header detection}
+There may be a number of lines in the data set which do not contain the header (containing the column names). The header detection filter checks if a row is the header,
+and if it is it saves the column names and corresponding indices for use in subsequent rows. If the row is not the header or the header has already been detected
+(for example if another header row is encountered in the middle of the dataset), this filter terminates without any effect and the rest of the filters are applied.
+This filter is included in all file formats.
+
 \subsection{Mapping}
 Maps a value from a column in the data set to a specified output column in the verification result. This is usually specified for each of the columns in the input
-data set, and is the most common filter. The mappings may have small extra tuning attached to them, such as specifying a date format or extracting only part of the
+data set, and is therefore one of the most common filters. The mappings may have small extra tuning attached to them, such as specifying a date format or extracting only part of the
 text using regex. One of these extra tunings is attached to the trade id column, and is called \textit{Make unique}. This tuning keeps track of all trade id:s that
 have been encountered so far, and, if it finds a duplicate, adds a suffix to it in order to ensure that all trade id:s are unique.
 
@@ -106,7 +112,7 @@ Extracts text from a column using regex, and writes matching groups to other col
 Replaces column text matching some regex with a specified value.
 
 \subsection{Analyzing filters for parallelizability}
-Since the filters specify what the processing program should to to each row in a data set, they are the prime candidates for parallelization analysis.
+Since the filters specify what the processing program should do to each row in a dataset, they are the prime candidates for parallelization analysis.
 
 \section{Implementation}
 
