@@ -45,7 +45,7 @@ multiprocessor programs should not be ignored.
 \subsection{Data parallelism}
 Data parallelism denotes code where the parallelism comes from decomposing the data and running it with the same piece of code
 across several processors or computers \cite{singh_2013_parallel_padpwprfmm}. It allows scalability as number of cores and problem
-sizes increase, since more parallelism can be exploited for larger data sets \cite[p. 24]{mccool_2012_structured_spppfec}.
+sizes increase, since more parallelism can be exploited for larger datasets \cite[p. 24]{mccool_2012_structured_spppfec}.
 
 \subsection{Task parallelism}
 In task parallelism, groups of tasks that are independent are run in parallel \cite{chow_2015_pipeline_ppiaote}.
@@ -265,7 +265,7 @@ communication overhead in Python, the study focuses on embarrassingly parallel p
 Different means of parallelization are
 compared: the Pool/Map approach, the Process/Queue approach, and the Parallel Python approach. 
 In the Pool/Map approach, the simple functions of \code{multiprocessing.Pool} is used to specify a number of processes, a data
-set, and the function to be executed with each element in the data set as a parameter. In the Process/Queue approach, a
+set, and the function to be executed with each element in the dataset as a parameter. In the Process/Queue approach, a
 \code{multiprocessing.Queue} is spawned and filled with chunks of data. Several \code{multiprocessing.Process} objects are then
 spawned, which all share the queue and get data to operate on from it while it is not empty. Another shared queue is used for
 collection the results. In the Parallel Python approach, the \code{Parallel Python} abstraction \emph{job server}

@@ -15,9 +15,9 @@ Cassandra is a column-oriented \textit{NoSQL} database \cite[p. 1-9]{mishra_2014
 the number of columns may vary from row to row. Cassandra is designed to have no single point of failure, and instead uses a number of nodes in a peer-to-peer structure. This design is
 employed in order to ensure high availability, with data replicated across the nodes. It uses the query language CQL (Cassandra Query Language), which is similar to relational database SQL.
 
-\section{Trade files and data sets}
-As mentioned briefly in the background section, users of the triResolve service upload \textit{trade files}, which contain one or several data sets with
-rows of trade data such as party id, counterparty id, trade id, notional, and so on. An example of a trade data set (with some columns omitted) can be seen in figure
+\section{Trade files and datasets}
+As mentioned briefly in the background section, users of the triResolve service upload \textit{trade files}, which contain one or several datasets with
+rows of trade data such as party id, counterparty id, trade id, notional, and so on. An example of a trade dataset (with some columns omitted) can be seen in figure
 \ref{fig:data_set_example}.
 
 \begin{figure}[ht]
@@ -29,29 +29,29 @@ rows of trade data such as party id, counterparty id, trade id, notional, and so
   \\ \hline
 \end{tabular}
   %\centering
-\caption[Example of trade data set]{A simplified example of a trade data set uploaded by the users of triResolve.}
+\caption[Example of trade dataset]{A simplified example of a trade dataset uploaded by the users of triResolve.}
   \label{fig:data_set_example}
 \end{figure}
 
 \section{File formats}
-Different customers may have different ways of formatting their data sets, with different names for headers, varying column orders, extra fields,
+Different customers may have different ways of formatting their datasets, with different names for headers, varying column orders, extra fields,
 and special rules. In order to convert these into a common format that make it possible to use the files in the same contexts, a file format specifying
-how the data set in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the data set.
-The different filter configurations may affect how parallelizable the processing of data set is. The result of this processing is called a \textit{verification result},
+how the dataset in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the dataset.
+The different filter configurations may affect how parallelizable the processing of dataset is. The result of this processing is called a \textit{verification result},
 and consists of rows in a Cassandra schema.
 
 \section{Filters}
 All filters used to create a verification result are outlined below.
 
 \subsection{Header detection}
-There may be a number of lines in the data set which do not contain the header (containing the column names). The header detection filter checks if a row is the header,
+There may be a number of lines in the dataset which do not contain the header (containing the column names). The header detection filter checks if a row is the header,
 and if it is it saves the column names and corresponding indices for use in subsequent rows. If the row is not the header or the header has already been detected
 (for example if another header row is encountered in the middle of the dataset), this filter terminates without any effect and the rest of the filters are applied.
 This filter is included in all file formats.
 
 \subsection{Mapping}
-Maps a value from a column in the data set to a specified output column in the verification result. This is usually specified for each of the columns in the input
-data set, and is therefore one of the most common filters. The mappings may have small extra tuning attached to them, such as specifying a date format or extracting only part of the
+Maps a value from a column in the dataset to a specified output column in the verification result. This is usually specified for each of the columns in the input
+dataset, and is therefore one of the most common filters. The mappings may have small extra tuning attached to them, such as specifying a date format or extracting only part of the
 text using regex. One of these extra tunings is attached to the trade id column, and is called \textit{Make unique}. This tuning keeps track of all trade id:s that
 have been encountered so far, and, if it finds a duplicate, adds a suffix to it in order to ensure that all trade id:s are unique.
 
@@ -62,10 +62,10 @@ A dataset translation is similar to a mapping, but uses specified columns in an 
 Extracts information about the dataset, such as the name or owner.
 
 \subsection{Tradefile information}
-Similar to the dataset information filter, except that it extracts information about the trade file that contains the data set.
+Similar to the dataset information filter, except that it extracts information about the trade file that contains the dataset.
 
 \subsection{NullTranslationFilter}
-In some data sets, other values than \code{NULL} are used to convey the absence of a value. This filter allows the user to specify which other values
+In some datasets, other values than \code{NULL} are used to convey the absence of a value. This filter allows the user to specify which other values
 should be interpreted as \code{NULL}.
 
 \subsection{Relation currency}
@@ -74,10 +74,10 @@ filter retrieves this information.
 
 \subsection{Global variable}
 A global variable filter writes a value to a variable that is accessed by subsequent filters on the same row, and by all filters on the rest of the rows in the data
-set. A global variable can be written several times throughout the processing of a data set.
+set. A global variable can be written several times throughout the processing of a dataset.
 
 \subsection{State variable}
-A state variable is similar to a global variable, but is always written to before all other processing of the data set begins.
+A state variable is similar to a global variable, but is always written to before all other processing of the dataset begins.
 
 \subsection{Temporary variable}
 Similar to the other variables, except for the fact that it is only accessible during processing of the row where it was written. When the row has finished being
@@ -106,7 +106,7 @@ for the correct customer.
 Simply sets the value of the output column to the value that is entered.
 
 \subsection{RegExp extract}
-Extracts text from a column using regex, and writes matching groups to other columns
+Extracts text from a column using regex, and writes matching groups to other columns.
 
 \subsection{RegExp replace}
 Replaces column text matching some regex with a specified value.
