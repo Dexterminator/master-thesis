@@ -95,8 +95,8 @@ A logger filter simply logs the specified output. Can for instance be used when 
 Ignores the current row when processing. Usually used in a conditional block.
 
 \subsection{Stop processing}
-Stops processing the dataset, ignoring all subsequent rows. Can be used when the footer of the dataset contains information that should not be interpreted
-as a trade.
+Stops processing the dataset, ignoring all subsequent rows. Can be used as a subfilter in the Conditional block filter when the footer of the dataset
+contains information that should not be interpreted as a trade.
 
 \subsection{ThirdPartyAutoMapper}
 When a customer has uploaded a trade file on behalf of another customer, this filter extracts the information needed to make sure that the data is loaded
@@ -111,8 +111,16 @@ Extracts text from a column using regex, and writes matching groups to other col
 \subsection{RegExp replace}
 Replaces column text matching some regex with a specified value.
 
-\subsection{Analyzing filters for parallelizability}
-Since the filters specify what the processing program should do to each row in a dataset, they are the prime candidates for parallelization analysis.
+\section{Analyzing filters for parallelizability}
+Since the filters specify what the processing program should do to each row in a dataset, "row by row" or possibly chunks of rows is a suitable
+granularity when implementing the parallelization of the program. Consequently, the filters of a file format are the prime candidates
+for parallelization analysis.  Looking through the filters, we can see that Dataset translation, NullTranslationFilter, Relation currency,
+ThirdPartyAutomapper, Set value, RegExp extract, and RegExp replace only operate on the current dataset row, with no side effects.
+This means that they produce no state changes that affect subsequent rows, which means that they do not affect the parallelizability of a dataset.
+Additionally, Dataset information, Tradefile information, Logger, and Skip row perform operations that either pull information from resources that
+are available to all rows, or produce an effect that does not affect any other rows.
+
+%Todo write that conditional is only a problem when subfilters are global or state
 
 \section{Implementation}
 
