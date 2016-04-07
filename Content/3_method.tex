@@ -138,10 +138,57 @@ Hence, the filters that can affect the parallelization of a dataset are:
     to be ignored.
 \end{itemize}
 
-%Todo write that conditional is only a problem when subfilters are global or state
-
-\section{Program overview}
+\section{Program overview} %TODO: Skriv om loggning
+The general flow of the original, sequential, dataset processing program is the following:
+\\\\
+The unprocessed dataset has the rows stored in a Cassandra database, and some metadata and methods stored in a Django object backed by a MySQL database.
+The file format corresponding to the dataset is looked up, and all of the filters it contains are added to a pipeline that will process the dataset.
+An empty verification result is then created in both Cassandra and MySQL, containing the row data and result metadata and metrics, respectively.
+The metrics include processing time, number of trades, timestamp, and similar data. The rows in the dataset are then processed one by one,
+applying all filters to each row. As soon as a row has finished processing, it is written to the verification result in Cassandra.
+During this process, the row mappings used in the (common) Mapping filter are fetched from the MySQL database, resulting in some
+I/O waiting time. To mitigate this, the mappings are cached in memory for faster access. After the processing has finished, the result metadata
+and metrics are saved in the MySQL database.
 
 \section{Implementation}
 
+\subsection{Code inspection}
+After an initial code and file format inspection, the following conclusions where made:
+\begin{itemize}
+  \item The header detection filter is effectively performed only once, as it is ignored for all rows after the one where the header was found.
+  \item The filters Global variable and State variable make the processing of every row depend on the previous, as the writing of the variables may happen on each row.
+  \item The process of making an ID unique could possibly be broken out to a post processing step.
+  \item All file formats contain header detection, and many contain the make unique feature of the trade ID mapping.
+  \item There are many file formats that do not have either Global variable, State variable or Stop processing among their filters.
+\end{itemize}
+
+The conclusions above indicate that header detection may be done before creating the parallel processes, sending this data to each process when they are created.
+If the process of producing unique ID:s is then done as a post processing step, the following task DAGs illustrate how the dependencies when processing different
+file formats appear. In figure \ref{fig:embarrassing_dag}, the task DAG for a file format without a Global variable or State variable filter is illustrated.
+In figure \ref{fig:embarrassing_dag}, the task DAG for a file format containing a Global variable is illustrated. Since the span is equal to the work
+in the file formats containing Global variables or State variables, parallelization of datasets with these formats will result in no speedup according to the
+work-span model. File formats containing Stop processing become undecidable when parallelizing, since it is impossible to know if the result is correct if
+any rows are processed in different processes (as rows that should not be included in the result may be included anyway).
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/embarrassing_file_format.pdf}
+  \caption[Task DAG for a file format that does not contain global or state variables.]{An example of a task DAG for a file format that does not contain global variable or state variables. Header detections needs
+  to be performed up front, and making trade IDs unique needs to be performed in a post processing step. The processing of each row does not depend on each other.}
+  \label{fig:embarrassing_dag}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/global_variable_file_format.pdf}
+  \caption[Task DAG for a file format that contains global or state variables.]{An example of a task DAG for a file format that contains global or state variables. Since each row may read and
+  write the global (or state) variable, every task depends on the previous.}
+  \label{fig:global_dag}
+\end{figure}
+
+\subsection{Parallelization}
+
+\subsection{Sources of overhead}
+
 \section{Evaluation}
+
