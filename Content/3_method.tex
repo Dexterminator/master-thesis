@@ -187,6 +187,12 @@ any rows are processed in different processes (as rows that should not be includ
 \end{figure}
 
 \subsection{Parallelization}
+In accordance with section \ref{related_work}, the Python \code{multiprocessing} module was used to implement the parallelization of the program. Additionally, measures where taken to send as little
+data as possible between processes and to avoid introducing excessive complexity to the codebase. The \code{multiprocessing.Queue} facility was chosen for communication between processes due to its
+noted performance and built-in synchronization \cite{singh_2013_parallel_padpwprfmm}.
+
+Before deciding to use the parallelized version of program, the list of filters in a file format is examined for Global variable, State variable, or Stop processing. If any of these are found, the
+program falls back to its sequential version.
 
 \subsection{Sources of overhead}
 
