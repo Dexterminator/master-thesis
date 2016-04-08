@@ -21,7 +21,7 @@ utilize the conclusions drawn by others when solving problems similar to that of
 
 \section{Multicore architecture} %Find a better name?
 \subsection{Processes vs threads}
-while both threads and processes represent contexts in which a program is run, they have a few differences. A thread is run inside
+While both threads and processes represent contexts in which a program is run, they have a few differences. A thread is run inside
 a process, and the threads within the process share memory and state with each other and the parent
 process \cite{singh_2013_parallel_padpwprfmm}. Individual processes do not share memory with each other, and any
 communication between processes must be done with message passing rather than with shared memory. Consequently, communication
@@ -142,13 +142,13 @@ With $n$ workers and running time $T_n$, the following speedup condition can be 
 In essence, this means that linear speedup can be achieved under the condition that the work divided by the span is significantly
 larger than the number of workers.
 
-The work-span model implies that increasing the work in an excessive manner when parallelizing may result in disappointing
-results. It also implies that the span of the program should be kept as small as possible in order to utilize parallelization as
+The work-span model implies that increasing the work in an excessive manner when parallelizing may result in a disappointing
+outcome. It also implies that the span of the program should be kept as small as possible in order to utilize parallelization as
 much as possible.
 
 \section{Python performance and parallel capabilities}
 There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular
-Python implementation, and also the one that TriOptima uses.
+Python implementation \cite{pythonimplementations_ppw}, and also the one that TriOptima uses.
 
 \subsection{Performance}
 The general performance of CPython is slower than other popular languages such as C and Java for several
@@ -161,14 +161,14 @@ methods contribute to the at times poor performance.
 In order to simplify the implementation and to avoid concurrency related bugs in the CPython interpreter,
 a mechanism called the Global Interpreter Lock - or the GIL - is employed  \cite{palach_2014_parallel_ppwp}.
 The GIL locks the entire CPython interpreter, making it impossible for multiple Python threads to make progress at
-the same time, removing the benefits of parallel CPU bound calculations
+the same time, thereby removing the benefits of parallel CPU bound calculations
 \cite{glossary_gp2d}. When an I/O operation is started from Python, the GIL is released.
 Efforts to remove the GIL have been made, but have as of yet been unsuccessful.
 
 \subsection{Threading}
 The Python \code{threading} module provides a multitude of utilities for concurrent programming, such as an object abstraction of
 threads, locks, semaphores, and condition objects \cite{16_1thtip2d}. When using the \code{threading} module in CPython, the GIL is in
-effect, not allowing true parallelism and hampering efficient use of multicore machines. When performing I/O bound operations, the
+effect, disallowing true parallelism and hampering efficient use of multicore machines. When performing I/O bound operations, the
 \code{threading} module can be used to improve performance; at times significantly \cite[p. 121-124]{slatkin_2015_effective_ep5swtwbp}
 
 \subsection{Multiprocessing}
@@ -180,12 +180,12 @@ The \code{multiprocessing} module provides mechanisms for performing IPC.
 In order for the data to be transferred between processes, it needs to be serializable through the use of the Python \code{pickle}
 module \cite[p. 143]{slatkin_2015_effective_ep5swtwbp}. When transferring data, it is serialized, sent to another process through
 a local socket, and then deserialized. These operations, in conjunction with the creation of the processes, gives the
-\code{multiprocessing} module a high overhead when performing IPC.
+\code{multiprocessing} module a high overhead when communicating between processes.
 
 The two main facilities that the \code{multiprocessing} module provides for IPC are \cite{palach_2014_parallel_ppwp}:
 \begin{itemize}
   \item \code{multiprocessing.Pipe}, which serves as a way for two processes to communicate using the operations \code{send()}
-    and \code{recv()} (receive). The Pipe is represented through two connection objects which correspond to each end of the pipe.
+    and \code{recv()} (receive). The pipe is represented by two connection objects which correspond to each end of the pipe.
     See figure \ref{fig:code_pipe_example} for an example.
   \item \code{multiprocessing.Queue}, which closely mimics the behaviour and API of the standard Python \code{queue.Queue}, but
     can be used by several processes at the same time without concurrency issues. This \code{multiprocessing} queue internally
@@ -240,10 +240,10 @@ The experiments were conducted on a machine with 4 cores with 2-way hyperthreadi
 Binet et al. \cite{binet_2010_harnessing_hmsaiia} present a case study where parts of the ATLAS software used in
 LHC (Large Hadron Collider) experiments are parallelized. Because of the complexity and sensitivity of the system,
 one of the goals of the study is to minimize the code changes when implementing the parallelization. The authors highlight several
-benefits of using multiple processes with IPC (interprocess communication) instead of traditional multithreading, including ease of 
+benefits of using multiple processes with IPC instead of traditional multithreading, including ease of 
 implementation, explicit data sharing, and easier error recovery. The Python \code{multiprocessing} module was used to parallelize
-the program, and the authors emphasize the decreased burden thanks to not having to implement explicit IPC and synchronization.
-Finding the parts of the program that is embarrassingly parallel and parallelizing these is
+the program, and the authors emphasize the decreased burden resulting from not having to implement explicit IPC and synchronization.
+Finding the parts of the program that are embarrassingly parallel and parallelizing these is
 identified as the preferred approach in order to avoid an undesirably large increase in complexity while
 still producing a significant performance boost.
 
@@ -264,11 +264,11 @@ Singh et al. \cite{singh_2013_parallel_padpwprfmm} present Python as a fitting l
 communication overhead in Python, the study focuses on embarrassingly parallel problems where little communication is needed.
 Different means of parallelization are
 compared: the Pool/Map approach, the Process/Queue approach, and the Parallel Python approach. 
-In the Pool/Map approach, the simple functions of \code{multiprocessing.Pool} is used to specify a number of processes, a data
+In the Pool/Map approach, the simple functions of \code{multiprocessing.Pool} are used to specify a number of processes, a data
 set, and the function to be executed with each element in the dataset as a parameter. In the Process/Queue approach, a
 \code{multiprocessing.Queue} is spawned and filled with chunks of data. Several \code{multiprocessing.Process} objects are then
 spawned, which all share the queue and get data to operate on from it while it is not empty. Another shared queue is used for
-collection the results. In the Parallel Python approach, the \code{Parallel Python} abstraction \emph{job server}
+collecting the results. In the Parallel Python approach, the \code{Parallel Python} abstraction \emph{job server}
 is used to submit tasks for each data chunk. The tasks are automatically executed in parallel by the job server, and the results
 are collected when they have finished.
 
@@ -294,8 +294,8 @@ In their proposal for the inclusion of the \code{multiprocessing} module into th
 Noller and Oudkerk \cite{noller_pep_p0} include several benchmarks where the \code{multiprocessing} module's performance is
 compared to
 that of the \code{threading} module. They emphasize the fact that the benchmarks are not as applicable on platforms with slow forking
-time. The benchmarks show that while of course slower than sequential execution, \code{multiprocessing} performs better than
-\code{threading} when just spawning workers and executing an empty function. For the CPU-bound task of computing Fibonacci numbers,
+time. The benchmarks show that while naturally slower than sequential execution, \code{multiprocessing} performs better than
+\code{threading} when simply spawning workers and executing an empty function. For the CPU-bound task of computing Fibonacci numbers,
 \code{multiprocessing} shows significantly better result than \code{threading} (which is in fact slower than sequential code). For I/O bound
 calculations, which is an application considered suitable for the \code{threading} module, the \code{multiprocessing} module is still shown to have
 the best performance when 4 or more workers are used.
@@ -322,9 +322,9 @@ Common themes and conclusions in the related work presented above include:
 
 \begin{itemize}
   \item Python is a suitable language for parallel programming.
-  \item The \code{multiprocessing} module is successful in circumventing the GIL and often shows the same or better performance than other
+  \item The \code{multiprocessing} module is successful in circumventing the GIL and consistently shows the same or better performance than other
     methods, even for I/O bound programs.
   \item The overhead that IPC introduces when creating parallel Python programs makes it imperative to minimize communication and
-    synchronization. Consequently, embarrassingly parallel programs are preferable when using Python.
+    synchronization. Consequently, embarrassingly parallel programs are preferable when using Python for parallelization.
   \item For existing larger systems, extensive parallelization may produce undesired complexity.
 \end{itemize}
