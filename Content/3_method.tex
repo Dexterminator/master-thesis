@@ -213,7 +213,7 @@ the program has produced a finished verification result.
 During the implementation of the parallel version of the program, the following possible sources of parallelization overhead where identified:
 
 \begin{itemize}
-  \item The multiprocessing module, where creating processes and transferring data between processes is costly.
+  \item The \code{multiprocessing} module, where creating processes and transferring data between processes is costly.
   \item Less effective caching. Since the mappings cache is local to each subprocess, caches are built up individually. This results in fewer cache hits than in the sequential program, and more total work
     looking up values in the MySQL database.
   \item The process of making trade ID:s unique is added as an extra step after the main data processing pipeline.
