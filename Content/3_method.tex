@@ -112,7 +112,7 @@ Extracts text from a column using regex, and writes matching groups to other col
 Replaces column text matching some regex with a specified value.
 
 \section{Analyzing filters for parallelizability}
-Since the filters specify what the processing program should do to each row in a dataset, "row by row" or possibly chunks of rows is a suitable
+Since the filters specify what the processing program should do to each row in a dataset, ``row by row'' or possibly chunks of rows is a suitable
 granularity when implementing the parallelization of the program. Consequently, the filters of a file format are the prime candidates
 for parallelization analysis. The analysis made is similar to the methodology used to identify the span in the work-span model described in
 section \ref{work-span}. When applying the model to the problem of analyzing filters, a task is the processing of one row. In order to find
@@ -167,8 +167,8 @@ If the process of producing unique ID:s is then done as a post processing step, 
 file formats appear: In figure \ref{fig:embarrassing_dag}, the task DAG for a file format without a Global variable or State variable filter is illustrated.
 In figure \ref{fig:embarrassing_dag}, the task DAG for a file format containing a Global variable is illustrated. Since the span is equal to the work
 in the file formats containing Global variables or State variables, parallelization of datasets with these formats will result in no speedup according to the %Illustrate work-span?
-work-span model (as $T_1 \leq T_\infty \Rightarrow S \leq 1$). File formats containing \textit{Stop processing} makes it impossible to produce correct verification results
-when parallelizing. Determination of whether the result is correct is impossible if any rows are processed in different processes (as rows that should not be included in the result may be included anyway).
+work-span model (as $T_1 \leq T_\infty \Rightarrow S \leq 1$). File formats containing \textit{Stop processing} makes it unfeasible to produce correct verification results
+when parallelizing. Determination of whether the result is correct is non-viable if any rows are processed in different processes (as rows that should not be included in the result may be included anyway).
 
 \begin{figure}[ht]
   \centering
