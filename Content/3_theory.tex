@@ -19,7 +19,7 @@ utilize the conclusions drawn by others when solving problems similar to that of
   \item \textbf{DAG/Directed acyclic graph} A directed graph that contains no directed cycles.
 \end{itemize}
 
-\section{Multicore architecture} %Find a better name?
+\section{Multicore architecture}
 \subsection{Processes vs threads}
 While both threads and processes represent contexts in which a program is run, they have a few differences. A thread is run inside
 a process, and the threads within the process share memory and state with each other and the parent
@@ -28,12 +28,6 @@ communication between processes must be done with message passing rather than wi
 between threads is generally faster than between processes.
 Typically, different threads can be scheduled on different cores, which is also true for different processes.
 
-\subsection{Scheduling}
-Threads and processes are scheduled by the operating system, and the exact mechanism for choosing what to schedule when differs
-between platforms and implementations \cite[p. 472]{herlihy_2012_art_taomprr}. Scheduling may imply running truly parallel
-on different cores, or on the same core using time-slicing. Threads and processes may be descheduled from running temporarily for several
-reasons, including issuing a time-consuming memory request.
-
 \subsection{Multicore communication and caching}
 Multiple processors communicate with each other through a bus or a network \cite[p. 472-476]{herlihy_2012_art_taomprr}. Since the
 means of communication between the processes is a finite resource, too much traffic may result in delays. The processors typically
@@ -41,6 +35,8 @@ have their own cache. In order to avoid unnecessary reads from the slower main m
 that has the requested data cached. In a process called \emph{cache coherence}, shared cached values are kept up to date using one
 of several protocols. The effect that these different means of communication between processors has on performance in
 multiprocessor programs should not be ignored.
+
+\section{Parallel shared memory programming}
 
 \subsection{Data parallelism}
 Data parallelism denotes code where the parallelism comes from decomposing the data and running it with the same piece of code
@@ -52,7 +48,11 @@ In task parallelism, groups of tasks that are independent are run in parallel \c
 Tasks that depend on each other cannot be run in parallel, and must instead be run sequentially.
 A group of tasks is embarrassingly parallel if none of the tasks in the group depend on each other.
 
-\section{Parallel shared memory programming}
+\subsection{Scheduling}
+Threads and processes are scheduled by the operating system, and the exact mechanism for choosing what to schedule when differs
+between platforms and implementations \cite[p. 472]{herlihy_2012_art_taomprr}. Scheduling may imply running truly parallel
+on different cores, or on the same core using time-slicing. Threads and processes may be descheduled from running temporarily for several
+reasons, including issuing a time-consuming memory request.
 
 \section{Performance models for parallel speedup}
 
