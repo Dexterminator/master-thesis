@@ -1,3 +1,42 @@
+\section{Analyzing filters for parallelizability}
+Since the filters specify what the processing program should do to each row in a dataset, ``row by row'' or possibly chunks of rows is a suitable
+granularity when implementing the parallelization of the program. Consequently, the filters of a file format are the prime candidates
+for parallelization analysis. The analysis made is similar to the methodology used to identify the span in the work-span model described in
+section \ref{work-span}. When applying the model to the problem of analyzing filters, a task is the processing of one row. In order to find
+the tasks that need to be completed before other tasks, the filters that result in state that is accessed by subsequent rows or otherwise
+affect the total processing of the dataset need to be identified.
+
+Examining the filters, it is apparent that \textit{Dataset translation}, \textit{NullTranslationFilter}, \textit{Relation currency},
+\textit{ThirdPartyAutomapper}, \textit{Set value}, \textit{RegExp extract}, and \textit{RegExp replace} only operate on the current dataset row, with no side effects.
+This means that they produce no state changes that affect subsequent rows, which means that they do not affect the parallelizability of a dataset.
+
+Additionally, \textit{Dataset information}, \textit{Tradefile information}, \textit{Temporary variable}, \textit{Logger}, and \textit{Skip row} perform
+operations that either pull information from resources that are available to all rows, or produce an effect that does not affect any other rows.
+The \textit{Conditional block} filter only produces effects according to its subfilters (a set of the filters already mentioned), and does not affect parallelization by itself.
+\\\\
+Hence, the filters that can affect the parallelization of a dataset are:
+\begin{itemize}
+  \item \textit{Mapping}, since the trade id mapping may need to keep track of state that can be accessed in subsequent rows in order to make all id:s unique.
+  \item \textit{Header detection}, since all rows beneath the (first) header row depend on the column names for mappings and other values.
+  \item \textit{Global variable}, since the variable may be written and accessed by any subsequent rows. Each rewrite of the variable needs to happen before the next rewrite,
+    in the original, sequential order if the verification result is to be correct.
+  \item \textit{State variable}, for the same reasons as Global variable.
+  \item \textit{Stop processing}, if one thread sees a conditional fulfilled and stops processing, it is possible for another thread to keep processing rows that are intended
+    to be ignored.
+\end{itemize}
+
+\section{Program overview} %TODO: Skriv om loggning
+The general flow of the original, sequential, dataset processing program is the following:
+\\\\
+The unprocessed dataset has the rows stored in a Cassandra database, and some metadata and methods stored in a Django object backed by a MySQL database.
+The file format corresponding to the dataset is looked up, and all of the filters it contains are added to a pipeline that will process the dataset.
+An empty verification result is then created in both Cassandra and MySQL, containing the row data and result metadata with metrics, respectively.
+The metrics include processing time, number of trades, timestamp, and similar data. The rows in the dataset are then processed one by one,
+applying all filters to each row. As soon as a row has finished processing, it is written to the verification result in Cassandra.
+During this process, the row mappings used in the \textit{Mapping} filter are fetched from the MySQL database, resulting in some
+I/O waiting time. To mitigate this, the mappings are cached in memory for faster access. After the processing has finished, the result metadata
+and metrics are saved in the MySQL database.
+
 \section{Code inspection}
 After an initial code and file format inspection, the following conclusions where made:
 \begin{itemize}

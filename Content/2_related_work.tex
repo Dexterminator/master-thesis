@@ -1,5 +1,5 @@
-\section{Related work} \label{related_work}
-\subsection{Efficient parallelization of path planning workload on single-chip shared-memory multicores}
+\section{Parallelization of algorithms using python}
+
 Ahmad et al. \cite{ahmad_2015_efficient_epoppwossm} parallelize path planning algorithms such as Dijkstra's algorithm using C/C++ and
 Python in order to compare the results and evaluate each language's suitability for parallel computing. For the Python implementation,
 both the \code{multiprocessing} and \code{threading} packages are used. The authors identify Python as the preferable choice 
@@ -10,25 +10,8 @@ of Python, as well as the extra costs associated with Python multiprocessing, wa
 better performance and better scalability. The slowdowns for sparse graph of Python compared to C/C++ ranged between
 20x to 700x depending on the graphs.
 However, the authors note that the parallel Python implementation exhibits scalability in comparison to its sequential implementation.
-
 The experiments were conducted on a machine with 4 cores with 2-way hyperthreading.
 
-
-\subsection{Harnessing multicores: Strategies and implementations in ATLAS}
-Binet et al. \cite{binet_2010_harnessing_hmsaiia} present a case study where parts of the ATLAS software used in
-LHC (Large Hadron Collider) experiments are parallelized. Because of the complexity and sensitivity of the system,
-one of the goals of the study is to minimize the code changes when implementing the parallelization. The authors highlight several
-benefits of using multiple processes with IPC instead of traditional multithreading, including ease of 
-implementation, explicit data sharing, and easier error recovery. The Python \code{multiprocessing} module was used to parallelize
-the program, and the authors emphasize the decreased burden resulting from not having to implement explicit IPC and synchronization.
-Finding the parts of the program that are embarrassingly parallel and parallelizing these is
-identified as the preferred approach in order to avoid an undesirably large increase in complexity while
-still producing a significant performance boost.
-
-The parallel implementation was tested by measuring the user and real time for different numbers of processes.
-These measurements show a clear increase in user time because of additional overhead, but also a steady decrease in real time.
-
-\subsection{On the Performance of the Python Programming Language for Serial and Parallel Scientific Computations}
 Cai et al. \cite{cai_2005_performance_otpotpplfsapsc} note that Python is suitable for scientific programming thanks to its richness and
 power, as well as its interfacing capabilities with legacy software written in other languages. Among other experiments on Python
 efficiency in scientific computing, its parallel capabilities are investigated. The Python MPI package \code{Pypar} is used for
@@ -36,7 +19,6 @@ the parallelization, using typical MPI operations such as send and receive. The 
 are made with the help of the \code{numpy} package for increased efficiency. The authors conclude that while communication 
 introduces overhead, Python is sufficiently efficient for scientific parallel computing.
 
-\subsection{Parallel astronomical data processing with Python: Recipes for multicore machines}
 Singh et al. \cite{singh_2013_parallel_padpwprfmm} present Python as a fitting language for parallel computing, and use the
 \code{multiprocessing} module as well as the standalone \code{Parallel Python} package in their experiments. Because of the
 communication overhead in Python, the study focuses on embarrassingly parallel problems where little communication is needed.
@@ -48,15 +30,12 @@ set, and the function to be executed with each element in the dataset as a param
 spawned, which all share the queue and get data to operate on from it while it is not empty. Another shared queue is used for
 collecting the results. In the Parallel Python approach, the \code{Parallel Python} abstraction \emph{job server}
 is used to submit tasks for each data chunk. The tasks are automatically executed in parallel by the job server, and the results
-are collected when they have finished.
-
-The results in general show significant time savings even though the approaches taken are relatively straightforward.
+are collected when they have finished.  The results in general show significant time savings even though the approaches taken are relatively straightforward.
 The best performance is achieved when the number of processes is equal to the number of physical cores on the computer.
 The Process/Queue is shown to perform better than both Pool/Map and parallel Python. This comes at the cost of a slightly less
 straightforward implementation. The impact of load balancing and chunk size is also discussed, with the conclusion that work load
 should be evenly distributed among cores as computation is limited by the core that takes the longest to finish.
 
-\subsection{Parallel optimal choropleth map classification in PySAL}
 Rey et al. \cite{rey_2013_parallel_pocmcip} compare \code{multiprocessing} and \code{Parallel Python} with the GPU-based parallel
 module \code{PyOpenCI} when attempting to parallelize portions of the spatial analysis library PySAL. In particular, different
 versions of the Fisher-Jenks algorithm for classification are compared. For the smallest sample sizes, the overhead of the
@@ -67,11 +46,17 @@ perform better than the GPU-based PyOpenCI. The \code{multiprocessing} module pr
 \code{Parallel Python} module.
 While the parallel versions of the algorithm perform better, the bigger implementation effort associated with it is noted.
 
-\subsection{PEP 0371}
+In the work above, the code that is parallelized is CPU bound. This differs from this thesis, as a large portion of the
+to be parallelized program is I/O bound due to database interactions. Another difference is the fact that
+the parallelization analysis conducted in this thesis is mainly done on the file format level rather than at program level, like the work above.
+However, the works highlight aspects of parallelization using Python that are useful in achieving the thesis objective.
+These include parallelization patterns, descriptions of overhead associated with parallel programming in Python, and comparisons
+between different Python modules for parallelization.
+
+\section{Python I/O performance and general parallel benchmarking}
 In their proposal for the inclusion of the \code{multiprocessing} module into the Python standard library,
 Noller and Oudkerk \cite{noller_pep_p0} include several benchmarks where the \code{multiprocessing} module's performance is
-compared to
-that of the \code{threading} module. They emphasize the fact that the benchmarks are not as applicable on platforms with slow forking
+compared to that of the \code{threading} module. They emphasize the fact that the benchmarks are not as applicable on platforms with slow forking
 time. The benchmarks show that while naturally slower than sequential execution, \code{multiprocessing} performs better than
 \code{threading} when simply spawning workers and executing an empty function. For the CPU-bound task of computing Fibonacci numbers,
 \code{multiprocessing} shows significantly better result than \code{threading} (which is in fact slower than sequential code). For I/O bound
@@ -86,7 +71,10 @@ The benchmarks where performed using the following hardware:
   \item pyProcessing 0.52
 \end{itemize}
 
-\subsection{Three Unique Implementations of Processes for PyCSP}
+While this work is a relatively straightforward benchmark under ideal conditions, the fact that \code{multiprocessing} shows better performance than \code{threading}
+for both CPU bound and I/O bound computations contributed to the decision to use \code{multiprocessing} in this thesis.
+
+\section{Comparisons of process abstractions}
 Friborg et al. \cite{friborg_2009_three_tuiopfp} explore the use of processes, threads and greenlets in their process abstraction
 library PyCSP. The authors observe the clear performance benefits of using multiprocessing over threads due to the circumvention of the GIL
 that the \code{multiprocessing} module allows. Greenlets are user-level threads that execute in the same thread and are unable to utilize
@@ -95,7 +83,27 @@ significantly slower than on UNIX-based platforms. While serialization and commu
 using \code{multiprocessing}, the authors state that this produces the positive side-effect of processes not being able to
 modify data received from other processes.
 
-\subsection{Summary of related work}
+The work above focuses on process abstractions in a library, but comes to conclusions that are helpful in this thesis; \code{multiprocessing}
+has performance benefits over the other alternatives, and also introduces safety to a system thanks to less modification of data sent between
+processes.
+
+\section{Parallelization in complex systems using Python}
+Binet et al. \cite{binet_2010_harnessing_hmsaiia} present a case study where parts of the ATLAS software used in
+LHC (Large Hadron Collider) experiments are parallelized. Because of the complexity and sensitivity of the system,
+one of the goals of the study is to minimize the code changes when implementing the parallelization. The authors highlight several
+benefits of using multiple processes with IPC instead of traditional multithreading, including ease of 
+implementation, explicit data sharing, and easier error recovery. The Python \code{multiprocessing} module was used to parallelize
+the program, and the authors emphasize the decreased burden resulting from not having to implement explicit IPC and synchronization.
+Finding the parts of the program that are embarrassingly parallel and parallelizing these is
+identified as the preferred approach in order to avoid an undesirably large increase in complexity while
+still producing a significant performance boost. The parallel implementation was tested by measuring the user and real time for different numbers of processes.
+These measurements show a clear increase in user time because of additional overhead, but also a steady decrease in real time.
+
+Implementing parallelization of a component of a large system without introducing excessive complexity is a goal of this thesis, similar to the work above.
+The above approach to parallelization, identifying embarrassingly parallel parts of the system and focusing on these, were used in this thesis. Again, 
+this thesis differs from the above by having a largely I/O bound portion and by analysing a file format for parallelizability.
+
+\section{Summary of related work}
 Common themes and conclusions in the related work presented above include:
 
 \begin{itemize}
