@@ -1,4 +1,4 @@
-\section{Analyzing filters for parallelizability}
+\section{Analysis of filter parallelizability}
 Since the filters specify what the processing program should do to each row in a dataset, ``row by row'' or possibly chunks of rows is a suitable
 granularity when implementing the parallelization of the program. Consequently, the filters of a file format are the prime candidates
 for parallelization analysis. The analysis made is similar to the methodology used to identify the span in the work-span model described in
@@ -102,5 +102,5 @@ During the implementation of the parallel version of the program, the following 
   \item Less effective caching. Since the mappings cache is local to each subprocess, caches are built up individually. This results in fewer cache hits than in the sequential program, and more total work
     looking up values in the MySQL database.
   \item The process of making trade ID:s unique is added as an extra step after the main data processing pipeline.
-  \item Because of incompatibility with multiprocessing, the Python connections between both MySQL and Cassandra need to be restarted in the startup of each subprocess.
+  \item Because they lack built-in support for multiprocessing, the Python connections between both MySQL and Cassandra need to be restarted in the startup of each subprocess.
 \end{itemize}
