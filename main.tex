@@ -8,6 +8,8 @@
 \usepackage{csquotes}
 \usepackage{csvsimple}
 \usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{enumitem}
 % Default fixed font does not support bold face
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{12} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{12}  % for normal
@@ -87,6 +89,24 @@ showstringspaces=false            %
 \clearpage
 \listoffigures
 \mainmatter
+\chapter*{Definitions}
+\addtocontents{toc}{\cftpagenumbersoff{chapter}}
+\addcontentsline{toc}{chapter}{Definitions}
+\addtocontents{toc}{\cftpagenumberson{chapter}}
+\begin{itemize}[label={}, leftmargin=*]
+  \item \textbf{IPC} - Interprocess communication.
+  \item \textbf{MPI} - Message Passing Interface. Standardized interface for message passing between processes.
+  \item \textbf{Embarrassingly parallel} - A problem that is embarrassingly parallel can easily be broken down into components that
+    can be run in parallel. %Cite astro? Python hpc?
+  \item \textbf{CPU bound} - Calculation where the bottleneck is the time it takes for a processor to execute it.
+  \item \textbf{I/O bound} - Calculation where the bottleneck is the time it takes for some input/output call, such as file accesses
+    and network operations.
+  \item \textbf{Real time} - The total time it takes for a call to finish.
+  \item \textbf{User time} - The time a call takes, excluding system overhead; the time the call spends in user mode.
+  \item \textbf{System time} - The time in a call that is consumed by system overhead; the time the call spends in kernel mode.
+  \item \textbf{DAG/Directed acyclic graph} A directed graph that contains no directed cycles.
+\end{itemize}
+
 \pagestyle{newchap}
 \chapter{Introduction}
     \input{Content/1_introduction}
