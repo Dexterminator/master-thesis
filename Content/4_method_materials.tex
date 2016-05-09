@@ -195,3 +195,15 @@ Extracts text from a column using regex, and writes matching groups to other col
 Replaces column text matching some regex with a specified value.
 
 \end{itemize}
+
+\section{Program overview}
+The general flow of the original, sequential, dataset processing program is the following:
+\\\\
+The unprocessed dataset has the rows stored in a Cassandra database, and some metadata and methods stored in a Django object backed by a MySQL database.
+The file format corresponding to the dataset is looked up, and all of the filters it contains are added to a pipeline that will process the dataset.
+An empty verification result is then created in both Cassandra and MySQL, containing the row data and result metadata with metrics, respectively.
+The metrics include processing time, number of trades, timestamp, and similar data. The rows in the dataset are then processed one by one,
+applying all filters to each row. As soon as a row has finished processing, it is written to the verification result in Cassandra.
+During this process, the row mappings used in the \textit{Mapping} filter are fetched from the MySQL database, resulting in some
+I/O waiting time. To mitigate this, the mappings are cached in memory for faster access. After the processing has finished, the result metadata
+and metrics are saved in the MySQL database.

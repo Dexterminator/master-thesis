@@ -22,20 +22,10 @@ Hence, the filters that can affect the parallelization of a dataset are:
     in the original, sequential order if the verification result is to be correct.
   \item \textit{State variable}, for the same reasons as Global variable.
   \item \textit{Stop processing}, if one thread sees a conditional fulfilled and stops processing, it is possible for another thread to keep processing rows that are intended
-    to be ignored.
+    to be ignored, thereby violating the constraints.
 \end{itemize}
 
-\section{Program overview} %TODO: Skriv om loggning
-The general flow of the original, sequential, dataset processing program is the following:
-\\\\
-The unprocessed dataset has the rows stored in a Cassandra database, and some metadata and methods stored in a Django object backed by a MySQL database.
-The file format corresponding to the dataset is looked up, and all of the filters it contains are added to a pipeline that will process the dataset.
-An empty verification result is then created in both Cassandra and MySQL, containing the row data and result metadata with metrics, respectively.
-The metrics include processing time, number of trades, timestamp, and similar data. The rows in the dataset are then processed one by one,
-applying all filters to each row. As soon as a row has finished processing, it is written to the verification result in Cassandra.
-During this process, the row mappings used in the \textit{Mapping} filter are fetched from the MySQL database, resulting in some
-I/O waiting time. To mitigate this, the mappings are cached in memory for faster access. After the processing has finished, the result metadata
-and metrics are saved in the MySQL database.
+
 
 \section{Code inspection}
 After an initial code and file format inspection, the following conclusions where made:
@@ -70,6 +60,35 @@ when parallelizing. Determination of whether the result is correct is non-viable
   write the global (or state) variable, every task depends on the previous task.}
   \label{fig:global_dag}
 \end{figure}
+
+\section{Filter families}
+With the help of the findings from the previous sections, families of filters with different characteristics can be identified.
+
+\begin{itemize}
+\item \textbf{Embarrassingly parallel filters} \\\\
+The filters that do not affect parallelization in any way are:
+\textit{Dataset translation}, \textit{NullTranslationFilter}, \textit{Relation currency},
+\textit{ThirdPartyAutomapper}, \textit{Set value}, \textit{RegExp extract}, \textit{RegExp replace},
+\textit{Dataset information}, \textit{Tradefile information}, \textit{Temporary variable}, \textit{Logger}, \textit{Skip row}, and \textit{Conditional block}.
+In addition \textit{Mapping} is included among these filters if the make unique feature is disabled.
+\item \textbf{Inherently serial filters} \\\\
+The filters that enforce serial execution of the entire transformation are: \textit{Global variable}, \textit{State variable}, and \textit{Stop processing}.
+\item \textbf{Overhead filters} \\\\ 
+Filters that introduce parallelization overhead are: \textit{Mapping} (if the make unique feature is enabled) and \textit{Header detection}.
+\end{itemize}
+
+\section{File format families}
+In addition to the filter families, the fact that the \textit{Header detection} filter is present in all file formats makes it possible to identify the following
+file format families relevant to this thesis:
+
+\begin{itemize}
+\item \textbf{Embarrassingly parallel file formats} \\\\
+  File formats that with the exception of \textit{Header detection} contain only embarrassingly parallel filters. 
+\item \textbf{Extra overhead file formats} \\\\
+  Formats that in addition to \textit{Header detection} and a number of embarrassingly parallel filters also contain \textit{Mapping} with the make unique filter enabled.
+\item \textbf{Inherently serial file formats} \\\\
+  Formats that contain any of the inherently serial filters.
+\end{itemize}
 
 \section{Parallelization} %TODO: skriv om ordning i dataset
 In accordance with section \ref{related_work}, the Python \code{multiprocessing} module was used to implement the parallelization of the program. Additionally, measures where taken to send as little

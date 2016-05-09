@@ -1,0 +1,15 @@
+dataset,dataset_rows,columns,trade_count,workers,real,user,system,memory_usage_mb
+isda-first-last-same.csv,27877,46,27876,S,62.85,62.83,0.65,371
+isda-first-last-same.csv,27877,46,27876,1,68.77,66.25,1.86,472
+isda-first-last-same.csv,27877,46,27876,2,38.58,53.19,1.66,627
+isda-first-last-same.csv,27877,46,27876,3,29.63,75.34,2.45,1121
+isda-first-last-same.csv,27877,46,27876,4,26.39,83.54,2.85,1444
+isda-first-last-same.csv,27877,46,27876,5,26.41,102.08,3.42,1772
+isda-first-last-same.csv,27877,46,27876,6,26.66,121.44,3.88,2106
+non-coll-duplicates.csv,82,46,81,S,0.67,1.77,0.21,110
+non-coll-duplicates.csv,82,46,81,1,1.53,1.94,0.21,204
+non-coll-duplicates.csv,82,46,81,2,1.48,2.28,0.29,300
+non-coll-duplicates.csv,82,46,81,3,1.53,2.71,0.38,396
+non-coll-duplicates.csv,82,46,81,4,1.54,2.98,0.42,491
+non-coll-duplicates.csv,82,46,81,5,1.62,3.34,0.50,586
+non-coll-duplicates.csv,82,46,81,6,1.59,3.99,0.59,681
