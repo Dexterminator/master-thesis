@@ -46,7 +46,7 @@ perform better than the GPU-based PyOpenCI. The \code{multiprocessing} module pr
 \code{Parallel Python} module.
 While the parallel versions of the algorithm perform better, the bigger implementation effort associated with it is noted.
 
-In the work above, the code that is parallelized is CPU bound. This differs from this thesis, as a large portion of the
+In the work above, the code that is parallelized is strictly CPU bound. This differs from this thesis, as a portion of the
 to be parallelized program is I/O bound due to database interactions. Another difference is the fact that
 the parallelization analysis conducted in this thesis is mainly done on the file format level rather than at program level, like the work above.
 However, the works highlight aspects of parallelization using Python that are useful in achieving the thesis objective.
@@ -101,7 +101,7 @@ These measurements show a clear increase in user time because of additional over
 
 Implementing parallelization of a component of a large system without introducing excessive complexity is a goal of this thesis, similar to the work above.
 The above approach to parallelization, identifying embarrassingly parallel parts of the system and focusing on these, were used in this thesis. Again, 
-this thesis differs from the above by having a largely I/O bound portion and by analysing a file format for parallelizability.
+this thesis differs from the above by having an I/O bound portion and by analysing a file format for parallelizability.
 
 \section{Summary of related work}
 Common themes and conclusions in the related work presented above include:
