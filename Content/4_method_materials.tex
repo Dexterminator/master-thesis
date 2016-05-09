@@ -120,74 +120,78 @@ In addition, a row in the MySQL database consisting of metadata relating to the 
 
 \textit{Note: The verification results are not to be confused with the results of this thesis. They are part of the problem this thesis aims to solve.}
 
-\section{Filters}
-All filters used to create a verification result are outlined below.
+\section{Transformation with constraints}
 
-\subsection{Header detection}
+\subsection{Filters}
+All filters used to transform a dataset into a verification result are outlined below.
+
+\begin{itemize}
+\item \textbf{Header detection} \\\\
 There may be a number of initial lines in the dataset which do not contain the header (which specifies the column names). The header detection filter checks if a row is the header,
 and if it is it saves the column names and corresponding indices for use in subsequent rows. If the row is not the header or the header has already been detected
 (for example if another header row is encountered in the middle of the dataset), this filter terminates without any effect and the rest of the filters are applied.
 This filter is included in all file formats.
 
-\subsection{Mapping}
+\item \textbf{Mapping} \\\\
 Maps a value from a column in the dataset to a specified output column in the verification result. There is usually a mapping for each of the columns in the input
 dataset, and the Mapping filter is therefore one of the most common filters. The mappings may have small extra tuning attached to them, such as specifying a date
 format or extracting only part of the text using regex. One of these extra tunings is attached to the trade id column, and is called \textit{Make unique}.
 This tuning keeps track of all trade id:s that have been encountered so far, and, if it finds a duplicate, adds a suffix to it in order to ensure that all trade id:s are unique.
 
-\subsection{Dataset translation}
+\item \textbf{Dataset translation} \\\\
 A dataset translation is similar to a mapping, but uses specified columns in an external dataset to map input columns to output columns.
 
-\subsection{Dataset information}
+\item \textbf{Dataset information} \\\\
 Extracts information about the dataset, such as the name or owner.
 
-\subsection{Tradefile information}
+\item \textbf{Tradefile information} \\\\
 Similar to the dataset information filter, except that it extracts information about the trade file that contains the dataset.
 
-\subsection{NullTranslationFilter}
+\item \textbf{Null translation filter} \\\\
 In some datasets, other values than \code{NULL} are used to convey the absence of a value. This filter allows the user to specify which other values
 should be interpreted as \code{NULL}.
 
-\subsection{Relation currency}
+\item \textbf{Relation currency} \\\\
 If the currency that is supposed to be used in a relation (a party and a counterparty) is stored in the database and should be mapped to an output column, this
 filter retrieves this information.
 
-\subsection{Global variable}
+\item \textbf{Global variable} \\\\
 A global variable filter writes a value to a variable that is accessible by subsequent filters on the same row, and by all filters on the rest of the rows in the data
 set. A global variable can be written several times throughout the processing of a dataset.
 
-\subsection{State variable}
+\item \textbf{State variable} \\\\
 A state variable is similar to a global variable, but is always written to before all other processing of the dataset begins.
 
-\subsection{Temporary variable}
+\item \textbf{Temporary variable} \\\\
 Similar to the other variables, except for the fact that it is only accessible during processing of the row where it was written. When the 
 processing of the row is finished, the variable is cleared.
 
-\subsection{Conditional block}
+\item \textbf{Conditional block} \\\\
 A conditional block works like the programming construct \code{if}. It performs a specified filter (which may also be a conditional block) only if a certain
 condition is fulfilled. Most commonly, the condition takes the form '\code{field = value}', but may also involve more complex expressions in the form of a
 subset of Python.
 
-\subsection{Logger}
+\item \textbf{Logger} \\\\
 A logger filter simply logs a given value. Can for instance be used when a user wants to know whenever a conditional block has been entered.
 
-\subsection{Skip row}
+\item \textbf{Skip row} \\\\
 Ignores the current row when processing. Usually used in a conditional block.
 
-\subsection{Stop processing}
+\item \textbf{Stop processing} \\\\
 Stops processing the dataset, ignoring all subsequent rows. Can be used as a subfilter in the Conditional block filter when the footer of the dataset
 contains information that should not be interpreted as a trade.
 
-\subsection{ThirdPartyAutoMapper}
+\item \textbf{Third party automapper} \\\\
 When a customer has uploaded a trade file on behalf of another customer, this filter extracts the information needed to make sure that the data is loaded
 for the correct customer.
 
-\subsection{Set value}
+\item \textbf{Set value} \\\\
 Simply sets the value of the output column to the value that is entered.
 
-\subsection{RegExp extract}
+\item \textbf{RegExp extract} \\\\
 Extracts text from a column using regex, and writes matching groups to other columns.
 
-\subsection{RegExp replace}
+\item \textbf{RegExp replace} \\\\
 Replaces column text matching some regex with a specified value.
 
+\end{itemize}
