@@ -6,8 +6,8 @@ section \ref{work-span}. When applying the model to the problem of analyzing fil
 the tasks that need to be completed before other tasks, the filters that result in state that is accessed by subsequent rows or otherwise
 affect the total processing of the dataset need to be identified.
 
-Examining the filters, it is apparent that \textit{Dataset translation}, \textit{NullTranslationFilter}, \textit{Relation currency},
-\textit{ThirdPartyAutomapper}, \textit{Set value}, \textit{RegExp extract}, and \textit{RegExp replace} only operate on the current dataset row, with no side effects.
+Examining the filters, it is apparent that \textit{Dataset translation}, \textit{Null translation}, \textit{Relation currency},
+\textit{Third party automapper}, \textit{Set value}, \textit{RegExp extract}, and \textit{RegExp replace} only operate on the current dataset row, with no side effects.
 This means that they produce no state changes that affect subsequent rows, which means that they do not affect the parallelizability of a dataset.
 
 Additionally, \textit{Dataset information}, \textit{Tradefile information}, \textit{Temporary variable}, \textit{Logger}, and \textit{Skip row} perform
@@ -45,13 +45,13 @@ in the file formats containing Global variables or State variables, parallelizat
 work-span model (as $T_1 \leq T_\infty \Rightarrow S \leq 1$). File formats containing \textit{Stop processing} make it unfeasible to produce correct verification results
 when parallelizing. Determination of whether the result is correct is non-viable if any rows are processed in different processes (as rows that should not be included in the result may be included anyway).
 
-\begin{figure}[ht]
+\begin{sidewaysfigure}[ht]
   \centering
-  \includegraphics[width=120mm]{figures/embarrassing_file_format.pdf}
+  \includegraphics[width=200mm]{figures/embarrassing_file_format.pdf}
   \caption[Task DAG for a file format that does not contain global or state variables.]{An example of a task DAG for a file format that does not contain global variable or state variables. Header detections needs
   to be performed up front, and making trade IDs unique needs to be performed in a post processing step. The processing of each row does not depend on each other.}
   \label{fig:embarrassing_dag}
-\end{figure}
+\end{sidewaysfigure}
 
 \begin{figure}[ht]
   \centering
@@ -67,8 +67,8 @@ With the help of the findings from the previous sections, families of filters wi
 \begin{itemize}
 \item \textbf{Embarrassingly parallel filters} \\\\
 The filters that do not affect parallelization in any way are:
-\textit{Dataset translation}, \textit{NullTranslationFilter}, \textit{Relation currency},
-\textit{ThirdPartyAutomapper}, \textit{Set value}, \textit{RegExp extract}, \textit{RegExp replace},
+\textit{Dataset translation}, \textit{Null translation}, \textit{Relation currency},
+\textit{Third party automapper}, \textit{Set value}, \textit{RegExp extract}, \textit{RegExp replace},
 \textit{Dataset information}, \textit{Tradefile information}, \textit{Temporary variable}, \textit{Logger}, \textit{Skip row}, and \textit{Conditional block}.
 In addition \textit{Mapping} is included among these filters if the make unique feature is disabled.
 \item \textbf{Inherently serial filters} \\\\
