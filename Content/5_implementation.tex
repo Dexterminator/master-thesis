@@ -65,15 +65,15 @@ when parallelizing. Determination of whether the result is correct is non-viable
 With the help of the findings from the previous sections, families of filters with different characteristics can be identified.
 
 \begin{itemize}
-\item \textbf{Embarrassingly parallel filters} \\\\
+\item \textbf{Embarrassingly parallel filters} --
 The filters that do not affect parallelization in any way are:
 \textit{Dataset translation}, \textit{Null translation}, \textit{Relation currency},
 \textit{Third party automapper}, \textit{Set value}, \textit{RegExp extract}, \textit{RegExp replace},
 \textit{Dataset information}, \textit{Tradefile information}, \textit{Temporary variable}, \textit{Logger}, \textit{Skip row}, and \textit{Conditional block}.
 In addition \textit{Mapping} is included among these filters if the make unique feature is disabled.
-\item \textbf{Inherently serial filters} \\\\
+\item \textbf{Inherently serial filters} --
 The filters that enforce serial execution of the entire transformation are: \textit{Global variable}, \textit{State variable}, and \textit{Stop processing}.
-\item \textbf{Overhead filters} \\\\ 
+\item \textbf{Overhead filters} -- 
 Filters that introduce parallelization overhead are: \textit{Mapping} (if the make unique feature is enabled) and \textit{Header detection}.
 \end{itemize}
 
@@ -82,11 +82,11 @@ In addition to the filter families, the fact that the \textit{Header detection} 
 file format families relevant to this thesis:
 
 \begin{itemize}
-\item \textbf{Embarrassingly parallel file formats} \\\\
+\item \textbf{Embarrassingly parallel file formats} --
   File formats that with the exception of \textit{Header detection} contain only embarrassingly parallel filters. 
-\item \textbf{Extra overhead file formats} \\\\
+\item \textbf{Extra overhead file formats} --
   Formats that in addition to \textit{Header detection} and a number of embarrassingly parallel filters also contain \textit{Mapping} with the make unique filter enabled.
-\item \textbf{Inherently serial file formats} \\\\
+\item \textbf{Inherently serial file formats} --
   Formats that contain any of the inherently serial filters.
 \end{itemize}
 
@@ -113,7 +113,7 @@ behavior of the original sequential program. It also increments a counter whenev
 for messages, and progresses with the post processing step of making the trade ID:s unique. Finally, the main process saves the result object with the corresponding merged metrics to the MySQL database. At this point,
 the program has produced a finished verification result.
 
-A simplified overview of the parallel program can be found in \ref{fig:parallel_program_overview}.
+A simplified overview of the parallel program can be found in figure \ref{fig:parallel_program_overview}.
 
 \begin{sidewaysfigure}[ht]
   \centering
