@@ -65,7 +65,6 @@ Temporary Items
 *.vrb
 *.xdy
 *.tdo
-*.pdf
 code_examples/.idea/.name
 code_examples/.idea/code_examples.iml
 code_examples/.idea/encodings.xml
