@@ -207,3 +207,12 @@ applying all filters to each row. As soon as a row has finished processing, it i
 During this process, the row mappings used in the \textit{Mapping} filter are fetched from the MySQL database, resulting in some
 I/O waiting time. To mitigate this, the mappings are cached in memory for faster access. After the processing has finished, the result metadata
 and metrics are saved in the MySQL database.
+
+A simplified overview of the sequential program can be found in
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/program_overview_sequential.pdf}
+  \caption[Sequential program overview.]{Sequential program overview.}
+  \label{fig:sequential_program_overview}
+\end{figure}

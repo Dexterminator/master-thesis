@@ -90,7 +90,7 @@ file format families relevant to this thesis:
   Formats that contain any of the inherently serial filters.
 \end{itemize}
 
-\section{Parallelization} %TODO: skriv om ordning i dataset
+\section{Parallelization}
 In accordance with section \ref{related_work}, the Python \code{multiprocessing} module was used to implement the parallelization of the program. Additionally, measures where taken to send as little
 data as possible between processes and to avoid introducing excessive complexity to the codebase. The \code{multiprocessing.Queue} facility was chosen for communication between processes due to its
 noted performance and built-in synchronization \cite{singh_2013_parallel_padpwprfmm}.
@@ -112,6 +112,15 @@ The main process continuously polls the message queue, and merges the partial me
 behavior of the original sequential program. It also increments a counter whenever a done message is received from a process. When the counter is equal to the number of subprocesses, the main process stops waiting
 for messages, and progresses with the post processing step of making the trade ID:s unique. Finally, the main process saves the result object with the corresponding merged metrics to the MySQL database. At this point,
 the program has produced a finished verification result.
+
+A simplified overview of the parallel program can be found in \ref{fig:parallel_program_overview}.
+
+\begin{sidewaysfigure}[ht]
+  \centering
+  \includegraphics[width=200mm]{figures/program_overview.pdf}
+  \caption[Parallel program overview.]{Parallel program overview.}
+  \label{fig:parallel_program_overview}
+\end{sidewaysfigure}
 
 \section{Sources of overhead}
 During the implementation of the parallel version of the program, the following possible sources of parallelization overhead where identified:
