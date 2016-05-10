@@ -96,13 +96,15 @@ rows of trade data such as party id, counterparty id, trade id, notional, and so
 \ref{fig:data_set_example}.
 
 \begin{figure}[ht]
+\centering
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|p{3cm}|c|c|}%
   \hline
   \bfseries Party ID & \bfseries CP ID & \bfseries Trade ID & \bfseries Product class & \bfseries Trade curr & \bfseries Notional
   \csvreader[respect all,head to column names]{figures/EFET.csv}{PARTY_ID=\pid, CP_ID=\cpid, TRADE_ID=\tid, PRODUCT_CLASS=\pcls, TRADE_CURR=\tc, NOTIONAL=\notional}
   {\\\hline \pid & \cpid & \tid & \pcls & \tc & \notional}
   \\ \hline
-\end{tabular}
+\end{tabular}}
   %\centering
 \caption[Example of trade dataset]{A simplified example of a trade dataset uploaded by the users of triResolve.}
   \label{fig:data_set_example}
