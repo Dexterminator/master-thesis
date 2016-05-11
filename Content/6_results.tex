@@ -2,11 +2,11 @@
 \begin{sidewaysfigure}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}%
   \hline
-  \bfseries Dataset & \bfseries Dataset rows & \bfseries Columns & \bfseries Trade count & \bfseries Workers & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
-  \csvreader[respect all,head to column names]{figures/test_stats_1_aggregated.csv}{dataset=\dataset,dataset_rows=\dr,columns=\c,trade_count=\tc,workers=\w,real=\r,user=\u,system=\s,memory_usage_mb=\m}
-  {\\\hline \dataset & \dr & \c & \tc & \w & \r & \u & \s & \m}
+  \bfseries Dataset & \bfseries Dataset rows & \bfseries Columns & \bfseries Trade count & \bfseries Workers & \bfseries Speedup & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
+  \csvreader[respect all,head to column names]{figures/test_stats_1_aggregated.csv}{dataset=\dataset,dataset_rows=\dr,columns=\c,trade_count=\tc,workers=\w,speedup=\spd,real=\r,user=\u,system=\s,memory_usage_mb=\m}
+  {\\\hline \dataset & \dr & \c & \tc & \w & \spd & \r & \u & \s & \m}
   \\ \hline
 \end{tabular}}
 \caption[Initial results]{Initial results for single dataset, on a Macbook Pro with 4 physical and 8 logical cores.}
