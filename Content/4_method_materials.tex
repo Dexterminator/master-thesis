@@ -203,7 +203,9 @@ An example of how filter application and dataset row transformation work can be 
 \begin{figure}[ht]
   \centering
   \includegraphics[width=120mm]{figures/filter_diagram.pdf}
-  \caption[Filter application example.]{A simplified example of how filter application and dataset transformation works.}
+  \caption[Filter application example.]{A simplified example of how filter application and dataset transformation work. The mapping filter for the
+  product class column is applied, transforming ``Swap, type 54271'' to the standardized ``Commodity - Swap''. In the file format used for this example,
+  ``N/A'' is used to denote the absence of a value, making the null translation filter translate all columns containing ``N/A'' to ``NULL''.}
   \label{fig:filter_diagram}
 \end{figure}
 
