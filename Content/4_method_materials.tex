@@ -90,6 +90,14 @@ Cassandra is a column-oriented \textit{NoSQL} database \cite[p. 1-9]{mishra_2014
 the number of columns may vary from row to row. Cassandra is designed to have no single point of failure, and uses a number of nodes in a peer-to-peer structure. This design is
 employed in order to ensure high availability, with data replicated across the nodes.
 
+\section{Performance analysis tools}
+\subsection{cProfile}
+A Python profiler with a relatively low overhead, which can be invoked both directly in a Python program and form the command line \cite{26_2tppp2d}.
+
+\subsection{resource}
+\code{resource} is a Python module used for measuring resources used by a Python program \cite{36_3rruip2d}. It can be used for finding the user time, system time,
+and the maximum memory used by the process.
+
 \section{Trade files and datasets}
 As mentioned briefly in section \ref{trioptima}, users of the triResolve service upload \textit{trade files}, which contain one or several datasets with
 rows of trade data such as party id, counterparty id, trade id, notional, and so on. An example of a trade dataset (with some columns omitted) can be seen in figure
