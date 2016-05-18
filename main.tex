@@ -23,6 +23,26 @@
 \definecolor{deepgreen}{rgb}{0,0.5,0}
 
 \usepackage{listings}
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{fancyvrb}
+
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{fontsize=\footnotesize,
+ %
+ frame=lines,  % top and bottom rule only
+ framesep=2em, % separation between frame and text
+ rulecolor=\color{Gray},
+ %
+ %label=\fbox{\color{Black}data.txt},
+ labelposition=topline,
+ %
+ %commandchars=\|\(\), % escape character and argument delimiters for
+                      % commands within the verbatim
+ commentchar=*        % comment character
+}
+
 
 % Python style for highlighting
 \newcommand\pythonstyle{\lstset{
@@ -62,7 +82,7 @@ showstringspaces=false            %
 \usepackage{standalone}
 \def\code#1{\texttt{#1}}
 
-\title{Optimization of parallel transformation of data sets with processing order constraints in Python}
+\title{Parallelization of transformation of datasets with processing order constraints in Python}
 
 \subtitle{Duis autem vel eum iruire dolor in hendrerit in
           vulputate velit esse molestie consequat, vel illum

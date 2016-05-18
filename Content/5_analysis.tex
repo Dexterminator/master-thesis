@@ -1,3 +1,23 @@
+\section{Profiler output for sequential program}
+The following is the result on running \code{cProfile} on the sequential transformation program. Function calls with very
+low cumulative time have been omitted. In the profiling result, \code{ncalls} is the number of times the function was called,
+\code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
+including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls \cite{26_2tppp2d}.
+\VerbatimInput{figures/profiling_17_may_short.txt}
+From the profiling information above, it is clear that some function calls take significantly more time than others, and are therefore
+interesting targets for parallelization analysis. The \code{process} method is the one that launches the main pipeline that applies all
+filters and performs the transformation of the dataset. The fact that it takes 66.280 seconds out of 66.567 is therefore expected. Among
+the functions that \code{process} calls, \code{process\_record}, \code{post\_process\_record}, \code{consume\_record}, and \code{\_prepare} are the most
+interesting.
+\begin{itemize}
+  \item \code{process\_record} -- In the profiling information, \code{process\_record} appears twice, once in the file \code{pipeline.py} and once in the file
+    \code{mappings.py}. The version in \code{pipeline.py} is abstract, with an implementation in each of the filters. It is evident that the implementation
+    that is most common resides in \code{mappings.py} as it is the only one that shows up among the function calls that take up a significant amount of time.
+    This is expected, as \textit{Mapping} is the most common filter and represented in \code{mappings.py}. The function has a low \code{percall} and a high
+    \code{ncalls}, indicating that the reason it takes up a large portion of the total time is the fact that it is called many times due to the many filters
+    and dataset rows. \code{process\_record} takes up 35\% of the total execution time.
+\end{itemize}
+
 \section{Analysis of filter parallelizability}
 Since the filters specify what the processing program should do to each row in a dataset, ``row by row'' or possibly chunks of rows is a suitable
 granularity when implementing the parallelization of the program. Consequently, the filters of a file format are the prime candidates
