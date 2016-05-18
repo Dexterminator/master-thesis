@@ -1,6 +1,42 @@
 \section{Parallel program profiler analysis}
 
-\section{Benchmarking}
-\subsection{Datasets}
+\section{Test datasets}
+For all datasets, the number of filters is limited to a few more than the number of columns, as the majority of the filters are column mapping filters.
+This is typical for most datasets, making this a suitable sample of datasets. No datasets with inherently serial file formats where used, as these cannot be
+parllelized and would provide no interesting data. Instead, the focus of the experiments are on the \textit{Extra overhead} file formats, since these are the
+most common (since making trade ID:s unique is a useful feature). They also give the fairest indication of how successful the parallelization is, as they are
+both the worst case (apart from inherently serial file formats) and the common case. Another reason why the set of datasets was chosen is their differing sizes,
+with potentially differing parallelization benefits.
+
+The characteristics of the test datasets are outlined below.
+
+\subsection{Dataset 1}
+\begin{itemize}
+  \item \textbf{Rows:} 102
+  \item \textbf{Columns:} 46
+  \item \textbf{File format family:} Extra overhead
+\end{itemize}
+
+\subsection{Dataset 2}
+\begin{itemize}
+  \item \textbf{Rows:} 2,890
+  \item \textbf{Columns:} 46
+  \item \textbf{File format family:} Extra overhead
+\end{itemize}
+
+\subsection{Dataset 3}
+\begin{itemize}
+  \item \textbf{rows:} 23,763
+  \item \textbf{columns:} 46
+  \item \textbf{file format family:} Extra overhead
+\end{itemize}
+
+\subsection{Dataset 4}
+\begin{itemize}
+  \item \textbf{rows:} 338,730
+  \item \textbf{columns:} 89
+  \item \textbf{file format family:} Extra overhead
+\end{itemize}
 
 \subsection{Experiments}
+
