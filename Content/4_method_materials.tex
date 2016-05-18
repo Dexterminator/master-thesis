@@ -2,7 +2,7 @@ Purpose of chapter, TODO
 
 \section{Python performance and parallel capabilities}
 There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular
-Python implementation \cite{pythonimplementations_ppw}, and also the one that TriOptima uses.
+Python implementation \cite{pythonimplementations_ppw}, and also the one that TriOptima uses. This thesis uses Python 2.7.
 
 \subsection{Performance}
 The general performance of CPython is slower than other popular languages such as C and Java for several
@@ -97,6 +97,14 @@ A Python profiler with a relatively low overhead, which can be invoked both dire
 \subsection{resource}
 \code{resource} is a Python module used for measuring resources used by a Python program \cite{36_3rruip2d}. It can be used for finding the user time, system time,
 and the maximum memory used by the process.
+
+\section{Hardware}
+\begin{itemize}
+  \item Laptop computer with several cores (supplied by TriOptima), for working and initial small-scale testing and profiling. This is a MacBook Pro running OSX, with an Intel Core i7 processor and 4 physical cores.
+    The processor supports hyperthreading, bringing the number of logical cores to 8.
+  \item Actual testing will be done in TriOptima’s acceptance test environment, with hardware similar to what is used in production. This is a stationary computer running Linux CentOS, with a dual processor
+    architecture. The processors are 2 Intel Xeon E5504 processors with 4 cores each, making a total of 8 cores. The cores do not support hyperthreading.
+\end{itemize}
 
 \section{Trade files and datasets}
 As mentioned briefly in section \ref{trioptima}, users of the triResolve service upload \textit{trade files}, which contain one or several datasets with
