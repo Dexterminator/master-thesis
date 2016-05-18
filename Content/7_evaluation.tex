@@ -5,7 +5,7 @@ For all datasets, the number of filters is limited to a few more than the number
 This is typical for most datasets, making this a suitable sample of datasets. No datasets with inherently serial file formats where used, as these cannot be
 parllelized and would provide no interesting data. Instead, the focus of the experiments are on the \textit{Extra overhead} file formats, since these are the
 most common (since making trade ID:s unique is a useful feature). They also give the fairest indication of how successful the parallelization is, as they are
-both the worst case (apart from inherently serial file formats) and the common case. Another reason why the set of datasets was chosen is their differing sizes,
+both the worst case (apart from inherently serial file formats) and the common case. Another reason why this set of datasets was chosen is their differing sizes,
 with potentially differing parallelization benefits.
 
 The characteristics of the test datasets are outlined below.
@@ -26,17 +26,27 @@ The characteristics of the test datasets are outlined below.
 
 \subsection{Dataset 3}
 \begin{itemize}
-  \item \textbf{rows:} 23,763
-  \item \textbf{columns:} 46
-  \item \textbf{file format family:} Extra overhead
+  \item \textbf{Rows:} 23,763
+  \item \textbf{Columns:} 46
+  \item \textbf{File format family:} Extra overhead
 \end{itemize}
 
 \subsection{Dataset 4}
 \begin{itemize}
-  \item \textbf{rows:} 338,730
-  \item \textbf{columns:} 89
-  \item \textbf{file format family:} Extra overhead
+  \item \textbf{Rows:} 338,730
+  \item \textbf{Columns:} 89
+  \item \textbf{File format family:} Extra overhead
 \end{itemize}
 
 \subsection{Experiments}
+The experiments where conducted on the CentOS computer with 8 cores described in the Method \& Materials section.
+For each dataset, experiments where run to gather information about time and memory consumption for different configurations.
+The experiments entailed performing a dataset transformation using the parallel program with each number of workers in the range 1 to 2 times the number of cores: 1--16.
+In addition to running the parallel program, a serial transformation was also performed as a reference point.
+In each of the experiments, the Python \code{resource} module was used in each worker process to find the user time, system time, and maximum memory consumption.
+These values where then summed in order to find the total resource use. In the case of maximum memory consumption, this means that the number found is a worst case
+number. It is possible that the processes in total have a smaller maximum memory consumption since they may reach their maximum memory consumption at different
+points in time.
 
+In order to provide more accurate results, the experiments where run 10 times for each dataset--worker number configuration. These 10 runs where then used to calculate the
+average value as well as the standard deviation for each metric value.
