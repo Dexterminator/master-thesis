@@ -1,0 +1,22 @@
+         2117414 function calls (2110634 primitive calls) in 29.091 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   29.113   29.113 importer.py:433(verify)
+        1    0.000    0.000   29.065   29.065 importer.py:399(_do_verify)
+        1    0.000    0.000   29.056   29.056 verifier.py:441(verify)
+        1    0.000    0.000   28.964   28.964 verifier.py:546(do_verify_parallel)
+        1    0.001    0.001   24.742   24.742 verifier.py:565(aggregate_result)
+        8    0.000    0.000   24.739    3.092 python2.7/multiprocessing/queues.py:113(get)
+        8   24.736    3.092   24.739    3.092 {method 'recv' of '_multiprocessing.Connection' objects}
+        1    0.010    0.010    4.006    4.006 parallel_post_process.py:8(post_process_parallel)
+        1    0.001    0.001    2.801    2.801 parallel_post_process.py:70(make_unique)
+       12    0.050    0.004    2.798    0.233 parallel_post_process.py:76(write_relation_unique)
+    27876    0.071    0.000    1.774    0.000 parallel_post_process.py:86(write_unique)
+    55779    0.108    0.000    1.727    0.000 cassandradataset.py:107(_get_many)
+    27876    0.223    0.000    1.593    0.000 cassandradataset.py:248(write)
+        1    0.000    0.000    1.176    1.176 parallel_post_process.py:26(find_duplicates)
+       12    0.042    0.004    1.171    0.098 parallel_post_process.py:34(update_relation_duplicates)
+    27876    0.889    0.000    0.889    0.000 {method 'pack' of 'msgpack._msgpack.Packer' objects}
+    55752    0.687    0.000    0.787    0.000 cassandradataset.py:123(_convert_record)

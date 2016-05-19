@@ -1,4 +1,39 @@
 \section{Parallel program profiler analysis}
+After the parallel program implementation, another round of profiling using \code{cProfile} was conducted. This was done on the initial testing laptop,
+with 4 workers, on the same dataset as the first round of profiling. The results from the main process that orchestrates the other processes and aggregates their results can be
+found in \ref{fig:parallel_profiler_main}. The results from two of the workers can be found in figure \ref{fig:parallel_profiler_w1} and figure \ref{fig:parallel_profiler_w2}.
+
+For the main process, it is apparent that \code{post\_process\_parallel}, the function that makes the trade ID:s unique after the parallel worker processes have finished
+executing, adds non-negligible overhead. \code{aggregate\_result} contains the code that creates the other processes and waits for these to produce their partial results,
+aggregating them as they are produced. This code takes up 84\% of the total time, while the remaining 16\% of the code is effectively overhead.
+In addtion, as mentioned in section \ref{section:sequential_profiler} as a possibility, \code{\_prepare} is called for each
+worker process, resulting in extra overhead. It is conceivable that these sources of overhead are less noticable when processing a larger dataset, as the effects of
+the functions that are called only one time take up a smaller amount of the total running time if the dataset contains a larger number of rows.
+
+For the worker processes, the results are similar to the results from profiling the sequential program in section \ref{section:sequential_profiler}, but with lower
+\code{cumtime} values. This is expected due to the lower number of rows per worker. The same functions as in the sequential program are responsible for the largest
+portion of the running time, \code{process\_record}, \code{post\_process\_record}, \code{consume\_record}, and \code{\_prepare}.
+
+\begin{figure}[ht]
+  \lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_main.txt}
+  \caption{Main process in parallel program \code{cProfile} output}
+  \label{fig:parallel_profiler_main}
+\end{figure}
+\clearpage
+
+\begin{figure}[ht]
+  \lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_31147.txt}
+  \caption{Worker 1 in parallel program \code{cProfile} output}
+  \label{fig:parallel_profiler_w1}
+\end{figure}
+\clearpage
+
+\begin{figure}[ht]
+  \lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_31148.txt}
+  \caption{Worker 2 in parallel program \code{cProfile} output}
+  \label{fig:parallel_profiler_w2}
+\end{figure}
+\clearpage
 
 \section{Performance model calculations}
 

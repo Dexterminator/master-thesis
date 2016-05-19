@@ -1,17 +1,15 @@
-\section{Sequential program profiler analysis}
-The following is the result on running \code{cProfile} on the sequential transformation program. Function calls with very
+\section{Sequential program profiler analysis} \label{section:sequential_profiler}
+The result of running \code{cProfile} on the sequential transformation program can be found in figure \ref{fig:sequential_profiler}. Function calls with very
 low cumulative time have been omitted. In the profiling result, \code{ncalls} is the number of times the function was called,
 \code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
 including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls \cite{26_2tppp2d}.
 
 \begin{figure}[ht]
-  %\centering
   \lstinputlisting[basicstyle=\tiny]{figures/profiling_17_may_short.txt}
   \caption{Sequential program \code{cProfile} output}
   \label{fig:sequential_profiler}
 \end{figure}
 
-%\VerbatimInput{figures/profiling_17_may_short.txt}
 From the profiling information above, it is clear that some function calls take significantly more time than others, and are therefore
 interesting targets for parallelization analysis. The \code{process} method is the one that launches the main pipeline that applies all
 filters and performs the transformation of the dataset. The fact that it takes 66.280 seconds out of 66.567 is therefore expected. Among
