@@ -99,12 +99,13 @@ A Python profiler with a relatively low overhead, which can be invoked both dire
 and the maximum memory used by the process.
 
 \section{Hardware}
-\begin{itemize}
-  \item Laptop computer with several cores (supplied by TriOptima), for working and initial small-scale testing and profiling. This is a MacBook Pro running OSX, with an Intel Core i7 processor and 4 physical cores.
-    The processor supports hyperthreading, bringing the number of logical cores to 8.
-  \item For the main evaluation, TriOptima’s acceptance test environment, with hardware similar to what is used in production, was used. This is a stationary computer running Linux CentOS, with a dual processor
-    architecture. The processors are 2 Intel Xeon E5504 processors with 4 cores each, making a total of 8 cores. The cores do not support hyperthreading.
-\end{itemize}
+\subsection{Initial testing laptop}
+For initial working, testing, and profiling, a laptop computer with several cores was used. The laptop is a MacBook Pro running OSX, with an Intel Core i7 processor and 4 physical cores.
+The processor supports hyperthreading, bringing the number of logical cores to 8.
+
+\subsection{Main testing rig}
+For the main evaluation, TriOptima’s acceptance test environment with hardware similar to what is used in production, was used. This is a stationary computer running Linux CentOS,
+with a dual processor architecture. The processors are 2 Intel Xeon E5504 processors with 4 cores each, making a total of 8 cores. The cores do not support hyperthreading.
 
 \section{Trade files and datasets}
 As mentioned briefly in section \ref{trioptima}, users of the triResolve service upload \textit{trade files}, which contain one or several datasets with

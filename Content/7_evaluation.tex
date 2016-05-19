@@ -1,5 +1,14 @@
 \section{Parallel program profiler analysis}
 
+\section{Performance model calculations}
+
+\subsection{Amdahl's law}
+
+\subsection{Gustafson's law}
+
+\subsection{Work-span model}
+
+
 \section{Test datasets}
 For all datasets, the number of filters is limited to a few more than the number of columns, as the majority of the filters are column mapping filters.
 This is typical for most datasets, making this a suitable sample of datasets. No datasets with inherently serial file formats where used, as these cannot be
@@ -49,4 +58,5 @@ number. It is possible that the processes in total have a smaller maximum memory
 points in time.
 
 In order to provide more accurate results, the experiments where run 10 times for each dataset--worker number configuration. These 10 runs where then used to calculate the
-average value as well as the standard deviation for each metric value.
+average value as well as the standard deviation for each metric value. In addition, the speedup was calculated by dividing the sequential execution time with the parallel execution
+time for each worker value.

@@ -36,8 +36,9 @@ During the implementation of the parallel version of the program, the following 
 
 \begin{itemize}
   \item The \code{multiprocessing} module, where creating processes and transferring data between processes is costly.
-  \item Less effective caching. Since the mappings cache is local to each subprocess, caches are built up individually. This results in fewer cache hits than in the sequential program, and more total work
-    looking up values in the MySQL database.
+  \item Less effective caching of mappings. Since the mappings cache is local to each subprocess, caches are built up individually. This results in fewer cache hits than in the sequential program, and more total work
+    looking up values in the MySQL database. Hardware cache may also be affected in a similar manner.
   \item The process of making trade ID:s unique is added as an extra step after the main data processing pipeline.
   \item Because they lack built-in support for multiprocessing, the Python connections between both MySQL and Cassandra need to be restarted in the startup of each subprocess.
+  \item \code{\_prepare} has to be called once for each of the workers, compared to only one call for the sequential program.
 \end{itemize}

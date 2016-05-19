@@ -3,7 +3,15 @@ The following is the result on running \code{cProfile} on the sequential transfo
 low cumulative time have been omitted. In the profiling result, \code{ncalls} is the number of times the function was called,
 \code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
 including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls \cite{26_2tppp2d}.
-\VerbatimInput{figures/profiling_17_may_short.txt}
+
+\begin{figure}[ht]
+  %\centering
+  \lstinputlisting[basicstyle=\tiny]{figures/profiling_17_may_short.txt}
+  \caption{Sequential program \code{cProfile} output}
+  \label{fig:sequential_profiler}
+\end{figure}
+
+%\VerbatimInput{figures/profiling_17_may_short.txt}
 From the profiling information above, it is clear that some function calls take significantly more time than others, and are therefore
 interesting targets for parallelization analysis. The \code{process} method is the one that launches the main pipeline that applies all
 filters and performs the transformation of the dataset. The fact that it takes 66.280 seconds out of 66.567 is therefore expected. Among
@@ -23,8 +31,9 @@ interesting. Other functions with relatively high cumulative time are called fro
   \item \code{\_prepare} -- Called once before the program starts iterating over all rows, performing setup needed to perform the transformations properly.
     It has a relatively high \code{percall} and takes up 3.3\% of the total execution time.
 \end{itemize}
-The time spent in the function above is 87.7\% of the toal time, and the rest of the code in \code{process} is contained in the body of the loop that iterates
-over and performs actions on every row.\\
+The time spent in the functions above is 87.7\% of the toal time, and the majority of the rest of the code in \code{process} is contained in the body of the loop that iterates
+over and performs actions on every row. Since only \code{\_prepare} runs before the loop, and a small portion of code is run after the loop, about 4\% of the code 
+is run outside the loop. This means that around 96\% of the code is conceivably parallelizable, depending on the filters in the dataset's file format.\\
 
 The following conclusions can be made from the analysis above:
 
