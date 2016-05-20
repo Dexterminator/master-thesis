@@ -1,13 +1,162 @@
 \section{Transformation benchmarks}
-\begin{sidewaysfigure}[ht]
+The benchmarks for the experiments are outlined below. For each dataset, the results consist of a table containing
+speedup, real time, user time, system time, and memory usage for each worker number. The standard deviation is represented
+as a value following the $\pm$ sign. In addition to the tables, the real time, speedup, and memory usage are illustrated
+using plots in order to visually demonstrate how the values change with the number of workers. In the plots for real time
+and memory usage, the standard deviation is illustrated using with black bars above and below each data point
+\footnote{The standard deviation is shown for all plots of real time and memory usage, but it may be too small to be seen for
+some of the plots.}. 
+
+\section{Dataset 1}
+The results for dataset 1 can be found in figures \ref{fig:dataset_1_table}, \ref{fig:dataset_1_real_time}, \ref{fig:dataset_1_speedup}, and \ref{fig:dataset_1_memory}.
+
+\begin{figure}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
-\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}%
+\begin{tabular}{|c|c|c|c|c|c|}%
   \hline
-  \bfseries Dataset & \bfseries Dataset rows & \bfseries Columns & \bfseries Trade count & \bfseries Workers & \bfseries Speedup & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
-  \csvreader[respect all,head to column names]{figures/test_stats_1_aggregated.csv}{dataset=\dataset,dataset_rows=\dr,columns=\c,trade_count=\tc,workers=\w,speedup=\spd,real=\r,user=\u,system=\s,memory_usage_mb=\m}
-  {\\\hline \dataset & \dr & \c & \tc & \w & \spd & \r & \u & \s & \m}
+  \bfseries Workers & \bfseries Speedup & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
+  \csvreader[respect all,head to column names]{figures/dataset_1/dataset_1_table.csv}{workers=\w,speedup=\spd,real=\r,user=\u,system=\s,memory_usage_mb=\m}
+  {\\\hline \w & \spd & \r & \u & \s & \m}
   \\ \hline
 \end{tabular}}
-\caption[Initial results]{Initial results for single dataset, on a Macbook Pro with 4 physical and 8 logical cores.}
-\end{sidewaysfigure}
+\caption[Dataset 1 benchmark table.]{Dataset 1 benchmark table.}
+\label{fig:dataset_1_table}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_real_time.png}
+  \caption[Real time plot for dataset 1.]{Real time plot for dataset 1.}
+  \label{fig:dataset_1_real_time}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_speedup.png}
+  \caption[Speedup plot for dataset 1.]{Speedup plot for dataset 1.}
+  \label{fig:dataset_1_speedup}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_memory.png}
+  \caption[Memory usage plot for dataset 1.]{Memory usage plot for dataset 1.}
+  \label{fig:dataset_1_memory}
+\end{figure}
+
+\section{Dataset 2}
+The results for dataset 2 can be found in figures \ref{fig:dataset_2_table}, \ref{fig:dataset_2_real_time}, \ref{fig:dataset_2_speedup}, and \ref{fig:dataset_2_memory}.
+
+\begin{figure}[ht]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}%
+  \hline
+  \bfseries Workers & \bfseries Speedup & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
+  \csvreader[respect all,head to column names]{figures/dataset_2/dataset_2_table.csv}{workers=\w,speedup=\spd,real=\r,user=\u,system=\s,memory_usage_mb=\m}
+  {\\\hline \w & \spd & \r & \u & \s & \m}
+  \\ \hline
+\end{tabular}}
+\caption[Dataset 2 benchmark table.]{Dataset 2 benchmark table.}
+\label{fig:dataset_2_table}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_real_time.png}
+  \caption[Real time plot for dataset 1.]{Real time plot for dataset 1.}
+  \label{fig:dataset_2_real_time}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_speedup.png}
+  \caption[Speedup plot for dataset 2.]{Speedup plot for dataset 2.}
+  \label{fig:dataset_2_speedup}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_memory.png}
+  \caption[Memory usage plot for dataset 2.]{Memory usage plot for dataset 2.}
+  \label{fig:dataset_2_memory}
+\end{figure}
+
+\section{Dataset 3}
+The results for dataset 3 can be found in figures \ref{fig:dataset_3_table}, \ref{fig:dataset_3_real_time}, \ref{fig:dataset_3_speedup}, and \ref{fig:dataset_3_memory}.
+
+\begin{figure}[ht]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}%
+  \hline
+  \bfseries Workers & \bfseries Speedup & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
+  \csvreader[respect all,head to column names]{figures/dataset_3/dataset_3_table.csv}{workers=\w,speedup=\spd,real=\r,user=\u,system=\s,memory_usage_mb=\m}
+  {\\\hline \w & \spd & \r & \u & \s & \m}
+  \\ \hline
+\end{tabular}}
+\caption[Dataset 3 benchmark table.]{Dataset 3 benchmark table.}
+\label{fig:dataset_3_table}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_real_time.png}
+  \caption[Real time plot for dataset 3.]{Real time plot for dataset 3.}
+  \label{fig:dataset_3_real_time}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_speedup.png}
+  \caption[Speedup plot for dataset 3.]{Speedup plot for dataset 3.}
+  \label{fig:dataset_3_speedup}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_memory.png}
+  \caption[Memory usage plot for dataset 3.]{Memory usage plot for dataset 3.}
+  \label{fig:dataset_3_memory}
+\end{figure}
+
+
+\section{Dataset 4}
+The results for dataset 4 can be found in figures \ref{fig:dataset_4_table}, \ref{fig:dataset_4_real_time}, \ref{fig:dataset_4_speedup}, and \ref{fig:dataset_4_memory}.
+
+\begin{figure}[ht]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|c|}%
+  \hline
+  \bfseries Workers & \bfseries Speedup & \bfseries Real (s) & \bfseries User (s) & \bfseries System (s) & \bfseries Memory usage (MB)
+  \csvreader[respect all,head to column names]{figures/dataset_4/dataset_4_table.csv}{workers=\w,speedup=\spd,real=\r,user=\u,system=\s,memory_usage_mb=\m}
+  {\\\hline \w & \spd & \r & \u & \s & \m}
+  \\ \hline
+\end{tabular}}
+\caption[Dataset 4 benchmark table.]{Dataset 4 benchmark table.}
+\label{fig:dataset_4_table}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_4/dataset_4_real_time.png}
+  \caption[Real time plot for dataset 4.]{Real time plot for dataset 4.}
+  \label{fig:dataset_4_real_time}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_4/dataset_4_speedup.png}
+  \caption[Speedup plot for dataset 4.]{Speedup plot for dataset 4.}
+  \label{fig:dataset_4_speedup}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_4/dataset_4_memory.png}
+  \caption[Memory usage plot for dataset 4.]{Memory usage plot for dataset 4.}
+  \label{fig:dataset_4_memory}
+\end{figure}
+
