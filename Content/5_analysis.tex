@@ -1,6 +1,7 @@
 \section{Sequential program profiler analysis} \label{section:sequential_profiler}
-The result of running \code{cProfile} on the sequential transformation program can be found in figure \ref{fig:sequential_profiler}. Function calls with very
-low cumulative time have been omitted. In the profiling result, \code{ncalls} is the number of times the function was called,
+The result of running \code{cProfile} on the sequential transformation program can be found in figure \ref{fig:sequential_profiler}. The dataset used had
+27877 rows, 46 columns, and belonged to the extra overhead file format family.
+Function calls with very low cumulative time have been omitted. In the profiling result, \code{ncalls} is the number of times the function was called,
 \code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
 including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls \cite{26_2tppp2d}.
 
