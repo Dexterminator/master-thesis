@@ -1,3 +1,5 @@
+The implementation of the parallel program is outlined in this chapter, including indentification of sources of overhead encountered while writing the code.
+
 \section{Parallelization}
 In accordance with section \ref{related_work}, the Python \code{multiprocessing} module was used to implement the parallelization of the program. Additionally, measures where taken to send as little
 data as possible between processes and to avoid introducing excessive complexity to the codebase. The \code{multiprocessing.Queue} facility was chosen for communication between processes due to its
