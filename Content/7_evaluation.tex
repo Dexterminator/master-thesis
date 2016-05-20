@@ -40,12 +40,31 @@ In this section, different performance calculation models are used to find a pre
 indication of possible speedup.
 
 \subsection{Amdahl's law}
-In the sequential profiling session, it is suggested that around 96\% of the code is parallelizable.
+In the sequential profiling session, it is suggested that around 96\% of the code is parallelizable. The computer used for testing has 8 cores,
+which is the value that will be used for the $n$ value when applying Amdahl's law to the profiling session run:
+
+\begin{displaymath}
+  S = \frac{1}{1 - 0.96 + \frac{0.96}{8}} = 6.25
+  \label{fig:amdahl_calculation}
+\end{displaymath}
+
+\noindent This potential speedup of 6.25 does not take into account overhead associated with parallelization.
 
 \subsection{Gustafson's law}
+With Gustafson's law, the speedup is calculated as the following:
+
+\begin{displaymath}
+  S = 8 + (1-8) * 0.04 = 7.72
+\end{displaymath}
+
+\noindent With the more optimistic Gustafson's law, the speedup is higher. Overhead is not taken into account in the above calculation.
 
 \subsection{Work-span model}
-
+As mentioned in section \ref{work-span}, the increase in work when parallelizing a program should be kept to a minimum.
+In addition, the span should be kept as small as possible. In the implementation made in this thesis, both the work and the span is increased.
+The work is increased since the code that is run before the loop over each row has to be run once for each worker, and because the caching of
+column mappings is done for each worker. The span is increased because of the added post processing needed when transforming datasets from the
+extra overhead file format family. This suggests that parallelization cannot be utilized at its fullest, which may impact the speedup.
 
 \section{Test datasets}
 For all datasets, the number of filters is limited to a few more than the number of columns, as the majority of the filters are column mapping filters.
