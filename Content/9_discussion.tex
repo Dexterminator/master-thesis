@@ -1,1 +1,42 @@
-A discussion.
+\section{Dataset benchmarks discussion}
+\subsection{Dataset 1}
+Dataset 1, with comparatively few rows, shows poor results when parallelizing. For every worker number, only slowdown can be observed.
+The real time values for 10 and 12 workers show high standard deviations when comparing with the average value. It is conceivable that
+tasks such as creating processes have a more noticable impact for the low execution time. The fact that parallelization results in
+slowdown for the small dataset suggests that parallelization overhead in the form of creating new processes, synchronizing, and
+post processing the data are large
+enough that any parallelization gains are shadowed. A steady, close to linear increase in memory usage can be observed, resulting in
+total memory usage several times above what is used for the sequential program. The reason for this increase in memory usage even though
+the problem size stays the same can conceivably be explained by the fact that the \code{multiprocessing} module creates separate, entirely
+new processes. For each of these, the filters, mappings and other data relating to the transformation has to be stored in addition to the
+base memory footprint of the process. This means that data is duplicated across the processes, resulting in a net increase in memory usage.
+
+\subsection{Dataset 2}
+For dataset 2, some speedup scaling can be observed, with the maximum value around 2.1. As more workers are added, speedup is increased,
+flattening out around 8 workers. This fits with the fact that the testing machine has 8 cores, effectively making it able to utilize 
+true parallelism for a maximum of 8 workers. The impact of adding more worker decreases with each one that is added, possibly suggesting
+that while parallelism gains are evident, the overhead of starting up the workers become more significant as the number of workers increases
+and the individual workload decreases. The memory usage grows in a similar manner to dataset 1, though the values are (as expected) greater.
+Real time shows relatively low standard deviations compared to the total time, indicating that real time is fairly accurate for each worker
+value.
+
+\subsection{Dataset 3}
+Dataset 3 shows greater speedup than dataset 2, with a similar shape to the speedup by worker curve. The maximum speedup is
+around 3.8, evening out around 8 workers, once again showing the best results around the machine's core number. This further suggests that larger
+individal workload, this time a result of the larger dataset size, makes parallelization overhead less noticable. Real time again shows
+low standard deviation. Memory usage for the worker numbers with lthe largest speedup values is around 3 GB for dataset 3, demonstrating
+that a large price in memory usage is paid for paralellization, which may impact performance negatively for large dataset sizes and
+worker numbers.
+
+\subsection{Dataset 4}
+With the even larger dataset 4, even greater speedup can be observed. Once again, the trend of greater parallelization gains for larger
+dataset sizes holds. Interestingly, speedup increases slightly even past 8 workers, though it flattens out around 12 workers.
+Though the program is largely CPU bound, the reason for the increase when using a number of workers greater than the number of cores may be
+greater CPU utilization when waiting for I/O when extra workers are added, as the chance of finding a worker with CPU bound work to do increases. 
+Real time standard deviation follows the same, stable trend also for dataset 4.  Memory usage when parallelizing this significantly larger dataset,
+ranging between 5 GB and 7 GB for the worker values with the greatest speedup.
+
+\subsection{General benchmark trends}
+In general, user time increases significantly with added workers, as is expected due to the greater total CPU utilization. Together with the
+fact that memory usage increases linearly with worker number, this indicates that a noteworthy amount of system resources is required 
+for parallelization as dataset sizes and number of workers grow large.
