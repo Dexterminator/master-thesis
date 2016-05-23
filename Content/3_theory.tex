@@ -3,6 +3,23 @@ explained in order to give the reader the foundation needed to understand these 
 the thesis.
 
 \section{Multicore architecture}
+
+\subsection{Multicore processors}
+In a typical multicore processor, several cores (which are similar to regular processors) work together in the same system \cite[p. 44-50]{mccool_2012_structured_spppfec}. The cores consist of several \textit{functional
+units}, which are the core components that perform arithmetic calculations. These functional units are able to perform multiple calculation
+instructions in parallel if these are not dependent on each other. This is known as \textit{instruction level parallelism}. In the multicore model,
+a hierarchal cache memory architecture is used. The small, fast cache memories closest to the functional units are called \textit{registers}.
+The next caches in the hierarchy are the data and instruction caches which are attached to each core. Subsequent, higher level caches that follow
+these are usually an order of magnitude slower for each cache level.
+
+\subsection{Multicore communication}
+Multiple cores communicate with each other through a bus or a network \cite[p. 472-476]{herlihy_2012_art_taomprr}. Since the
+means of communication between the cores is a finite resource, too much traffic may result in delays. As previously mentioned, the processors typically
+have their own cache. In order to avoid unnecessary reads from the slower main memory when a cache miss is encountered for the core's own cache,
+cores may read from another core that has the requested data cached. In a process called \textit{cache coherence}, shared cached values are kept up to date using one
+of several protocols. The effect that these different means of communication between processors has on performance in
+multicore programs should not be ignored.
+
 \subsection{Processes vs threads}
 While both threads and processes represent contexts in which a program is run, they have a few differences. A thread is run inside
 a process, and the threads within the process share memory and state with each other and the parent
@@ -10,14 +27,6 @@ process \cite{singh_2013_parallel_padpwprfmm}. Individual processes do not share
 communication between processes must be done with message passing rather than with shared memory. Consequently, communication
 between threads is generally faster than between processes.
 Typically, different threads can be scheduled on different cores, which is also true for different processes.
-
-\subsection{Multicore communication and caching}
-Multiple processors communicate with each other through a bus or a network \cite[p. 472-476]{herlihy_2012_art_taomprr}. Since the
-means of communication between the processes is a finite resource, too much traffic may result in delays. The processors typically
-have their own cache. In order to avoid unnecessary reads from the slower main memory, processors may read from another processor
-that has the requested data cached. In a process called \emph{cache coherence}, shared cached values are kept up to date using one
-of several protocols. The effect that these different means of communication between processors has on performance in
-multiprocessor programs should not be ignored.
 
 \section{Parallel shared memory programming}
 
