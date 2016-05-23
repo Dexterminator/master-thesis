@@ -135,10 +135,8 @@ how the dataset in question should be processed is used. The format contains a s
 The different filter configurations may affect how parallelizable the processing of the dataset is.
 
 \section{Verification results}
-The result of the dataset processing is called a \textit{verification result}, and consists of one row per trade, with correctly modified values, in a Cassandra schema.
+The result of the dataset processing is called a \textit{verification result}\footnote{The verification results are not to be confused with the results of this thesis. They are part of the problem this thesis aims to solve.}, and consists of one row per trade, with correctly modified values, in a Cassandra schema.
 In addition, a row in the MySQL database consisting of metadata relating to the result as a whole is created. This metadata includes result owner, number of rows, time metrics, and so on.
-
-\textit{Note: The verification results are not to be confused with the results of this thesis. They are part of the problem this thesis aims to solve.}
 
 \section{Transformation with constraints}
 
