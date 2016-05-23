@@ -6,12 +6,9 @@ Dataset 1, with comparatively few rows, shows poor results when parallelizing. F
 The real time values for 10 and 12 workers show high standard deviations when comparing with the average value. It is conceivable that
 tasks such as creating processes have a more noticable impact for the low execution time. The fact that parallelization results in
 slowdown for the small dataset suggests that parallelization overhead in the form of creating new processes, synchronizing, and
-post processing the data are large
-enough that any parallelization gains are shadowed. A steady, close to linear increase in memory usage can be observed, resulting in
-total memory usage several times above what is used for the sequential program. The reason for this increase in memory usage even though
-the problem size stays the same can conceivably be explained by the fact that the \code{multiprocessing} module creates separate, entirely
-new processes. For each of these, the filters, mappings and other data relating to the transformation has to be stored in addition to the
-base memory footprint of the process. This means that data is duplicated across the processes, resulting in a net increase in memory usage.
+post processing the data are large enough that any parallelization gains are shadowed.
+A steady, close to linear increase in memory usage can be observed, resulting in total memory usage several times above what is
+used for the sequential program. 
 
 \subsection{Dataset 2}
 For dataset 2, some speedup scaling can be observed, with the maximum value around 2.1. As more workers are added, speedup is increased,
@@ -42,3 +39,12 @@ ranging between 5 GB and 7 GB for the worker values with the greatest speedup.
 In general, user time increases significantly with added workers, as is expected due to the greater total CPU utilization. Together with the
 fact that memory usage increases linearly with worker number, this indicates that a noteworthy amount of system resources is required 
 for parallelization as dataset sizes and number of workers grow large.
+
+The fact that memory usage increases as workers are added (though the overall problem size stays the same)
+can conceivably be explained by the fact that the \code{multiprocessing} module creates separate, entirely
+new processes. For each of these, the filters, mappings and other data relating to the transformation has to be stored in addition to the
+base memory footprint of the process. This means that data is duplicated across the processes, resulting in a net increase in memory usage.
+
+In general, larger datasets show greater speedup than smaller datasets. As mentioned in the indidual dataset discussions, the reason for this
+is feasably that parallelization overhead and worker startup time becomes less significant as the row processing step takes up a larger portion
+of the execution time.
