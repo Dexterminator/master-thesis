@@ -44,8 +44,11 @@ using plots in order to visually demonstrate how the values change with the numb
 and memory usage, the standard deviation is illustrated using black bars above and below each data point\footnote{
 The standard deviation is shown for all plots of real time and memory usage, but it may be too small to be seen for some of the plots.}.
 
-\section{Dataset 1}
-The results for dataset 1 can be found in figures \ref{fig:dataset_1_table}, \ref{fig:dataset_1_real_time}, \ref{fig:dataset_1_speedup}, and \ref{fig:dataset_1_memory}.
+\section{Benchmark tables}
+\subsection{Tiny}
+The benchmark for the tiny dataset can be found in figure \ref{fig:dataset_1_table}.
+The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
 \begin{figure}[ht]
 \centering
@@ -57,39 +60,15 @@ The results for dataset 1 can be found in figures \ref{fig:dataset_1_table}, \re
   {\\\hline \w & \spd & \r & \u & \s & \m}
   \\ \hline
 \end{tabular}}
-\caption[Dataset 1 benchmark table.]{Dataset 1 benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+\caption[Tiny dataset benchmark table.]{Tiny dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_1_table}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_real_time.png}
-  \caption[Real time plot for dataset 1.]{Real time plot for dataset 1. The X axis shows the number of workers, where 0 signifies the sequential program run.
-  The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. Real time
-  increases as number of workers increase. The data points at 10 and 13 workers show high standard deviation.}
-  \label{fig:dataset_1_real_time}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_speedup.png}
-  \caption[Speedup plot for dataset 1.]{Speedup plot for dataset 1. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
-  ``number of times faster than sequential execution''. Speedup decreases with each added worker, down to about half the speed of the sequential execution.}
-  \label{fig:dataset_1_speedup}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_memory.png}
-  \caption[Memory usage plot for dataset 1.]{Memory usage plot for dataset 1. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
-  a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
-  up to about 1.6 GB for 16 workers.}
-  \label{fig:dataset_1_memory}
-\end{figure}
-
-\section{Dataset 2}
-The results for dataset 2 can be found in figures \ref{fig:dataset_2_table}, \ref{fig:dataset_2_real_time}, \ref{fig:dataset_2_speedup}, and \ref{fig:dataset_2_memory}.
+\subsection{Small}
+The benchmark for the small dataset can be found in figure \ref{fig:dataset_2_table}.
+The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
 \begin{figure}[ht]
 \centering
@@ -101,39 +80,15 @@ The results for dataset 2 can be found in figures \ref{fig:dataset_2_table}, \re
   {\\\hline \w & \spd & \r & \u & \s & \m}
   \\ \hline
 \end{tabular}}
-\caption[Dataset 2 benchmark table.]{Dataset 2 benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+\caption[Small dataset benchmark table.]{Small dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_2_table}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_real_time.png}
-  \caption[Real time plot for dataset 2.]{Real time plot for dataset 2. The X axis shows the number of workers, where 0 signifies the sequential program run.
-  The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
-  decreases with each added worker up to 8 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.}
-  \label{fig:dataset_2_real_time}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_speedup.png}
-  \caption[Speedup plot for dataset 2.]{Speedup plot for dataset 2. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
-  ``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 8 workers and 2.1X speedup.}
-  \label{fig:dataset_2_speedup}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_memory.png}
-  \caption[Memory usage plot for dataset 2.]{Memory usage plot for dataset 2. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
-  a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
-  up to about 2 GB for 16 workers.}
-  \label{fig:dataset_2_memory}
-\end{figure}
-
-\section{Dataset 3}
-The results for dataset 3 can be found in figures \ref{fig:dataset_3_table}, \ref{fig:dataset_3_real_time}, \ref{fig:dataset_3_speedup}, and \ref{fig:dataset_3_memory}.
+\subsection{Medium}
+The benchmark for the medium dataset can be found in figure \ref{fig:dataset_3_table}.
+The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
 \begin{figure}[ht]
 \centering
@@ -145,40 +100,15 @@ The results for dataset 3 can be found in figures \ref{fig:dataset_3_table}, \re
   {\\\hline \w & \spd & \r & \u & \s & \m}
   \\ \hline
 \end{tabular}}
-\caption[Dataset 3 benchmark table.]{Dataset 3 benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+\caption[Medium dataset benchmark table.]{Medium dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_3_table}
 \end{figure}
 
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_real_time.png}
-  \caption[Real time plot for dataset 3.]{Real time plot for dataset 3. The X axis shows the number of workers, where 0 signifies the sequential program run.
-  The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
-  decreases with each added worker up to 8 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.}
-  \label{fig:dataset_3_real_time}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_speedup.png}
-  \caption[Speedup plot for dataset 3.]{Speedup plot for dataset 3. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
-  ``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 8-9 workers and 3.8X speedup.}
-  \label{fig:dataset_3_speedup}
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_memory.png}
-  \caption[Memory usage plot for dataset 3.]{Memory usage plot for dataset 3. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
-  a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
-  up to about 6 GB for 16 workers.}
-  \label{fig:dataset_3_memory}
-\end{figure}
-
-
-\section{Dataset 4}
-The results for dataset 4 can be found in figures \ref{fig:dataset_4_table}, \ref{fig:dataset_4_real_time}, \ref{fig:dataset_4_speedup}, and \ref{fig:dataset_4_memory}.
+\subsection{Large}
+The benchmark for the small dataset can be found in figure \ref{fig:dataset_4_table}.
+The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
 \begin{figure}[ht]
 \centering
@@ -190,32 +120,172 @@ The results for dataset 4 can be found in figures \ref{fig:dataset_4_table}, \re
   {\\\hline \w & \spd & \r & \u & \s & \m}
   \\ \hline
 \end{tabular}}
-\caption[Dataset 4 benchmark table.]{Dataset 4 benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
+\caption[Large dataset benchmark table.]{Large dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_4_table}
 \end{figure}
 
+\section{Execution time}
+
+\subsection{Tiny}
+The real execution time for the tiny dataset can be found in figure \ref{fig:dataset_1_real_time}.
+The X axis shows the number of workers, where 0 signifies the sequential program run.
+The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. Real time
+increases as number of workers increase. The data points at 10 and 13 workers show high standard deviation.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_real_time.png}
+  \caption[Real time plot for the tiny dataset.]{Real time plot for the tiny dataset. The X axis shows the number of workers, where 0 signifies the sequential program run.
+  The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. Real time
+  increases as number of workers increase. The data points at 10 and 13 workers show high standard deviation.}
+  \label{fig:dataset_1_real_time}
+\end{figure}
+
+\subsection{Small}
+The real execution time for the small dataset can be found in figure \ref{fig:dataset_2_real_time}.
+The X axis shows the number of workers, where 0 signifies the sequential program run.
+The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
+decreases with each added worker up to 8 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_real_time.png}
+  \caption[Real time plot for the small dataset.]{Real time plot for the small dataset. The X axis shows the number of workers, where 0 signifies the sequential program run.
+  The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
+  decreases with each added worker up to 8 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.}
+  \label{fig:dataset_2_real_time}
+\end{figure}
+
+\subsection{Medium}
+The real execution time for the medium dataset can be found in figure \ref{fig:dataset_3_real_time}.
+The X axis shows the number of workers, where 0 signifies the sequential program run.
+The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
+decreases with each added worker up to 8 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_real_time.png}
+  \caption[Real time plot for the medium dataset.]{Real time plot for the medium dataset. The X axis shows the number of workers, where 0 signifies the sequential program run.
+  The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
+  decreases with each added worker up to 8 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.}
+  \label{fig:dataset_3_real_time}
+\end{figure}
+
+\subsection{Large}
+The real execution time for the small dataset can be found in figure \ref{fig:dataset_4_real_time}.
+The X axis shows the number of workers, where 0 signifies the sequential program run.
+The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
+decreases with each added worker up to 12 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=120mm]{figures/dataset_4/dataset_4_real_time.png}
-  \caption[Real time plot for dataset 4.]{Real time plot for dataset 4. The X axis shows the number of workers, where 0 signifies the sequential program run.
+  \caption[Real time plot for the large dataset.]{Real time plot for the large dataset. The X axis shows the number of workers, where 0 signifies the sequential program run.
   The Y axis shows the real execution time for each worker value. The standard deviation is displayed with black bars around each data point. The real time
   decreases with each added worker up to 12 workers, where it evens out. The decrease in real time for each added worker becomes smaller as the number increases.}
   \label{fig:dataset_4_real_time}
 \end{figure}
 
+\section{Speedup}
+
+\subsection{Tiny}
+The speedup for the tiny dataset can be found in figure \ref{fig:dataset_1_speedup}.
+The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+``number of times faster than sequential execution''. Speedup decreases with each added worker, down to about half the speed of the sequential execution.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_speedup.png}
+  \caption[Speedup plot for tiny dataset.]{Speedup plot for the tiny dataset. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+  ``number of times faster than sequential execution''. Speedup decreases with each added worker, down to about half the speed of the sequential execution.}
+  \label{fig:dataset_1_speedup}
+\end{figure}
+
+\subsection{Small}
+The speedup for the small dataset can be found in figure \ref{fig:dataset_2_speedup}.
+The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 8 workers and 2.1X speedup.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_speedup.png}
+  \caption[Speedup plot for the small dataset.]{Speedup plot for the small dataset. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+  ``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 8 workers and 2.1X speedup.}
+  \label{fig:dataset_2_speedup}
+\end{figure}
+
+\subsection{Medium}
+The speedup for the medium dataset can be found in figure \ref{fig:dataset_3_speedup}.
+The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 8-9 workers and 3.8X speedup.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_speedup.png}
+  \caption[Speedup plot for the medium dataset.]{Speedup plot for the medium dataset. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+  ``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 8-9 workers and 3.8X speedup.}
+  \label{fig:dataset_3_speedup}
+\end{figure}
+
+\subsection{Large}
+The speedup for the large dataset can be found in figure \ref{fig:dataset_4_speedup}.
+The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 12 workers and 4.2X speedup.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=120mm]{figures/dataset_4/dataset_4_speedup.png}
-  \caption[Speedup plot for dataset 4.]{Speedup plot for dataset 4. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
+  \caption[Speedup plot for the large dataset.]{Speedup plot for the large dataset. The X axis shows the number of workers, and the Y axis shows a scalar value signifying the speedup as
   ``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 12 workers and 4.2X speedup.}
   \label{fig:dataset_4_speedup}
 \end{figure}
 
+\section{Memory consumption}
+
+\subsection{Tiny}
+The memory consumption for the tiny dataset can be found in figure \ref{fig:dataset_1_memory}.
+The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+up to about 1.6 GB for 16 workers.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_1/dataset_1_memory.png}
+  \caption[Memory usage plot for the tiny dataset.]{Memory usage plot for the tiny dataset. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+  a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+  up to about 1.6 GB for 16 workers.}
+  \label{fig:dataset_1_memory}
+\end{figure}
+
+\subsection{Small}
+The memory consumption for the tiny dataset can be found in figure \ref{fig:dataset_2_memory}.
+The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+up to about 2 GB for 16 workers.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_2/dataset_2_memory.png}
+  \caption[Memory usage plot for the small dataset.]{Memory usage plot for the small dataset. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+  a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+  up to about 2 GB for 16 workers.}
+  \label{fig:dataset_2_memory}
+\end{figure}
+
+\subsection{Medium}
+The memory consumption for the tiny dataset can be found in figure \ref{fig:dataset_3_memory}.
+The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+up to about 6 GB for 16 workers.
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=120mm]{figures/dataset_3/dataset_3_memory.png}
+  \caption[Memory usage plot for the medium dataset.]{Memory usage plot for the medium dataset. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+  a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+  up to about 6 GB for 16 workers.}
+  \label{fig:dataset_3_memory}
+\end{figure}
+
+\subsection{Large}
+The memory consumption for the tiny dataset can be found in figure \ref{fig:dataset_4_memory}.
+The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
+up to about 8.8 GB for 16 workers.
 \begin{figure}[ht]
   \centering
   \includegraphics[width=120mm]{figures/dataset_4/dataset_4_memory.png}
-  \caption[Memory usage plot for dataset 4.]{Memory usage plot for dataset 4. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
+  \caption[Memory usage plot for the large dataset.]{Memory usage plot for the large dataset. The X axis shows the numner of workers, and the Y axis shows the total memory usage as
   a sum of the highest memory usage for each worker process, in addition to the main process. Memory usage increases close to linearly with each added worker,
   up to about 8.8 GB for 16 workers.}
   \label{fig:dataset_4_memory}

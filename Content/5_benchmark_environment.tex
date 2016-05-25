@@ -15,28 +15,28 @@ with potentially differing parallelization benefits.
 
 The characteristics of the test datasets are outlined below.
 
-\subsection{Dataset 1}
+\subsection{Tiny}
 \begin{itemize}
   \item \textbf{Rows:} 102
   \item \textbf{Columns:} 46
   \item \textbf{File format family:} Extra overhead
 \end{itemize}
 
-\subsection{Dataset 2}
+\subsection{Small}
 \begin{itemize}
   \item \textbf{Rows:} 2,890
   \item \textbf{Columns:} 46
   \item \textbf{File format family:} Extra overhead
 \end{itemize}
 
-\subsection{Dataset 3}
+\subsection{Medium}
 \begin{itemize}
   \item \textbf{Rows:} 23,763
   \item \textbf{Columns:} 46
   \item \textbf{File format family:} Extra overhead
 \end{itemize}
 
-\subsection{Dataset 4}
+\subsection{Large}
 \begin{itemize}
   \item \textbf{Rows:} 338,730
   \item \textbf{Columns:} 89
@@ -44,7 +44,6 @@ The characteristics of the test datasets are outlined below.
 \end{itemize}
 
 \section{Experiments}
-The experiments where conducted on the CentOS computer with 8 cores described in the Method \& Materials section.
 For each dataset, experiments where run to gather information about time and memory consumption for different configurations.
 The experiments entailed performing a dataset transformation using the parallel program with each number of workers in the range 1 to 2 times the number of cores: 1--16.
 In addition to running the parallel program, a serial transformation was also performed as a reference point.
