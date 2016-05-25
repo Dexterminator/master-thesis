@@ -1,5 +1,3 @@
-This chapter discusses the results in the previous chapter, describing possible reasons for the observed values.
-
 \section{Dataset benchmarks discussion}
 \subsection{Dataset 1}
 Dataset 1, with comparatively few rows, shows poor results when parallelizing. For every worker number, only slowdown can be observed.
@@ -49,8 +47,44 @@ In general, larger datasets show greater speedup than smaller datasets. As menti
 is feasably that parallelization overhead and worker startup time becomes less significant as the row processing step takes up a larger portion
 of the execution time.
 
-Compared to the performance calculations in chapter \ref{evaluation}, the speedup may seem disappointing. The reasons for this are likely
+Compared to the performance calculations in chapter ??????????, the speedup may seem disappointing. The reasons for this are likely
 manifold. The overhead of synchronization and \code{multiprocessing} process creation are not taken into account in any of the performance models,
 and may contribute to the smaller than expected speedup. Furthermore, as previously mentioned, each worker has to restart the connections to MySQL
 and Cassandra and also have to cache column mappings individually as \code{multiprocessing} does not allow for shared memory. Finally, the
 post processing step of making trade ID:s unique adds a significant sequential term to the transformation program.
+
+\section{Conclusions}
+This section outlines the final conclusions drawn from this thesis. \\\\
+
+Using Python \code{multiprocessing} for parallelization resulted in true parallel speedup, but was not without issues.
+Sharing data using only message passing results in relatively safe and readable code since excessive sharing of data is avoided.
+However, in the transformation program parallelized in this thesis, the fact that the processing pipeline including column mappings
+needed to be stored for each worker resulted in more overhead both regarding worker startup and memory consumption. This
+leads to the conclusion that users of multiprocessing need to be wary not only of communication and creation overhead associated
+with processes (as opposed to threads), but also of overhead from worker startup and data duplication as a result of the message
+passing model.
+
+The transformation problem in this thesis, and parallel programs with expensive worker startup, are heavily influenced by the size
+of the data. This means that developers faced with implemented parallelization of a similar systems should examine the data in their
+problem domain in order to find an initial indication of whether the size of the datasets are, in general, large enough to benefit
+from parallelization.
+
+When parallelizing a complex system, as few assumptions as possible should be made before starting. In this thesis, the problem
+involves I/O and database communication, suggesting that the problem may be I/O bound. However, further investigations proved that the problem
+was largely CPU bound, making it suitable for \code{multiprocessing} in combination with a multicore machine. Investigation, rather than
+assumption, are helpful when parallelizing a complex program involving both CPU and I/O tasks.
+
+The method used in this thesis for finding parallelizability was relatively successful. When analyzing file formats for parallelizability,
+inherently serial, extra overhead, and embarrassingly parallel formats where found. The implementation then focused on parallelizing
+the extra overhead and embarrassingly parallel formats. This method could possibly be generalized to other parallelization problems
+in complex systems, by identifying a subsystem that is easily parallelizable and focusing on that part rather than the system as a whole.
+The subsystem might be either a subset of the code or of the datasets in the problem domain. In this thesis, the subsystem proved to be
+large enough that the effort of parallelization was worthwhile, which is an analysis that should be made also in the general case of
+parallelizing complex systems.
+
+Developers should be wary of aggregation when parallelizing systems. In this thesis, aggregation manifested itself as making trade ID:s unique,
+which was done by storing encountered ID:s. While storing state in this manner may appear as making rows dependant on each other, it proved
+possible to extract the aggregation into a post-processing step. This extra step introduced overhead, but parallel speedup could still be 
+observed for larger datasets. In conclusion, implementers of parallelization should look for aggregation in their system, conclude if this
+can be extracted into a post processing step, and if this post processing step is small enough for parallelization to be beneficial.
+
