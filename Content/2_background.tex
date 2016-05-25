@@ -1,8 +1,9 @@
 \section{Multicore architecture}
 
 \subsection{Multicore processors}
-In a typical multicore processor, several cores (which are similar to regular processors) work together in the same system \cite[p. 44-50]{mccool_2012_structured_spppfec}. The cores consist of several \textit{functional
-units}, which are the core components that perform arithmetic calculations. These functional units are able to perform multiple calculation
+In a typical multicore processor, several cores (which are similar to regular processors) work together in the
+same system \cite[p. 44-50]{mccool_2012_structured_spppfec}. The cores consist of several \textit{functional units},
+which are the core components that perform arithmetic calculations. These functional units are able to perform multiple calculation
 instructions in parallel if these are not dependent on each other. This is known as \textit{instruction level parallelism}. In the multicore model,
 a hierarchal cache memory architecture is used. The small, fast cache memories closest to the functional units are called \textit{registers}.
 The next caches in the hierarchy are the data and instruction caches which are attached to each core. Subsequent, higher level caches that follow
@@ -16,6 +17,8 @@ cores may read from another core that has the requested data cached. In a proces
 of several protocols. The effect that these different means of communication between processors has on performance in
 multicore programs should not be ignored.
 
+\section{Parallel shared memory programming}
+
 \subsection{Processes vs threads}
 While both threads and processes represent contexts in which a program is run, they have a few differences. A thread is run inside
 a process, and the threads within the process share memory and state with each other and the parent
@@ -23,8 +26,6 @@ process \cite{singh_2013_parallel_padpwprfmm}. Individual processes do not share
 communication between processes must be done with message passing rather than with shared memory. Consequently, communication
 between threads is generally faster than between processes.
 Typically, different threads can be scheduled on different cores, which is also true for different processes.
-
-\section{Parallel shared memory programming}
 
 \subsection{Data parallelism}
 Data parallelism denotes code where the parallelism comes from decomposing the data and running it with the same piece of code
@@ -112,7 +113,8 @@ An example of a task DAG can be found in figure \ref{fig:dag_example}.
   \centering
   \includegraphics[width=120mm]{figures/task_dag_example.pdf}
   \caption[Example of work-span model task DAG]{An example of a task DAG used in the work-span model. Assuming each task takes
-    time 1 to complete, this DAG has a \textit{work} of 9 and a \textit{span} of 5.}
+    time 1 to complete, this DAG has a \textit{work} ($T_1$) of 9 and a \textit{span} ($T_\infty$) of 5. The upper bound for
+    parallel speedup for this dag is $\frac{9}{5} = 1.8$.}
   \label{fig:dag_example}
 \end{figure}
 
