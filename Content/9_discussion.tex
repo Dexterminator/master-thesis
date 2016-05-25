@@ -28,11 +28,11 @@ that a large price in memory usage is paid for paralellization, which may impact
 worker numbers.
 
 \subsection{Dataset 4}
-With the even larger dataset 4, even greater speedup can be observed. Once again, the trend of greater parallelization gains for larger
+With the even larger dataset 4, another increase in speedup can be observed. Once again, the trend of greater parallelization gains for larger
 dataset sizes holds. Interestingly, speedup increases slightly even past 8 workers, though it flattens out around 12 workers.
 Though the program is largely CPU bound, the reason for the increase when using a number of workers greater than the number of cores may be
 greater CPU utilization when waiting for I/O when extra workers are added, as the chance of finding a worker with CPU bound work to do increases. 
-Real time standard deviation follows the same, stable trend also for dataset 4.  Memory usage when parallelizing this significantly larger dataset,
+Real time standard deviation follows the same, stable trend also for dataset 4. Memory usage when parallelizing this significantly larger dataset,
 ranging between 5 GB and 7 GB for the worker values with the greatest speedup.
 
 \subsection{General benchmark trends}
@@ -48,3 +48,9 @@ base memory footprint of the process. This means that data is duplicated across 
 In general, larger datasets show greater speedup than smaller datasets. As mentioned in the indidual dataset discussions, the reason for this
 is feasably that parallelization overhead and worker startup time becomes less significant as the row processing step takes up a larger portion
 of the execution time.
+
+Compared to the performance calculations in chapter \ref{evaluation}, the speedup may seem disappointing. The reasons for this are likely
+manifold. The overhead of synchronization and \code{multiprocessing} process creation are not taken into account in any of the performance models,
+and may contribute to the smaller than expected speedup. Furthermore, as previously mentioned, each worker has to restart the connections to MySQL
+and Cassandra and also have to cache column mappings individually as \code{multiprocessing} does not allow for shared memory. Finally, the
+post processing step of making trade ID:s unique adds a significant sequential term to the transformation program.
