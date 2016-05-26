@@ -26,10 +26,11 @@
 \usepackage[dvipsnames]{xcolor}
 
 \usepackage{fancyvrb}
+\fvset{frame=single,framesep=1mm,fontfamily=courier,fontsize=\tiny,framerule=.3mm,numbersep=1mm,commandchars=\\\{\}}
 
 % redefine \VerbatimInput
 \RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
-{fontsize=\footnotesize,
+{
  %
  frame=lines,  % top and bottom rule only
  framesep=2em, % separation between frame and text

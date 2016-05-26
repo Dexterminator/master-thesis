@@ -16,6 +16,14 @@ employed in order to ensure high availability, with data replicated across the n
 \section{Performance analysis tools}
 \subsection{cProfile}
 A Python profiler with a relatively low overhead, which can be invoked both directly in a Python program and form the command line \cite{26_2tppp2d}.
+An example of the way cProfile is used in this thesis can be found in figure \ref{fig:profiler_example}.
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/profile_example.py}
+  \caption{\code{cProfile} usage example.}
+  \label{fig:profiler_example}
+\end{figure}
 
 \subsection{resource}
 \code{resource} is a Python module used for measuring resources used by a Python program \cite{36_3rruip2d}. It can be used for finding the user time, system time,
@@ -166,10 +174,18 @@ Function calls with very low cumulative time have been omitted. In the profiling
 including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls \cite{26_2tppp2d}.
 
 \begin{figure}[ht]
-  \lstinputlisting[basicstyle=\tiny]{figures/profiling_17_may_short.txt}
-  \caption{Sequential program \code{cProfile} output}
+  \begin{VerbatimInput}{figures/profiling_17_may_short.txt}
+    \caption[Sequential program \code{cProfile} output.]{Sequential program \code{cProfile} output. The most interesting functions (\code{process},
+    \code{process\_record}, \code{post\_process\_record}, \code{consume\_record}, and \code{prepare}) are highlighted in green.}
   \label{fig:sequential_profiler}
+\end{VerbatimInput}
 \end{figure}
+
+%\begin{figure}[ht]
+%  \lstinputlisting[basicstyle=\tiny]{figures/profiling_17_may_short.txt}
+%  \caption{Sequential program \code{cProfile} output}
+%  \label{fig:sequential_profiler}
+%\end{figure}
 
 From the profiling information above, it is clear that some function calls take significantly more time than others, and are therefore
 interesting targets for parallelization analysis. The \code{process} method is the one that launches the main pipeline that applies all
