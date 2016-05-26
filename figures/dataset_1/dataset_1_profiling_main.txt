@@ -1,0 +1,24 @@
+         168902 function calls (163541 primitive calls) in 2.540 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    2.540    2.540 importer.py:433(verify)
+        1    0.000    0.000    2.507    2.507 importer.py:399(_do_verify)
+        1    0.000    0.000    2.492    2.492 verifier.py:441(verify)
+        1    0.000    0.000    2.312    2.312 verifier.py:546(do_verify_parallel)
+        \textbf{\textcolor{Green}{1    0.000    0.000    1.789    1.789 verifier.py:565(aggregate_result)}}
+       16    0.000    0.000    1.786    0.112 queues.py:113(get)
+       16    1.783    0.111    1.786    0.112 {method 'recv' of '_multiprocessing.Connection' objects}
+        \textbf{\textcolor{Green}{1    0.000    0.000    0.294    0.294 verifier.py:611(perform_header_detection)}}
+       62    0.000    0.000    0.284    0.005 TBinaryProtocol.py:125(readMessageBegin)
+      186    0.000    0.000    0.284    0.002 TBinaryProtocol.py:205(readI32)
+  372/248    0.001    0.000    0.284    0.001 TTransport.py:54(readAll)
+      248    0.001    0.000    0.283    0.001 TTransport.py:271(read)
+       62    0.000    0.000    0.282    0.005 TTransport.py:279(readFrame)
+      127    0.001    0.000    0.281    0.002 TSocket.py:103(read)
+      127    0.280    0.002    0.280    0.002 {method 'recv' of '_socket.socket' objects}
+       17    0.000    0.000    0.245    0.014 cassandradataset.py:320(open)
+        1    0.000    0.000    0.210    0.210 pipeline.py:806(process)
+        3    0.000    0.000    0.202    0.067 models.py:694(__iter__)
+        1    0.000    0.000    0.199    0.199 parallel_post_process.py:8(post_process_parallel)

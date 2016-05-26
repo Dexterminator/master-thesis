@@ -1,0 +1,29 @@
+         11047815 function calls (10958607 primitive calls) in 30.103 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   30.050   30.050 verifier_parallel.py:61(start_pipeline)
+        1    0.000    0.000   28.908   28.908 verifier_parallel.py:117(process)
+        1    0.000    0.000   28.803   28.803 verifier_parallel.py:148(pipeline_process)
+        \textbf{\textcolor{Green}{1    1.637    1.637   28.802   28.802 pipeline.py:806(process)}}
+  279/274    0.115    0.000    8.349    0.030 query.py:972(_fetch_all)
+   \textbf{\textcolor{Green}{157463    0.247    0.000    7.804    0.000 pipeline.py:834(process_record)}}
+    \textbf{\textcolor{Green}{11884    0.032    0.000    7.440    0.001 pipeline.py:838(post_process_record)}}
+  117/114    0.000    0.000    7.389    0.065 query.py:147(__iter__)
+    48948    0.166    0.000    7.132    0.000 query.py:229(iterator)
+        \textbf{\textcolor{Green}{1    0.000    0.000    6.648    6.648 pipeline.py:794(_prepare)}}
+        1    0.001    0.001    6.635    6.635 post_process.py:45(prepare)
+        1    0.000    0.000    6.539    6.539 post_process.py:664(build_underlying_lookup_dicts)
+   145579    0.734    0.000    6.455    0.000 mappings.py:570(process_record)
+        1    0.252    0.252    4.909    4.909 post_process.py:433(add_to_ins_lookup_dicts)
+    48758    0.192    0.000    3.771    0.000 django/db/models/base.py:484(from_db)
+     2971    0.256    0.000    3.742    0.001 post_process.py:119(post_process_record)
+      289    0.003    0.000    3.627    0.013 django/db/backends/utils.py:58(execute)
+      289    0.001    0.000    3.624    0.013 django/db/backends/mysql/base.py:137(execute)
+      289    0.015    0.000    3.623    0.013 MySQLdb/cursors.py:141(execute)
+      289    0.001    0.000    3.597    0.012 MySQLdb/cursors.py:326(_query)
+    48764    2.317    0.000    3.581    0.000 base.py:388(__init__)
+      217    0.003    0.000    3.445    0.016 compiler.py:814(execute_sql)
+     \textbf{\textcolor{Green}{2971    0.027    0.000    2.623    0.001 verifier.py:330(consume_record)}}
+     2971    0.062    0.000    2.535    0.001 verifier.py:268(_write_record)

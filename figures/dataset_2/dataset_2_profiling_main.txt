@@ -1,0 +1,16 @@
+         540012 function calls (533520 primitive calls) in 10.057 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   10.066   10.066 importer.py:433(verify)
+        1    0.000    0.000   10.019   10.019 importer.py:399(_do_verify)
+        1    0.000    0.000   10.002   10.002 verifier.py:441(verify)
+        1    0.000    0.000    9.827    9.827 verifier.py:546(do_verify_parallel)
+        \textbf{\textcolor{Green}{1    0.000    0.000    7.224    7.224 verifier.py:565(aggregate_result)}}
+       16    0.000    0.000    7.219    0.451 multiprocessing/queues.py:113(get)
+       16    7.216    0.451    7.219    0.451 {method 'recv' of '_multiprocessing.Connection' objects}
+       \textbf{\textcolor{Green}{ 1    0.001    0.001    2.260    2.260 parallel_post_process.py:8(post_process_parallel)}}
+        1    0.003    0.003    1.447    1.447 parallel_post_process.py:70(make_unique)
+       32    0.023    0.001    1.439    0.045 parallel_post_process.py:76(write_relation_unique)
+      230    0.001    0.000    0.951    0.004 TBinaryProtocol.py:125(readMessageBegin)

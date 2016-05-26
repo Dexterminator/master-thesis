@@ -1,39 +1,40 @@
-\section{Parallel program profiler analysis}
-After the parallel program implementation, another round of profiling using \code{cProfile} was conducted. This was done on the initial testing laptop,
-with 4 workers, on the same dataset as the first round of profiling. The results from the main process that orchestrates the other processes and aggregates their results can be
-found in \ref{fig:parallel_profiler_main}. The results from two of the workers can be found in figure \ref{fig:parallel_profiler_w1} and figure \ref{fig:parallel_profiler_w2}.
+%\section{Parallel program profiler analysis}
+%After the parallel program implementation, another round of profiling using \code{cProfile} was conducted. This was done on the initial testing laptop,
+%with 4 workers, on the same dataset as the first round of profiling. The results from the main process that orchestrates the other processes and aggregates their results can be
+%found in \ref{fig:parallel_profiler_main}. The results from two of the workers can be found in figure \ref{fig:parallel_profiler_w1} and figure \ref{fig:parallel_profiler_w2}.
+%
+%For the main process, it is apparent that \code{post\_process\_parallel}, the function that makes the trade ID:s unique after the parallel worker processes have finished
+%executing, adds non-negligible overhead. \code{aggregate\_result} contains the code that creates the other processes and waits for these to produce their partial results,
+%aggregating them as they are produced. This code takes up 84\% of the total time, while the remaining 16\% of the code is effectively overhead.
+%In addtion, as mentioned in section \ref{section:sequential_profiler} as a possibility, \code{\_prepare} is called for each
+%worker process, resulting in extra overhead. It is conceivable that these sources of overhead are less noticable when processing a larger dataset, as the effects of
+%the functions that are called only one time take up a smaller amount of the total running time if the dataset contains a larger number of rows.
+%
+%For the worker processes, the results are similar to the results from profiling the sequential program in section \ref{section:sequential_profiler}, but with lower
+%\code{cumtime} values. This is expected due to the lower number of rows per worker. The same functions as in the sequential program are responsible for the largest
+%portion of the running time, \code{process\_record}, \code{post\_process\_record}, \code{consume\_record}, and \code{\_prepare}.
+%
+%\begin{figure}[ht]
+  %\lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_main.txt}
+  %\caption{Main process in parallel program \code{cProfile} output}
+  %\label{fig:parallel_profiler_main}
+%\end{figure}
+%\clearpage
+%
+%\begin{figure}[ht]
+  %\lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_31147.txt}
+  %\caption{Worker 1 in parallel program \code{cProfile} output}
+  %\label{fig:parallel_profiler_w1}
+%\end{figure}
+%\clearpage
 
-For the main process, it is apparent that \code{post\_process\_parallel}, the function that makes the trade ID:s unique after the parallel worker processes have finished
-executing, adds non-negligible overhead. \code{aggregate\_result} contains the code that creates the other processes and waits for these to produce their partial results,
-aggregating them as they are produced. This code takes up 84\% of the total time, while the remaining 16\% of the code is effectively overhead.
-In addtion, as mentioned in section \ref{section:sequential_profiler} as a possibility, \code{\_prepare} is called for each
-worker process, resulting in extra overhead. It is conceivable that these sources of overhead are less noticable when processing a larger dataset, as the effects of
-the functions that are called only one time take up a smaller amount of the total running time if the dataset contains a larger number of rows.
+%\begin{figure}[ht]
+  %\lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_31148.txt}
+  %\caption{Worker 2 in parallel program \code{cProfile} output}
+  %\label{fig:parallel_profiler_w2}
+%\end{figure}
+%\clearpage
 
-For the worker processes, the results are similar to the results from profiling the sequential program in section \ref{section:sequential_profiler}, but with lower
-\code{cumtime} values. This is expected due to the lower number of rows per worker. The same functions as in the sequential program are responsible for the largest
-portion of the running time, \code{process\_record}, \code{post\_process\_record}, \code{consume\_record}, and \code{\_prepare}.
-
-\begin{figure}[ht]
-  \lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_main.txt}
-  \caption{Main process in parallel program \code{cProfile} output}
-  \label{fig:parallel_profiler_main}
-\end{figure}
-\clearpage
-
-\begin{figure}[ht]
-  \lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_31147.txt}
-  \caption{Worker 1 in parallel program \code{cProfile} output}
-  \label{fig:parallel_profiler_w1}
-\end{figure}
-\clearpage
-
-\begin{figure}[ht]
-  \lstinputlisting[basicstyle=\tiny]{figures/profiling_parallel_19_may_31148.txt}
-  \caption{Worker 2 in parallel program \code{cProfile} output}
-  \label{fig:parallel_profiler_w2}
-\end{figure}
-\clearpage
 
 \section{Transformation benchmarks}
 The benchmarks for the experiments are outlined below. For each dataset, the results consist of a table containing
@@ -291,3 +292,67 @@ up to about 8.8 GB for 16 workers.
   \label{fig:dataset_4_memory}
 \end{figure}
 
+
+\section{Parallel profiler analysis}
+For each dataset, a profiling session of the parallel program was conducted. The same hardware as for the benchmarks was used, and
+the profiling was done for a transformation run with 8 workers.
+
+\subsection{Tiny}
+The parallel program \code{cProfile} output for the tiny dataset can be found in figure \ref{fig:profiler_tiny_main} (main process) and figure \ref{fig:profiler_tiny_worker} (worker process). Functions
+with low cumulative time have been omitted.
+
+\begin{figure}[ht]
+  \begin{VerbatimInput}{figures/dataset_1/dataset_1_profiling_main.txt}
+    \caption[Parallel program \code{cProfile} output for the main process of the tiny dataset.]{Parallel program \code{cProfile} output for the main process of the tiny dataset.
+    The most interesting functions (\code{aggregate\_result} and \code{perform\_header\_detection}) are highlighted in green.}
+  \label{fig:profiler_tiny_main}
+\end{VerbatimInput}
+\end{figure}
+
+\begin{figure}[ht]
+  \begin{VerbatimInput}{figures/dataset_1/dataset_1_profiling_worker.txt}
+    \caption[Parallel program \code{cProfile} output for a worker process of the tiny dataset.]{Parallel program \code{cProfile} output for a worker process of the tiny dataset.
+    The most interesting functions (\code{process}, \code{\_fetch\_all}, and \code{readMessageBegin}) are highlighted in green.}
+  \label{fig:profiler_tiny_worker}
+\end{VerbatimInput}
+\end{figure}
+
+\subsection{Small}
+The parallel program \code{cProfile} output for the small dataset can be found in figure \ref{fig:profiler_small_main} (main process) and figure \ref{fig:profiler_small_worker}
+(worker process). Functions with low cumulative time have been omitted.
+
+\begin{figure}[ht]
+  \begin{VerbatimInput}{figures/dataset_2/dataset_2_profiling_main.txt}
+    \caption[Parallel program \code{cProfile} output for the main process of the small dataset.]{Parallel program \code{cProfile} output for the main process of the small dataset.
+    The most interesting functions (\code{aggregate\_result} and \code{perform\_header\_detection}) are highlighted in green.}
+  \label{fig:profiler_small_main}
+\end{VerbatimInput}
+\end{figure}
+
+\begin{figure}[ht]
+  \begin{VerbatimInput}{figures/dataset_2/dataset_2_profiling_worker.txt}
+    \caption[Parallel program \code{cProfile} output for a worker process of the small dataset.]{Parallel program \code{cProfile} output for a worker process of the small dataset.
+    The most interesting functions (\code{process}, \code{process\_record}, \code{post\_process\_record}, \code{\_prepare}, and \code{consume\_record}) are highlighted in green.}
+  \label{fig:profiler_small_worker}
+\end{VerbatimInput}
+\end{figure}
+
+\subsection{Medium}
+The parallel program \code{cProfile} output for the medium dataset can be found in figure \ref{fig:profiler_medium_main} (main process) and figure \ref{fig:profiler_medium_worker}
+(worker process). Functions with low cumulative time have been omitted.
+
+\begin{figure}[ht]
+  \begin{VerbatimInput}{figures/dataset_3/dataset_3_profiling_main.txt}
+    \caption[Parallel program \code{cProfile} output for the main process of the medium dataset.]{Parallel program \code{cProfile} output for the main process of the medium dataset.
+    The most interesting functions (\code{aggregate\_result} and \code{perform\_header\_detection}) are highlighted in green.}
+  \label{fig:profiler_medium_main}
+\end{VerbatimInput}
+\end{figure}
+
+\begin{figure}[ht]
+  \begin{VerbatimInput}{figures/dataset_3/dataset_3_profiling_worker.txt}
+    \caption[Parallel program \code{cProfile} output for a worker process of the medium dataset.]{Parallel program \code{cProfile} output for a worker process of the medium dataset.
+    The most interesting functions (\code{process}, \code{\_fetch\_all}, \code{post\_process\_record}, \code{consume\_record}, and \code{process\_record}) are highlighted in green.}
+  \label{fig:profiler_medium_worker}
+\end{VerbatimInput}
+\end{figure}

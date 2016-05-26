@@ -1,0 +1,26 @@
+         208905 function calls (204849 primitive calls) in 1.447 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    1.389    1.389 verifier_parallel.py:61(start_pipeline)
+        1    0.000    0.000    1.226    1.226 verifier_parallel.py:117(process)
+        1    0.000    0.000    1.198    1.198 verifier_parallel.py:148(pipeline_process)
+        \textbf{\textcolor{Green}{1    0.007    0.007    1.176    1.176 pipeline.py:806(process)}}
+       \textbf{\textcolor{Green}{16    0.000    0.000    0.624    0.039 TBinaryProtocol.py:125(readMessageBegin)}}
+        2    0.000    0.000    0.473    0.236 models.py:701(get_rows)
+        2    0.000    0.000    0.473    0.236 models.py:688(get_ds_manager)
+        2    0.000    0.000    0.472    0.236 cassandradataset.py:320(open)
+  173/168    0.002    0.000    0.449    0.003 django/db/models/query.py:972(_fetch_all)
+      100    0.001    0.000    0.306    0.003 django/db/models/sql/compiler.py:814(execute_sql)
+      991    0.005    0.000    0.300    0.000 django/db/models/query.py:229(iterator)
+       \textbf{\textcolor{Green}{13    0.000    0.000    0.254    0.020 verifier.py:330(consume_record)}}
+       13    0.000    0.000    0.254    0.020 verifier.py:268(_write_record)
+       52    0.000    0.000    0.202    0.004 pipeline.py:838(post_process_record)
+      102    0.001    0.000    0.195    0.002 MySQLdb/cursors.py:288(_do_query)
+      102    0.188    0.002    0.188    0.002 {method 'query' of '_mysql.connection' objects}
+   102/99    0.000    0.000    0.187    0.002 query.py:147(__iter__)
+      237    0.001    0.000    0.157    0.001 translation_manager.py:68(hooked)
+      \textbf{\textcolor{Green}{650    0.001    0.000    0.157    0.000 pipeline.py:834(process_record)}}
+        1    0.000    0.000    0.157    0.157 verifier_parallel.py:82(build_pipeline)
+        1    0.000    0.000    0.152    0.152 cassandradataset.py:323(create)

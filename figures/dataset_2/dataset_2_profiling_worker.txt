@@ -1,0 +1,23 @@
+         1718055 function calls (1701979 primitive calls) in 6.942 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    6.886    6.886 verifier_parallel.py:61(start_pipeline)
+        1    0.000    0.000    5.868    5.868 verifier_parallel.py:117(process)
+        1    0.000    0.000    5.730    5.730 verifier_parallel.py:148(pipeline_process)
+        \textbf{\textcolor{Green}{1    0.201    0.201    5.729    5.729 pipeline.py:806(process)}}
+  \textbf{\textcolor{Green}{581/576    0.055    0.000    2.621    0.005 query.py:972(_fetch_all)}}
+     \textbf{\textcolor{Green}{1448    0.004    0.000    2.314    0.002 pipeline.py:838(post_process_record)}}
+      444    0.005    0.000    2.122    0.005 compiler.py:814(execute_sql)
+  350/347    0.001    0.000    2.017    0.006 query.py:147(__iter__)
+      472    0.004    0.000    1.846    0.004 utils.py:58(execute)
+      472    0.001    0.000    1.842    0.004 base.py:137(execute)
+      472    0.007    0.000    1.840    0.004 MySQLdb/cursors.py:141(execute)
+      472    0.001    0.000    1.819    0.004 MySQLdb/cursors.py:326(_query)
+     1918    0.017    0.000    1.583    0.001 query.py:229(iterator)
+      \textbf{\textcolor{Green}{362    0.004    0.000    1.478    0.004 verifier.py:330(consume_record)}}
+      516    0.010    0.000    1.464    0.003 verifier.py:268(_write_record)
+       52    0.000    0.000    1.445    0.028 TBinaryProtocol.py:125(readMessageBegin)
+        1    0.000    0.000    1.014    1.014 verifier_parallel.py:82(build_pipeline)
+    \textbf{\textcolor{Green}{19548    0.028    0.000    1.002    0.000 pipeline.py:834(process_record)}}
