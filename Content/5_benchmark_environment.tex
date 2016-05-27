@@ -15,35 +15,26 @@ most common (since making trade ID:s unique is a useful feature). They also give
 both the worst case (apart from inherently serial file formats) and the common case. Another reason why this set of datasets was chosen is their differing sizes,
 with potentially differing parallelization benefits.
 
-The characteristics of the test datasets are outlined below.
+The characteristics of the test datasets are outlined in figure \ref{fig:test_datasets}.
 
-\subsection{Tiny}
-\begin{itemize}
-  \item \textbf{Rows:} 102
-  \item \textbf{Columns:} 46
-  \item \textbf{File format family:} Extra overhead
-\end{itemize}
-
-\subsection{Small}
-\begin{itemize}
-  \item \textbf{Rows:} 2,890
-  \item \textbf{Columns:} 46
-  \item \textbf{File format family:} Extra overhead
-\end{itemize}
-
-\subsection{Medium}
-\begin{itemize}
-  \item \textbf{Rows:} 23,763
-  \item \textbf{Columns:} 46
-  \item \textbf{File format family:} Extra overhead
-\end{itemize}
-
-\subsection{Large}
-\begin{itemize}
-  \item \textbf{Rows:} 338,730
-  \item \textbf{Columns:} 89
-  \item \textbf{File format family:} Extra overhead
-\end{itemize}
+%\subsection{Large}
+%\begin{itemize}
+  %\item \textbf{Rows:} 338,730
+  %\item \textbf{Columns:} 89
+  %\item \textbf{File format family:} Extra overhead
+%\end{itemize}
+\begin{figure}[ht]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Dataset & Rows   & Columns & File format family \\ \hline
+Tiny    & 102    & 46      & Extra overhead     \\ \hline
+Small   & 2,890  & 46      & Extra overhead     \\ \hline
+Medium  & 23,763 & 46      & Extra overhead     \\ \hline
+\end{tabular}
+\label{fig:test_datasets}
+\caption{Test datasets.}
+\end{figure}
 
 \section{Experiments}
 \subsection{Benchmarks}
