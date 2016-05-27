@@ -2,7 +2,7 @@ In this chapter, an introduction to the parallel computing problem domain and th
 described in order to give the reader an initial view of what this thesis entails.
 
 \section{Problem statement}
-\subsection{Dataset standardization}
+\subsection{Dataset standardization} \label{dataset_standardization}
 In financial applications concerning trading, it is common for customers to upload datasets containing several rows
 describing trades, which may be in different formats. One such application is triResolve, an application maintained by
 TriOptima, where this thesis is conducted.
@@ -67,11 +67,6 @@ The thesis question gives rise to the following subquestions:
 \section{Objective}
 The objective of this thesis is to answer the questions stated above using a literature study and by implementing a working parallelization
 of the existing dataset processing program, subsequently analysing transformations of several datasets in order to draw conclusions about performance.
-
-\section{Delimitations}
-The implementation and research in this thesis is limited to the parallelization of an existing program, and no new code for the core problem
-of processing the datasets will be written. Another delimitation of the thesis is that it does not compare different methods of parallelization,
-and uses only the Python \code{multiprocessing} module (chosen with support of related work in the field).
 
 \section{Contribution}
 This thesis focuses on parallelization analysis of a file format rather than the more conventional method of analyzing source code. Additionally,

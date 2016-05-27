@@ -23,21 +23,32 @@ employed in order to ensure high availability, with data replicated across the n
 \section{Performance analysis tools}
 \subsection{cProfile}
 A Python profiler with a relatively low overhead, which can be invoked both directly in a Python program and form the command line \cite{26_2tppp2d}.
-An example of the way cProfile is used in this thesis can be found in figure \ref{fig:profiler_example}.
+An example of the way cProfile is used in this thesis can be found in figure \ref{fig:profiler_example}. The output of a profiling session,
+\code{ncalls} is the number of times the function was called,
+\code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
+including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls.
 
 \begin{figure}[ht]
   \centering
   \pythonexternal{code_examples/profile_example.py}
-  \caption{\code{cProfile} usage example.}
+  \caption[\code{cProfile} usage example.]{\code{cProfile} usage example. In this example, the input function \code{func} is profiled, and the output is printed
+  to the file in \code{file\_path}.}
   \label{fig:profiler_example}
 \end{figure}
 
 \subsection{resource}
 \code{resource} is a Python module used for measuring resources used by a Python program \cite{36_3rruip2d}. It can be used for finding the user time, system time,
-and the maximum memory used by the process.
+and the maximum memory used by the process. An example of how to use \code{resource} can be found in figure \ref{fig:resource_example}.
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/resource_example.py}
+  \caption[\code{resource} usage example.]{\code{resource} usage example. In this example, the memory usage, user time, and system time after executing \code{func} is printed.}
+  \label{fig:resource_example}
+\end{figure}
 
 \section{Trade files and datasets}
-As mentioned briefly in section \ref{trioptima}, users of the triResolve service upload \textit{trade files}, which contain one or several datasets with
+As mentioned briefly in section \ref{dataset_standardization}, users of the triResolve service upload \textit{trade files}, which contain one or several datasets with
 rows of trade data such as party id, counterparty id, trade id, notional, and so on. An example of a trade dataset (with some columns omitted) can be seen in figure
 \ref{fig:data_set_example}.
 
@@ -180,9 +191,7 @@ A simplified overview of the sequential program can be found in figure \ref{fig:
 \section{Sequential program profiler analysis} \label{section:sequential_profiler}
 The result of running \code{cProfile} on the sequential transformation program can be found in figure \ref{fig:sequential_profiler}. The dataset used had
 27877 rows, 46 columns, and belonged to the extra overhead file format family.
-Function calls with very low cumulative time have been omitted. In the profiling result, \code{ncalls} is the number of times the function was called,
-\code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
-including its subfunctions, and \code{percall} is the quotient of \code{cumtime} divided by primitive calls \cite{26_2tppp2d}.
+Function calls with very low cumulative time have been omitted. 
 
 \begin{figure}[ht]
   \begin{VerbatimInput}{figures/profiling_17_may_short.txt}
