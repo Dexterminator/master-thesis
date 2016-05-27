@@ -36,6 +36,7 @@
 %\clearpage
 
 
+The results of the benchmarking and profiling experiments are outlined in this chapter.
 \section{Transformation benchmarks}
 The benchmarks for the experiments are outlined below. For each dataset, the results consist of a table containing
 speedup, real time, user time, system time, and memory usage for each worker number. The standard deviation is represented
@@ -411,6 +412,36 @@ For the medium dataset, the post processing adds 7\% overhead. Subtracting 7\% p
 
 from 19.94 s to 18.54 s. This means the speedup goes from 3.76X to 4.04X.
 
-\section{Targeted memory profiling}
+\section{Targeted memory profiling} \label{targeted_memory_profiling}
 In order to find the source of memory overhead, a simple targeted memory profiling was conducted by finding (using \code{resource}) and
 printing the current highest memory usage before and after some of the major functions in the program.
+
+The targeted memory profiling for one of the worker processes in the medium dataset can be found in figure \ref{fig:target_profiler_medium}.
+This profiling shows that the function \\ \code{build\_underlying\_lookup\_dicts} is responsible for a clear majority of the memory usage.
+The function caches several mappings from the database in order to avoid round trips to the database every time one of these mappings is needed.
+
+\begin{figure}[ht]
+\begin{Verbatim}[fontsize=\tiny]
+80995: Memory usage before filter.prepare for ServiceMapping: 19.193856
+80995: Memory usage after filter.prepare for ServiceMapping: 19.193856
+\textbf{\textcolor{Green}{80995: Memory usage before filter.prepare for PostProcessFilter: 19.197952}}
+\textbf{\textcolor{Green}{80995: Memory usage before build_underlying_lookup_dicts: 20.779008}}
+\textbf{\textcolor{Green}{80995: Memory usage after build_underlying_lookup_dicts: 321.376256}}
+\textbf{\textcolor{Green}{80995: Memory usage after filter.prepare for PostProcessFilter: 321.376256}}
+80995: Memory usage before filter.prepare for VerificationFilter: 321.376256
+80995: Memory usage after filter.prepare for VerificationFilter: 321.376256
+80995: Memory usage before filter.prepare for DeactivatedPartiesFilter: 321.376256
+80995: Memory usage after filter.prepare for DeactivatedPartiesFilter: 321.376256
+80995: Memory usage before filter.prepare for StatisticsCollectorFilter: 321.376256
+80995: Memory usage after filter.prepare for StatisticsCollectorFilter: 321.376256
+80995: Memory usage after prepare filters: 321.376256
+80995: Memory usage after _prepare: 321.376256
+80995: Memory usage after pipeline.process: 345.112576
+\end{Verbatim}
+\caption[Targeted memory profiling for the medium dataset]{Targeted profiling for the medium dataset. The interesting rows are highlighted in green.
+The number at the start of each row is the process id.
+This profiling shows that the
+function \code{build\_underlying\_lookup\_dicts} is responsible for a clear majority of the memory usage. The function caches several mappings
+from the database in order to avoid round trips to the database every time one of these mappings is needed.}
+\label{fig:target_profiler_medium}
+\end{figure}

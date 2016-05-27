@@ -1,3 +1,6 @@
+The results in the previous chapter are discussed below, in an effort to explain them. In addition, final conclusions
+about the thesis as a whole are drawn.
+
 \section{Dataset benchmarks discussion}
 \subsection{Tiny dataset discussion}
 Dataset 1, with comparatively few rows, shows poor results when parallelizing. For every worker number, only slowdown can be observed.
@@ -62,12 +65,20 @@ In general, user time increases significantly with added workers, as is expected
 fact that memory usage increases linearly with worker number, this indicates that a noteworthy amount of system resources is required 
 for parallelization as dataset sizes and number of workers grow large.
 
-The fact that memory usage increases as workers are added (though the overall problem size stays the same)
-can conceivably be explained by the fact that the \code{multiprocessing} module creates separate, entirely
-new processes. For each of these, the filters, mappings and other data relating to the transformation has to be stored in addition to the
-base memory footprint of the process. This means that data is duplicated across the processes, resulting in a net increase in memory usage.
-
 In general, larger datasets show greater speedup than smaller datasets.
+
+\subsection{Memory usage and caching discussion}
+The fact that memory usage increases as workers are added (though the overall problem size stays the same)
+can be explained by the fact that the \code{multiprocessing} module creates separate, entirely
+new processes. For each of these, the filters, mappings and other data relating to the transformation has to be stored in addition to the
+base memory footprint of the process. 
+
+As shown in section \ref{targeted_memory_profiling}, the mappings cached by the post process filter take up a clear majority of the memory,
+and is substantial in size. The cache is in place in order to avoid many round trips to the database in order to get faster execution. However,
+due to the fact that the worker processes cannot share any data when using \code{multiprocessing}, the data is duplicated across the processes,
+resulting in a net increase in memory usage. For larger datasets, this increase in memory usage is very noticable, and therefore a
+significant price to pay for speedup.
+
 %As mentioned in the indidual dataset discussions, the reason for this
 %is feasably that parallelization overhead and worker startup time becomes less significant as the row processing step takes up a larger portion
 %of the execution time.

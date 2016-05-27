@@ -1,3 +1,5 @@
+In this section, the experiments and the hardware used to conduct them are desribed.
+
 \section{Hardware}
 %\subsection{Initial testing laptop}
 %For initial working, testing, and profiling, a laptop computer with several cores was used. The laptop is a MacBook Pro running OSX, with an Intel Core i7 processor and 4 physical cores.
@@ -44,6 +46,7 @@ The characteristics of the test datasets are outlined below.
 \end{itemize}
 
 \section{Experiments}
+\subsection{Benchmarks}
 For each dataset, experiments where run to gather information about time and memory consumption for different configurations.
 The experiments entailed performing a dataset transformation using the parallel program with each number of workers in the range 1 to 2 times the number of cores: 1--16.
 In addition to running the parallel program, a serial transformation was also performed as a reference point.
@@ -55,3 +58,7 @@ points in time.
 In order to provide more accurate results, the experiments where run 10 times for each dataset--worker number configuration. These 10 runs where then used to calculate the
 average value as well as the standard deviation for each metric value. In addition, the speedup was calculated by dividing the sequential execution time with the parallel execution
 time for each worker value.
+
+\subsection{Profiling}
+For each dataset, a single run with 8 workers was profiled using \code{cProfile} in order to find where in the program the most time is spent. This was done in order
+to better understand the benchmark results.

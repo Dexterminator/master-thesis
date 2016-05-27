@@ -1,5 +1,12 @@
+In this section, the problem of dataset transformation is thoroughly described. Initially, technology used in the transformation is decsribed.
+Then, performance analysis tools used to analyse the code and its performance are given an overview. The overall problem and its different parts
+are then individually described, after which an overview of the transformation program is given. After this, a profiling session of the program
+is shown, performance models are used to calculate potential speedup, and a parallelizability analysis is conducted. Finally, the implementation of
+the parallelization is described.
+
 \section{Technology}
 In this section, technologies used in the transformation program that will be mentioned throughout this chapter are briefly described.
+
 
 \subsection{Django}
 Django is a Python web development framework \cite{holovaty_chapter_c1itd}. It implements a version of the MVC (Model-View-Controller) pattern, which decouples request routing, data access, and
@@ -131,6 +138,10 @@ Extracts text from a column using regex, and writes matching groups to other col
 
 \item \textbf{RegExp replace} --
 Replaces column text matching some regex with a specified value.
+
+\item \textbf{Post process} --
+A filter that is active in every file format. Performs final adjustments to the row in a similar manner to the mappings filters, and
+initially caches these mappings in order to avoid round trips to the database.
 
 \end{itemize}
 
