@@ -90,6 +90,8 @@ significant price to pay for speedup.
 %post processing step of making trade ID:s unique adds a significant sequential term to the transformation program.
 
 \section{Conclusions}
+
+\subsection{Main conclusions}
 This section outlines the final conclusions drawn from this thesis. \\\\
 
 Using Python \code{multiprocessing} for parallelization resulted in true parallel speedup, but was not without issues.
@@ -123,4 +125,9 @@ which was done by storing encountered ID:s. While storing state in this manner m
 possible to extract the aggregation into a post-processing step. This extra step introduced overhead, but parallel speedup could still be 
 observed for larger datasets. In conclusion, implementers of parallelization should look for aggregation in their system, conclude if this
 can be extracted into a post processing step, and if this post processing step is small enough for parallelization to be beneficial.
+
+\subsection{Delimitations}
+The implementation and research in this thesis is limited to the parallelization of an existing program, and no new code for the core problem
+of processing the datasets will be written. Another delimitation of the thesis is that it does not compare different methods of parallelization,
+and uses only the Python \code{multiprocessing} module (chosen with support of related work in the field).
 

@@ -1,6 +1,26 @@
 In this chapter, an introduction to the parallel computing problem domain and the specific problem of dataset transformation are
 described in order to give the reader an initial view of what this thesis entails.
 
+\section{Problem statement}
+\subsection{Dataset standardization}
+In financial applications concerning trading, it is common for customers to upload datasets containing several rows
+describing trades, which may be in different formats. One such application is triResolve, an application maintained by
+TriOptima, where this thesis is conducted.
+The datasets need to be processed in order to transform them into a standard format which makes comparisons between data from different customers possible. 
+In some cases, the size of the dataset is large enough that this transformation is slow, and could conceivably be sped up through
+the use of parallelization. The sizes are aptly measured in number of rows, and range between 2 rows to about 1490000 rows. The time
+it takes to process the datasets range between 0.06 seconds and 15200 seconds 2 (4.2 hours).
+
+\subsection{Transformation with constraints}
+The datasets are associated with a file format. The format specifies a set of rules, known as filters, which at times enforce
+constraints on the processing order in the file when performing the transformation. These constraints reduce the possible benefits of parallelization as they enforce
+inherently serial parts of the transformation program.  Since the size of the datasets as well as the type and number of their
+associated filters varies, it is plausible that the benefits of parallelization will differ significantly between different datasets.
+An overhead is associated with creating new threads or processes.  This overhead is increased in Python as the data shared between processes needs to serialized.
+Therefore, it is possible that parallelization of datasets will result in slower execution in some cases. Consequently, it is
+interesting to find the combinations of dataset sizes, as well as their filters, that result in beneficial parallelization, and which do not.
+Additionally, the complex nature of the system makes the implementation of the parallelization an interesting problem.
+
 \section{Parallel computing}
 The subject of parallel computing is one that has become highly relevant in recent years.
 Moore's law, the observed pattern that the number of transistors in a dense integrated circuit doubles approximately every two
@@ -21,33 +41,18 @@ parallel programming, although it has caveats and overheads associated with a co
 
 This thesis concerns a combination of the areas mentioned above: parallel computing using Python.
 
-\section{TriOptima} \label{trioptima}
-The thesis is conducted at TriOptima, a company that provides different services for the OTC derivatives market.
-OTC derivatives concern trading directly between two parties, and the customers include large banks. TriOptima’s services
-include portfolio compression, reconciliation, dispute resolution, and risk management. The services deal with substantial
-amounts of data, and face challenges such as high security demands, availability requirements, and speed optimization
-for data transformations and risk calculations. In their reconciliation and dispute resolution service,
-triResolve, customers upload datasets representing trades. 
+%\section{Dataset transfromation} \label{trioptima}
+%The thesis is conducted at TriOptima, a company that provides different services for the OTC derivatives market.
+%In one of TriOptima's services, customers upload datasets representing trades.
+%OTC derivatives concern trading directly between two parties, and the customers include large banks. TriOptima’s services
+%include portfolio compression, reconciliation, dispute resolution, and risk management. The services deal with substantial
+%amounts of data, and face challenges such as high security demands, availability requirements, and speed optimization
+%for data transformations and risk calculations. In their reconciliation and dispute resolution service,
 
-\section{Problem statement}
-\subsection{Dataset standardization}
-The datasets mentioned in the previous section need to be processed in order to transform them into a standard format
-which makes comparisons between data from different customers possible. 
-In some cases, the size of the dataset is large enough that this transformation is slow, and could conceivably be sped up through
-the use of parallelization. The sizes are aptly measured in number of rows, and range between 2 rows to about 1490000 rows. The time
-it takes to process the datasets range between 0.06 seconds and 15200 seconds 2 (4.2 hours).
 
-\subsection{Transformation with constraints}
-The datasets are associated with a file format. The format specifies a set of rules, known as filters, which at times enforce
-constraints on the processing order in the file when performing the transformation. These constraints reduce the possible benefits of parallelization as they enforce
-inherently serial parts of the transformation program.  Since the size of the datasets as well as the type and number of their
-associated filters varies, it is plausible that the benefits of parallelization will differ significantly between different datasets.
-An overhead is associated with creating new threads or processes.  This overhead is increased in Python as the data shared between processes needs to serialized.
-Therefore, it is possible that parallelization of datasets will result in slower execution in some cases. Consequently, it is
-interesting to find the combinations of dataset sizes, as well as their filters, that result in beneficial parallelization, and which do not.
-Additionally, the complex nature of the system makes the implementation of the parallelization an interesting problem.
+\section{Motivation}
+The motivation of this thesis is to answer the following questions.
 
-\section{Research question}
 \emph{Given the size of a dataset and its set of filters, is is possible to the determine 
 if parallelization of the data transformation using Python will be beneficial or not?}
 
