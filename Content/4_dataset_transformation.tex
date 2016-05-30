@@ -92,7 +92,38 @@ In addition, a row in the MySQL database consisting of metadata relating to the 
 
 \section{Transformation with constraints}
 \subsection{Filter list}
-All filters used to transform a dataset into a verification result are outlined below.
+All filters used to transform a dataset into a verification result are outlined below. The code for the base Filter can be found in figure \ref{fig:code_filter}.
+Simplified code for \textit{Null translation}, \textit{Global variable}, and \textit{Regexp extract} are provided in figure \ref{fig:code_null},
+\ref{fig:code_global}, and \ref{fig:code_regex}, in order to give the reader an understanding of how the filters are implemented.
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/filter.py}
+  \caption{The base \code{Filter} implementation.}
+  \label{fig:code_filter}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/null_translation.py}
+  \caption{Null translation filter implementation.}
+  \label{fig:code_null}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/global_variable.py}
+  \caption{Global variable filter implementation.}
+  \label{fig:code_global}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \pythonexternal{code_examples/regex.py}
+  \caption{Regexp extract filter implementation}
+  \label{fig:code_regex}
+\end{figure}
+
 
 \begin{itemize}
 \item \textbf{Header detection} --
@@ -125,8 +156,8 @@ If the currency that is supposed to be used in a relation (a party and a counter
 filter retrieves this information.
 
 \item \textbf{Global variable} --
-A global variable filter writes a value to a variable that is accessible by subsequent filters on the same row, and by all filters on the rest of the rows in the data
-set. A global variable can be written several times throughout the processing of a dataset.
+A global variable filter initiates a variable that is accessible by subsequent filters on the same row, and by all filters on the rest of the rows in the data
+set. A global variable can be written several times throughout the processing of a dataset. The variable may then be set by the \textit{Set value} filter.
 
 \item \textbf{State variable} --
 A state variable is similar to a global variable, but is always written to before all other processing of the dataset begins.
@@ -155,10 +186,10 @@ When a customer has uploaded a trade file on behalf of another customer, this fi
 for the correct customer.
 
 \item \textbf{Set value} --
-Simply sets the value of the output column to the value that is entered.
+Sets the value of an output column or a variable to the value that is entered.
 
 \item \textbf{RegExp extract} --
-Extracts text from a column using regex, and writes matching groups to other columns.
+Extracts text from a column using regex, and writes matching groups to other columns or variables.
 
 \item \textbf{RegExp replace} --
 Replaces column text matching some regex with a specified value.
