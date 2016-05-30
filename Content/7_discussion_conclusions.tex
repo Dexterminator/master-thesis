@@ -90,10 +90,9 @@ significant price to pay for speedup.
 %post processing step of making trade ID:s unique adds a significant sequential term to the transformation program.
 
 \section{Conclusions}
+This section outlines the final conclusions drawn from this thesis.
 
 \subsection{Main conclusions}
-This section outlines the final conclusions drawn from this thesis. \\\\
-
 Using Python \code{multiprocessing} for parallelization resulted in true parallel speedup, but was not without issues.
 Sharing data using only message passing results in relatively safe and readable code since excessive sharing of data is avoided.
 However, in the transformation program parallelized in this thesis, the fact that the processing pipeline including column mappings
@@ -128,6 +127,10 @@ can be extracted into a post processing step, and if this post processing step i
 
 \subsection{Delimitations}
 The implementation and research in this thesis is limited to the parallelization of an existing program, and no new code for the core problem
-of processing the datasets will be written. Another delimitation of the thesis is that it does not compare different methods of parallelization,
-and uses only the Python \code{multiprocessing} module (chosen with support of related work in the field).
+of processing the datasets was written. Another delimitation of the thesis is that it does not compare different methods of parallelization,
+and uses only the Python \code{multiprocessing} module.
 
+\subsection{Future work}
+This thesis focused on parallelization on a single computer. Since \code{multiprocessing} uses a message passing approach with serialized data,
+it is conceivable that a future work in a distributed approach is interesting for the dataset transformation problem for larger datasets. Also,
+conducting experiments on even larger datasets may be of value as the trend points to greater speedup the larger the dataset.
