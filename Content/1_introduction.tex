@@ -1,25 +1,41 @@
 In this chapter, an introduction to the parallel computing problem domain and the specific problem of dataset transformation are
 described in order to give the reader an initial view of what this thesis entails.
 
-\section{Problem statement}
-\subsection{Dataset standardization} \label{dataset_standardization}
-In financial applications concerning trading, it is common for customers to upload datasets containing several rows
-describing trades, which may be in different formats. One such application is triResolve, an application maintained by
-TriOptima, where this thesis is conducted.
-The datasets need to be processed in order to transform them into a standard format which makes comparisons between data from different customers possible. 
-In some cases, the size of the dataset is large enough that this transformation is slow, and could conceivably be sped up through
-the use of parallelization. The sizes are aptly measured in number of rows, and range between 2 rows to about 1490000 rows. The time
-it takes to process the datasets range between 0.06 seconds and 15200 seconds 2 (4.2 hours).
+\section{Dataset transformation} \label{dataset_standardization}
+In financial applications concerning trading, it is common for customers to upload datasets containing several rows describing trades, which may be in different formats.
+One such application is triResolve, an application maintained by TriOptima, where this thesis is conducted.  In triResolve, customers resolve trade disputes in the
+OTC derivatives market, which may arise due to for example differences in valuation methods. The triResolve service is built in Python, To be able to resolve
+the trade disputes, customers upload the previously mentioned datasets to the service.
 
-\subsection{Transformation with constraints}
+The datasets need to be processed in order to transform them into a standard format which makes comparisons between data from different customers possible.
+In some cases, the size of the dataset is large enough that this transformation is slow. Out of the possible techniques for optimizing the transformation code,
+this thesis will focus on parallelization. Since Python is the language used in triResolve, the parallelization of the existing program will be implemented using
+parallel programming tools available in the language. 
+
+When parallelizing a program, the workload is divided amongst multiple cores of a system, which execute the program in parallel.
+For the dataset transformation problem, this means dividing the dataset, conceivably into chunks of rows, and performing the transformation of each of these chunks
+on separate cores.
+
+This thesis present the challenges associated with this parallelization problem, and how to solve them.
+
+%In some cases, the size of the dataset is large enough that this transformation is slow, and could conceivably be sped up through
+%the use of parallelization. The sizes are aptly measured in number of rows, and range between 2 rows to about 1490000 rows. The time
+%it takes to process the datasets range between 0.06 seconds and 15200 seconds 2 (4.2 hours).
+
+%\subsection{Transformation with constraints}
 The datasets are associated with a file format. The format specifies a set of rules, known as filters, which at times enforce
-constraints on the processing order in the file when performing the transformation. These constraints reduce the possible benefits of parallelization as they enforce
-inherently serial parts of the transformation program.  Since the size of the datasets as well as the type and number of their
-associated filters varies, it is plausible that the benefits of parallelization will differ significantly between different datasets.
-An overhead is associated with creating new threads or processes.  This overhead is increased in Python as the data shared between processes needs to serialized.
-Therefore, it is possible that parallelization of datasets will result in slower execution in some cases. Consequently, it is
-interesting to find the combinations of dataset sizes, as well as their filters, that result in beneficial parallelization, and which do not.
-Additionally, the complex nature of the system makes the implementation of the parallelization an interesting problem.
+implicit constraints on the processing order in the file when performing the transformation. This thesis aims to identify these
+constraints, which may affect how parallelizable a dataset is, and find a suitable parallelization strategy. Another aim is to identify the impact dataset size has on
+any potential speedup. In addition, the effect that using the Python \code{multiprocessing} module and its process-over-thread with message passing
+approach affects implementation and performance will be investigated.
+
+%reduce the possible benefits of parallelization as they enforce
+%inherently serial parts of the transformation program.  Since the size of the datasets as well as the type and number of their
+%associated filters varies, it is plausible that the benefits of parallelization will differ significantly between different datasets.
+%An overhead is associated with creating new threads or processes.  This overhead is increased in Python as the data shared between processes needs to serialized.
+%Therefore, it is possible that parallelization of datasets will result in slower execution in some cases. Consequently, it is
+%interesting to find the combinations of dataset sizes, as well as their filters, that result in beneficial parallelization, and which do not.
+%Additionally, the complex nature of the system makes the implementation of the parallelization an interesting problem.
 
 \section{Parallel computing}
 The subject of parallel computing is one that has become highly relevant in recent years.
@@ -48,7 +64,6 @@ This thesis concerns a combination of the areas mentioned above: parallel comput
 %include portfolio compression, reconciliation, dispute resolution, and risk management. The services deal with substantial
 %amounts of data, and face challenges such as high security demands, availability requirements, and speed optimization
 %for data transformations and risk calculations. In their reconciliation and dispute resolution service,
-
 
 \section{Motivation}
 The motivation of this thesis is to answer the following questions.
