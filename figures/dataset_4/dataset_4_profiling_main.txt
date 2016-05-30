@@ -1,0 +1,18 @@
+         11506438 function calls (11444360 primitive calls) in 540.778 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  541.087  541.087 importer.py:433(verify)
+        1    0.000    0.000  541.051  541.051 importer.py:399(_do_verify)
+        1    0.000    0.000  541.035  541.035 verifier.py:441(verify)
+        1    0.007    0.007  540.650  540.650 verifier.py:546(do_verify_parallel)
+        \textbf{\textcolor{Green}{1    0.001    0.001  503.996  503.996 verifier.py:565(aggregate_result)}}
+       16    0.000    0.000  503.910   31.494 multiprocessing/queues.py:113(get)
+       16  503.907   31.494  503.910   31.494 {method 'recv' of '_multiprocessing.Connection' objects}
+        \textbf{\textcolor{Green}{1    0.293    0.293   35.875   35.875 parallel_post_process.py:8(post_process_parallel)}}
+        1    0.005    0.005   35.554   35.554 parallel_post_process.py:26(find_duplicates)
+      599    1.077    0.002   35.498    0.059 parallel_post_process.py:34(update_relation_duplicates)
+   313427    1.485    0.000   18.981    0.000 cassandradataset.py:107(_get_many)
+   312825    1.745    0.000   13.373    0.000 parallel_post_process.py:43(update_duplicates)
+   312825    8.393    0.000    9.825    0.000 cassandradataset.py:123(_convert_record)

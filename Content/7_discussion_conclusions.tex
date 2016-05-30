@@ -3,7 +3,7 @@ about the thesis as a whole are drawn.
 
 \section{Dataset benchmarks discussion}
 \subsection{Tiny dataset discussion}
-Dataset 1, with comparatively few rows, shows poor results when parallelizing. For every worker number, only slowdown can be observed.
+The tiny dataset shows poor results when parallelizing. For every worker number, only slowdown can be observed.
 The real time values for 10 and 12 workers show high standard deviations when comparing with the average value. It is conceivable that
 tasks such as creating processes have a more noticable impact for the low execution time.
 
@@ -19,7 +19,7 @@ A steady, close to linear increase in memory usage can be observed, resulting in
 used for the sequential program.
 
 \subsection{Small dataset discussion}
-For dataset 2, some speedup scaling can be observed, with the maximum value around 2.1. As more workers are added, speedup is increased,
+For the small dataset, some speedup scaling can be observed, with the maximum value around 2.1. As more workers are added, speedup is increased,
 flattening out around 8 workers. This fits with the fact that the testing machine has 8 cores, effectively making it able to utilize 
 true parallelism for a maximum of 8 workers. The impact of adding more workers decreases with each one that is added. In the profiling session
 \code{post\_process\_parallel} is shown to take up a relatively large portion of the execution time (22.5\%). Since this function is a separate,
@@ -35,10 +35,10 @@ Real time shows relatively low standard deviations compared to the total time, i
 value.
 
 \subsection{Medium dataset discussion}
-Dataset 3 shows greater speedup than dataset 2, with a similar shape to the speedup by worker curve. The maximum speedup is
+The medium shows greater speedup than the small dataset, with a similar shape to the speedup by worker curve. The maximum speedup is
 around 3.8, evening out around 8 workers, once again showing the best results around the machine's core number. This further suggests that larger
 individal workload, this time a result of the larger dataset size, results in better speedup. Real time again shows
-low standard deviation. Memory usage for the worker numbers with lthe largest speedup values is around 3 GB for dataset 3, demonstrating
+low standard deviation. Memory usage for the worker numbers with the largest speedup values is around 3 GB for dataset 3, demonstrating
 that a large price in memory usage is paid for paralellization, which may impact performance negatively for large dataset sizes and
 worker numbers.
 
@@ -52,6 +52,22 @@ to the fact that adding workers results in less increase in speedup.
 Without the parallel processing, the medium dataset shows slighlty better speedup for 8 workers. However, this increase is only from 3.76X to 4.04X
 speedup, meaning that it still has relatively low efficiency.
 
+\subsection{Large dataset discussion}
+The large dataset shows an even greater speedup, maintaining the trend of larger parallelization gains for larger datasets. Speedup for the large
+dataset increases past 8 workers, flattening out around 11 workers. From the profiling session, it is evident that workers for the larger dataset
+may receive different workloads (taking between 412 seconds and 503 seconds) even though the chunks are the same size. This means that for 8 workers
+(the same as the number of cores), several cores are unused as the faster workers terminate and the program waits for the slow workers to terminate.
+By having more workers than cores, work can be more evenly scheduled among cores, resulting in better utilization of the processing power of the cores.
+
+The profiling session also shows that \code{\_prepare} takes up less than 2\% of the processing time for the workers, meaning that workers for the large
+dataset spend more time in the main row processing loop, likely contributing to the fact that the larger dataset shows greater speedup.
+
+The post processing step takes up about 6.5\% of the execution time for 8 workers, close to the medium dataset.
+
+Without the parallel processing, the medium dataset shows slighlty better speedup for 8 workers. However, this increase is only from 4.3X to 4.6X
+speedup, meaning that it still has relatively low efficiency.
+
+
 %\subsection{Dataset 4}
 %With the even larger dataset 4, another increase in speedup can be observed. Once again, the trend of greater parallelization gains for larger
 %dataset sizes holds. Interestingly, speedup increases slightly even past 8 workers, though it flattens out around 12 workers.
@@ -63,7 +79,9 @@ speedup, meaning that it still has relatively low efficiency.
 \subsection{General benchmark trends}
 In general, user time increases significantly with added workers, as is expected due to the greater total CPU utilization. Together with the
 fact that memory usage increases linearly with worker number, this indicates that a noteworthy amount of system resources is required 
-for parallelization as dataset sizes and number of workers grow large.
+for parallelization as dataset sizes and number of workers grow large. The highest amount of memory used by the program is 7.7 GB. While
+this is a substantial amount of memory, the benchmarking machine has 32 GB of memory, meaning that the memory usage should not impact
+performance in an all too significant way.
 
 In general, larger datasets show greater speedup than smaller datasets.
 
@@ -106,6 +124,10 @@ of the data. This means that developers faced with implemented parallelization o
 problem domain in order to find an initial indication of whether the size of the datasets are, in general, large enough to benefit
 from parallelization.
 
+While workload may appear to be the same when splitting a dataset into equal parts, it may still be beneficial to examine if
+the workers take different times to finish, in order to avoid underused cores. Using more tasks than cores for larger datasets
+can increase speedup in these cases.
+
 When parallelizing a complex system, as few assumptions as possible should be made before starting. In this thesis, the problem
 involves I/O and database communication, suggesting that the problem may be I/O bound. However, further investigations proved that the problem
 was largely CPU bound, making it suitable for \code{multiprocessing} in combination with a multicore machine. Investigation, rather than
@@ -123,7 +145,8 @@ Developers should be wary of aggregation when parallelizing systems. In this the
 which was done by storing encountered ID:s. While storing state in this manner may appear as making rows dependant on each other, it proved
 possible to extract the aggregation into a post-processing step. This extra step introduced overhead, but parallel speedup could still be 
 observed for larger datasets. In conclusion, implementers of parallelization should look for aggregation in their system, conclude if this
-can be extracted into a post processing step, and if this post processing step is small enough for parallelization to be beneficial.
+can be extracted into a post processing step, and if this post processing step is small enough for parallelization to be beneficial. Examining
+if the post processing step takes up a smaller part of the total execution time for larger datasets can also be of interest.
 
 \subsection{Delimitations}
 The implementation and research in this thesis is limited to the parallelization of an existing program, and no new code for the core problem

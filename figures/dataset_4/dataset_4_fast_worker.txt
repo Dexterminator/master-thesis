@@ -1,0 +1,25 @@
+         156741758 function calls (155711119 primitive calls) in 413.059 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000  412.995  412.995 verifier_parallel.py:61(start_pipeline)
+        1    0.000    0.000  409.467  409.467 verifier_parallel.py:117(process)
+        1    0.000    0.000  409.270  409.270 verifier_parallel.py:148(pipeline_process)
+        \textbf{\textcolor{Green}{1   43.140   43.140  409.270  409.270 pipeline.py:806(process)}}
+  \textbf{\textcolor{Green}{2786468    4.883    0.000  199.673    0.000 pipeline.py:834(process_record)}}
+1595097/1580961    4.254    0.000  115.514    0.000 conditional.py:69(process_record)
+  1944409    8.840    0.000  106.480    0.000 conditional.py:84(should_apply)
+   \textbf{\textcolor{Green}{153836    0.496    0.000   90.622    0.001 pipeline.py:838(post_process_record)}}
+  1257155    7.573    0.000   81.331    0.000 mappings.py:570(process_record)
+  1653324    7.294    0.000   66.632    0.000 conditional.py:376(apply)
+  4948465   11.699    0.000   59.407    0.000 conditional.py:150(resolve_value)
+  3778004    8.740    0.000   56.046    0.000 pipeline.py:655(get)
+  5659323   23.439    0.000   53.161    0.000 pipeline.py:636(__getitem__)
+    38459    4.040    0.000   43.115    0.001 post_process.py:119(post_process_record)
+    38459   15.826    0.000   27.382    0.001 verification.py:188(post_process_record)
+   726861    3.687    0.000   24.766    0.000 conditional.py:246(apply)
+   215845    0.826    0.000   23.247    0.000 mappings.py:281(get_transformed)
+    \textbf{\textcolor{Green}{38459    0.383    0.000   22.469    0.001 verifier.py:330(consume_record)}}
+	...
+        \textbf{\textcolor{Green}{1    0.000    0.000    6.712    6.712 pipeline.py:794(_prepare)}}
