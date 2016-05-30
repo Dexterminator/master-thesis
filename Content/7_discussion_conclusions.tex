@@ -9,7 +9,7 @@ tasks such as creating processes have a more noticable impact for the low execut
 
 The profiling session for the main process for the tiny dataset showed that \code{aggregate\_result} takes up 70\% of the time. Since this is the function
 that performs the main parallel processing of the dataset, about 30\% of the execution time is overhead due to for example header detection
-and making trade ID:s unique. Since aggregate\_result takes 0.4 seconds (15.7\% of execution time ) more to execute than it takes for a single worker to finish,
+and making trade ID:s unique. Since \code{aggregate\_result} takes 0.4 seconds (15.7\% of execution time ) more to execute than it takes for a single worker to finish,
 it appears as though parallelization and aggregating the partial results result in noticable overhead for the tiny dataset.
 It is conceivable that the above results in the fact that only slowdown can be observed when parallelizing the tiny dataset.
 

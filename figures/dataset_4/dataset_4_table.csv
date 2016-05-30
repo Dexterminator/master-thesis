@@ -1,18 +1,18 @@
-workers,speedup,real,user,system,memory_usage_mb
-S,1.00,728.99 ± 2.75,643.83 ± 1.64,6.65 ± 0.06,1211 ± 1.39
-1,1.08,677.45 ± 4.14,581.50 ± 2.79,3.19 ± 0.10,1296 ± 3.99
-2,1.76,414.03 ± 2.32,625.01 ± 2.31,4.49 ± 0.07,1737 ± 31.69
-3,2.27,320.73 ± 0.77,670.69 ± 2.48,5.70 ± 0.07,2218 ± 20.42
-4,2.67,272.90 ± 1.33,703.37 ± 1.92,6.77 ± 0.19,2709 ± 13.41
-5,3.06,237.90 ± 0.52,724.52 ± 0.77,7.58 ± 0.04,3249 ± 3.92
-6,3.36,216.78 ± 0.68,750.53 ± 0.88,8.51 ± 0.06,3744 ± 8.39
-7,3.62,201.15 ± 0.59,775.07 ± 1.53,9.41 ± 0.05,4266 ± 7.08
-8,3.83,190.34 ± 0.84,793.43 ± 1.53,10.17 ± 0.10,4768 ± 7.92
-9,3.99,182.79 ± 0.55,814.04 ± 1.39,10.88 ± 0.04,5297 ± 6.04
-10,4.06,179.51 ± 0.80,831.34 ± 1.97,11.63 ± 0.06,5802 ± 6.59
-11,4.06,179.50 ± 1.06,849.65 ± 2.11,12.47 ± 0.06,6319 ± 4.19
-12,4.18,174.31 ± 0.89,865.34 ± 1.05,13.17 ± 0.10,6830 ± 5.02
-13,4.03,180.68 ± 1.46,870.10 ± 7.03,13.67 ± 0.16,7330 ± 4.04
-14,4.23,172.42 ± 0.97,883.65 ± 7.80,14.31 ± 0.16,7775 ± 65.13
-15,4.25,171.66 ± 0.90,903.87 ± 7.53,14.97 ± 0.15,8290 ± 61.94
-16,4.06,179.48 ± 1.04,920.35 ± 1.41,15.74 ± 0.11,8847 ± 8.56
+dataset,dataset_rows,columns,trade_count,workers,speedup,real,user,system,memory_usage_mb
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,S,1.00,2577.81 ± 27.57,2037.83 ± 17.43,420.68 ± 7.50,1056 ± 26.46
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,1,1.01,2542.28 ± 43.96,2006.77 ± 31.70,383.28 ± 4.19,1192 ± 23.67
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,2,1.85,1391.80 ± 25.73,2069.22 ± 24.28,468.81 ± 4.00,1577 ± 28.97
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,3,2.52,1022.66 ± 16.26,2114.43 ± 19.11,515.31 ± 5.21,1993 ± 27.19
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,4,3.06,842.63 ± 29.41,2153.54 ± 19.97,548.10 ± 4.97,2423 ± 13.39
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,5,3.63,709.95 ± 23.81,2186.59 ± 10.82,580.02 ± 4.97,2843 ± 4.26
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,6,3.84,671.77 ± 26.63,2210.57 ± 7.21,612.45 ± 4.49,3292 ± 2.16
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,7,4.18,617.39 ± 28.28,2245.29 ± 10.66,635.07 ± 3.79,3756 ± 1.31
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,8,4.30,599.12 ± 24.50,2249.47 ± 9.82,666.14 ± 7.19,4225 ± 3.65
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,9,4.45,579.12 ± 21.91,2290.80 ± 16.17,674.96 ± 7.12,4640 ± 0.69
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,10,4.51,571.42 ± 14.36,2299.32 ± 10.67,681.82 ± 5.69,5105 ± 1.30
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,11,4.66,552.94 ± 14.92,2316.17 ± 9.88,695.41 ± 6.23,5535 ± 2.66
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,12,4.65,554.22 ± 17.36,2333.11 ± 15.31,700.38 ± 6.73,5986 ± 1.38
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,13,4.72,545.68 ± 19.41,2358.86 ± 15.85,715.91 ± 7.41,6454 ± 1.38
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,14,4.81,535.96 ± 15.07,2382.01 ± 13.12,712.07 ± 6.96,6878 ± 1.27
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,15,4.79,537.71 ± 13.91,2397.88 ± 10.56,717.12 ± 6.61,7313 ± 1.68
+TradesReport_Coll_Americas_Daily_2016_04_29.zip:TradesReport_Coll_Americas_Daily_2016_04_29.csv,349309,41,312825,16,4.78,539.12 ± 14.88,2416.33 ± 16.06,722.39 ± 7.86,7761 ± 1.03
