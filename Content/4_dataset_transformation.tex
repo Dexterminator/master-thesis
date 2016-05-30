@@ -7,7 +7,6 @@ the parallelization is described.
 \section{Technology}
 In this section, technologies used in the transformation program that will be mentioned throughout this chapter are briefly described.
 
-
 \subsection{Django}
 Django is a Python web development framework \cite{holovaty_chapter_c1itd}. It implements a version of the MVC (Model-View-Controller) pattern, which decouples request routing, data access, and
 presentation. Django's model layer allows the programmer to retrieve and modify entities in an SQL database through Python code, without writing SQL.
@@ -73,12 +72,26 @@ and special rules. In order to convert these into a standard format that make it
 how the dataset in question should be processed is used. The format contains a set of \textit{filters} which should be applied to each row of the dataset.
 The different filter configurations may affect how parallelizable the processing of the dataset is.
 
+\section{Filters}
+The filters are implemented as Python classes, which implement the interface of \code{prepare}, \code{pre\_process\_record}, \code{process\_record}, and
+\code{post\_process\_record}. \code{prepare} is called only once, before the processing of any rows has started, and may include caching values from the database in
+order to avoid an execssive amount of round trips to it. The records that the method names reference are rows in the dataset, represented as a Python class containing
+the fields in the dataset row as a Python dict. In the methods above, the filter has access to the current processing pipeline state, and the current record that is
+being processed. If a filter does not implement one of the listed methods, it falls back to a default, empty implementation.
+
+After applying \code{pre\_process\_record}, \code{process\_record}, and \code{post\_process\_record} on a row, the result is a modified row, a modified pipeline state,
+or both.
+
+An example of how filter application and dataset row transformation work can be found in figure \ref{fig:filter_diagram}.
+
 \section{Verification results}
-The result of the dataset processing is called a \textit{verification result}\footnote{The verification results are not to be confused with the results of this thesis. They are part of the problem this thesis aims to solve.}, and consists of one row per trade, with correctly modified values, in a Cassandra schema.
+The result of the dataset processing is called a \textit{verification result}\footnote{The verification results are not to be confused with the results of this thesis. They
+are part of the problem this thesis aims to solve.}, and consists of one row per trade, with correctly modified values, in a Cassandra schema. After all filters have been
+applied to a row, it is written to the Cassandra schema.
 In addition, a row in the MySQL database consisting of metadata relating to the result as a whole is created. This metadata includes result owner, number of rows, time metrics, and so on.
 
 \section{Transformation with constraints}
-\subsection{Filters}
+\subsection{Filter list}
 All filters used to transform a dataset into a verification result are outlined below.
 
 \begin{itemize}
@@ -155,8 +168,6 @@ A filter that is active in every file format. Performs final adjustments to the 
 initially caches these mappings in order to avoid round trips to the database.
 
 \end{itemize}
-
-An example of how filter application and dataset row transformation work can be found in figure \ref{fig:filter_diagram}.
 
 \begin{figure}[ht]
   \centering
