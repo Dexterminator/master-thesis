@@ -1,0 +1,19 @@
+Finansiell data representeras ofta med rader av värden, samlade i en datamängd. Denna data måste transformeras
+till ett standardformat för att möjliggöra jämförelser och matchning. Detta kan ta lång tid för stora
+datamängder. Huvudmålet för detta examensarbete är att snabba upp dessa transformationer genom parallellisering
+med hjälp av Python-modulen multiprocessing. Datamängderna omvandlas med hjälp av regler, kallade filter.
+Dessa filter analyserades för att identifiera begränsningar på ordningen i vilken datamänden kan behandlas,
+och därigenom finna en parallelliseringsstrategi. Python-profileraren cProfile användes även för att hitta
+potentiella parallelliseringspunkter i koden. Denna analys resulterade i användandet av ett ``task''-baserat
+tillvägagångssätt, där transformationen delades in i ett sekventiellt pre-processingsteg, ett parallelt steg 
+där grupper av rader distribuerades ut bland arbetarprocesser, och ett sekventiellt post-processingsteg.
+
+Implementationen testades genom transformation av fyra datamängder av olika storlekar, med upp till 16 
+arbetarprocesser. Resultaten för de fyra datamängderna var en speedup på 0.5, 2.1, 3.8 respektive 4.81.
+En linjär ökning i minnesanvändning uppvisades även. Experimenten resulterade i slutsatsen att
+datamängdens storlek var en stor faktor i hur mycket speedup som uppvisades, delvis på grund av faktumet
+att de sekventiella delarna tar upp en mindre del av programmet. Den stora minnesåtgången noterades som
+en nackdel med att använda multiprocessing i kombination med cachning, på grund av duplicerad data.
+
+Detta examensarbete visar att det är möjligt att snabba upp datamängdstransformation genom att använda
+radgrupper som tasks, även om en relativt låg speedup uppvisades.

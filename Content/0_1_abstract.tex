@@ -1,4 +1,4 @@
-Financial data is often represented with rows of data, contained in a dataset. This data needs to be transformed into a common format in order for
+Financial data is often represented with rows of values, contained in a dataset. This data needs to be transformed into a common format in order for
 comparison and matching to be made, which can take a long time for larger datasets.
 The main goal of this master’s thesis is speeding up these transormation through parallelization using Python multiprocessing.
 The datasets in question consist of several rows representing trades, and are transformed into a common format using rules known as filters. In order to devise a
@@ -7,10 +7,11 @@ and potential parallelization points. This analysis resulted in the use of a tas
 was divided into an initial sequential pre-processing step, a parallel step where chunks of several trade rows were distributed among workers, and a
 sequential post processing step. 
 
-The implementation was tested by transforming datasets of differing sizes using up to 16 workers, and execution time and memory consumption
+The implementation was tested by transforming four datasets of differing sizes using up to 16 workers, and execution time and memory consumption
 was measured. The results for the tiny, small, and medium datasets showed a speedup of 0.5, 2.1, 3.8, and 4.81. They also showed linearly increasing
 memory consumption for all datasets.  The test transformations were also profiled in order to understand the parallel program’s behaviour for the
 different datasets. The experiments gave way to the conclusion that dataset size heavily influence the speedup, partly because of the fact that
-post processing becomes less significant.  In addition, the large memory increase for larger amount of workers is noted as a major downside of
-multiprocessing when using caching mechanisms, as data is duplicated instead of shared. This thesis shows that it is possible to speed up the
-dataset transformations using chunks of rows as tasks, though the speedup is relatively low.
+the sequential parts become less significant.  In addition, the large memory increase for larger amount of workers is noted as a major downside of
+multiprocessing when using caching mechanisms, as data is duplicated instead of shared.
+
+This thesis shows that it is possible to speed up the dataset transformations using chunks of rows as tasks, though the speedup is relatively low.
