@@ -51,7 +51,7 @@ As mentioned briefly in section \ref{dataset_standardization}, users of the triR
 rows of trade data such as party id, counterparty id, trade id, notional, and so on. An example of a trade dataset (with some columns omitted) can be seen in figure
 \ref{fig:data_set_example}.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|p{3cm}|c|c|}%
@@ -64,7 +64,7 @@ rows of trade data such as party id, counterparty id, trade id, notional, and so
   %\centering
 \caption[Example of trade dataset]{A simplified example of a trade dataset uploaded by the users of triResolve.}
   \label{fig:data_set_example}
-\end{figure}
+\end{table}
 
 \section{File formats}
 Different customers may have different ways of formatting their datasets, with different names for headers, varying column orders, extra fields,
@@ -124,6 +124,7 @@ Simplified code for \textit{Null translation}, \textit{Global variable}, and \te
   \label{fig:code_regex}
 \end{figure}
 
+\FloatBarrier
 
 \begin{itemize}
 \item \textbf{Header detection} --

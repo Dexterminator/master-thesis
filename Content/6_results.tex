@@ -52,7 +52,7 @@ The benchmark for the tiny dataset can be found in figure \ref{fig:dataset_1_tab
 The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|}%
@@ -65,14 +65,14 @@ user time, system time, and memory usage. The standard deviation is displayed wi
 \caption[Tiny dataset benchmark table.]{Tiny dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_1_table}
-\end{figure}
+\end{table}
 
 \subsection{Small dataset benchmark table}
 The benchmark for the small dataset can be found in figure \ref{fig:dataset_2_table}.
 The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|}%
@@ -85,14 +85,14 @@ user time, system time, and memory usage. The standard deviation is displayed wi
 \caption[Small dataset benchmark table.]{Small dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_2_table}
-\end{figure}
+\end{table}
 
 \subsection{Medium dataset benchmark table}
 The benchmark for the medium dataset can be found in figure \ref{fig:dataset_3_table}.
 The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|}%
@@ -105,14 +105,14 @@ user time, system time, and memory usage. The standard deviation is displayed wi
 \caption[Medium dataset benchmark table.]{Medium dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_3_table}
-\end{figure}
+\end{table}
 
 \subsection{Large dataset benchmark table}
 The benchmark for the large dataset can be found in figure \ref{fig:dataset_4_table}.
 The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.
 
-\begin{figure}[ht]
+\begin{table}[ht]
 \centering
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|}%
@@ -125,8 +125,10 @@ user time, system time, and memory usage. The standard deviation is displayed wi
 \caption[Large dataset benchmark table.]{Large dataset benchmark table. The table displays the number of workers, the speedup (sequential run real time divided by real time), real time,
 user time, system time, and memory usage. The standard deviation is displayed with a value following the $\pm$ sign.}
 \label{fig:dataset_4_table}
-\end{figure}
+\end{table}
 
+
+\FloatBarrier
 \section{Execution time}
 
 \subsection{Tiny dataset execution time}
@@ -185,6 +187,8 @@ decreases with each added worker up to 11 workers, where it evens out. The decre
   \label{fig:dataset_4_real_time}
 \end{figure}
 
+\FloatBarrier
+
 \section{Speedup}
 
 \subsection{Tiny dataset speedup}
@@ -234,6 +238,8 @@ The X axis shows the number of workers, and the Y axis shows a scalar value sign
   ``number of times faster than sequential execution''. Speedup increases with each worker, evening out around 11 workers and with 4.81X as the highest speedup.}
   \label{fig:dataset_4_speedup}
 \end{figure}
+
+\FloatBarrier
 
 \section{Memory consumption}
 
@@ -292,6 +298,8 @@ up to about 8.8 GB for 16 workers.
   up to about 7.7 GB for 16 workers.}
   \label{fig:dataset_4_memory}
 \end{figure}
+
+\FloatBarrier
 
 \section{Parallel profiler analysis}
 For each dataset, a profiling session of the parallel program was conducted. The same hardware as for the benchmarks was used, and
@@ -443,6 +451,7 @@ For the fast worker process, the functions related to row processing are promine
 \end{VerbatimInput}
 \end{figure}
 
+\FloatBarrier
 \section{Performance without sequential post processing}
 As the sequential profiling adds overhead, it is interesting to see what the speedup would have been if this extra step was not needed.
 These results are based in the profiling session above, conducted with 8 workers.
@@ -492,3 +501,5 @@ function \code{build\_underlying\_lookup\_dicts} is responsible for a clear majo
 from the database in order to avoid round trips to the database every time one of these mappings is needed.}
 \label{fig:target_profiler_medium}
 \end{figure}
+
+\FloatBarrier
