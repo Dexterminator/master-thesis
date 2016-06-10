@@ -1,0 +1,676 @@
+21820: Memory usage before pipeline.process: 96.572
+21820: Memory usage before _prepare: 96.628
+21820: Memory usage before filter.prepare for HeaderDetectionFilter3: 96.632
+21820: Memory usage after filter.prepare for HeaderDetectionFilter3: 96.636
+21820: Memory usage before filter.prepare for RowSkipperFilter: 96.636
+21820: Memory usage after filter.prepare for RowSkipperFilter: 96.636
+21820: Memory usage before filter.prepare for PartyIdMapping: 96.636
+21820: Memory usage after filter.prepare for PartyIdMapping: 96.636
+21820: Memory usage before filter.prepare for CPIdMapping: 96.636
+21820: Memory usage after filter.prepare for CPIdMapping: 96.636
+21820: Memory usage before filter.prepare for TradeIdMapping: 96.636
+21820: Memory usage after filter.prepare for TradeIdMapping: 96.636
+21820: Memory usage before filter.prepare for TradeId2Mapping: 96.636
+21820: Memory usage after filter.prepare for TradeId2Mapping: 96.636
+21820: Memory usage before filter.prepare for CPTradeIdMapping: 96.636
+21820: Memory usage after filter.prepare for CPTradeIdMapping: 96.636
+21820: Memory usage before filter.prepare for TradeGroupIdMapping: 96.636
+21820: Memory usage after filter.prepare for TradeGroupIdMapping: 96.636
+21820: Memory usage before filter.prepare for AgreementIdMapping: 96.636
+21820: Memory usage after filter.prepare for AgreementIdMapping: 96.636
+21820: Memory usage before filter.prepare for BookMapping: 96.636
+21820: Memory usage after filter.prepare for BookMapping: 96.636
+21820: Memory usage before filter.prepare for ProductClassMapping: 96.636
+21820: Memory usage after filter.prepare for ProductClassMapping: 96.64
+21820: Memory usage before filter.prepare for NotionalMapping: 96.644
+21820: Memory usage after filter.prepare for NotionalMapping: 96.644
+21820: Memory usage before filter.prepare for Notional2Mapping: 96.644
+21820: Memory usage after filter.prepare for Notional2Mapping: 96.644
+21820: Memory usage before filter.prepare for TradeCurrMapping: 96.644
+21820: Memory usage after filter.prepare for TradeCurrMapping: 96.644
+21820: Memory usage before filter.prepare for TradeCurr2Mapping: 96.644
+21820: Memory usage after filter.prepare for TradeCurr2Mapping: 96.644
+21820: Memory usage before filter.prepare for StrikePriceMapping: 96.644
+21820: Memory usage after filter.prepare for StrikePriceMapping: 96.644
+21820: Memory usage before filter.prepare for UnderlyingMapping: 96.644
+21820: Memory usage after filter.prepare for UnderlyingMapping: 96.644
+21820: Memory usage before filter.prepare for TradeDateMapping: 96.644
+21820: Memory usage after filter.prepare for TradeDateMapping: 96.644
+21820: Memory usage before filter.prepare for StartDateMapping: 96.644
+21820: Memory usage after filter.prepare for StartDateMapping: 96.644
+21820: Memory usage before filter.prepare for EndDateMapping: 96.644
+21820: Memory usage after filter.prepare for EndDateMapping: 96.644
+21820: Memory usage before filter.prepare for IndependentAmountMapping: 96.644
+21820: Memory usage after filter.prepare for IndependentAmountMapping: 96.644
+21820: Memory usage before filter.prepare for SpreadMapping: 96.644
+21820: Memory usage after filter.prepare for SpreadMapping: 96.644
+21820: Memory usage before filter.prepare for OptionTypeMapping: 96.644
+21820: Memory usage after filter.prepare for OptionTypeMapping: 96.644
+21820: Memory usage before filter.prepare for MTMValueMapping: 96.644
+21820: Memory usage after filter.prepare for MTMValueMapping: 96.644
+21820: Memory usage before filter.prepare for MTMCurrMapping: 96.644
+21820: Memory usage after filter.prepare for MTMCurrMapping: 96.644
+21820: Memory usage before filter.prepare for FreeText1Mapping: 96.644
+21820: Memory usage after filter.prepare for FreeText1Mapping: 96.644
+21820: Memory usage before filter.prepare for FreeText2Mapping: 96.648
+21820: Memory usage after filter.prepare for FreeText2Mapping: 96.648
+21820: Memory usage before filter.prepare for FreeText3Mapping: 96.648
+21820: Memory usage after filter.prepare for FreeText3Mapping: 96.648
+21820: Memory usage before filter.prepare for FreeText4Mapping: 96.648
+21820: Memory usage after filter.prepare for FreeText4Mapping: 96.648
+21820: Memory usage before filter.prepare for FreeText5Mapping: 96.648
+21820: Memory usage after filter.prepare for FreeText5Mapping: 96.648
+21820: Memory usage before filter.prepare for AgreementTypeMapping: 96.648
+21820: Memory usage after filter.prepare for AgreementTypeMapping: 96.648
+21820: Memory usage before filter.prepare for ServiceMapping: 96.648
+21820: Memory usage after filter.prepare for ServiceMapping: 96.648
+21820: Memory usage before filter.prepare for USIMapping: 96.648
+21820: Memory usage after filter.prepare for USIMapping: 96.648
+21820: Memory usage before filter.prepare for UTIMapping: 96.648
+21820: Memory usage after filter.prepare for UTIMapping: 96.648
+21820: Memory usage before filter.prepare for FinalSettlementDateMapping: 96.652
+21820: Memory usage after filter.prepare for FinalSettlementDateMapping: 96.652
+21820: Memory usage before filter.prepare for SecondaryAssetClassMapping: 96.652
+21820: Memory usage after filter.prepare for SecondaryAssetClassMapping: 96.652
+21820: Memory usage before filter.prepare for IsReportingPartyMapping: 96.652
+21820: Memory usage after filter.prepare for IsReportingPartyMapping: 96.652
+21820: Memory usage before filter.prepare for AveragingMethodMapping: 96.652
+21820: Memory usage after filter.prepare for AveragingMethodMapping: 96.652
+21820: Memory usage before filter.prepare for AveragingMethod2Mapping: 96.652
+21820: Memory usage after filter.prepare for AveragingMethod2Mapping: 96.652
+21820: Memory usage before filter.prepare for HoursFromThroughMapping: 96.652
+21820: Memory usage after filter.prepare for HoursFromThroughMapping: 96.652
+21820: Memory usage before filter.prepare for HoursFromThroughTimezoneMapping: 96.652
+21820: Memory usage after filter.prepare for HoursFromThroughTimezoneMapping: 96.652
+21820: Memory usage before filter.prepare for AdditionalRepositoriesMapping: 96.652
+21820: Memory usage after filter.prepare for AdditionalRepositoriesMapping: 96.652
+21820: Memory usage before filter.prepare for DaycountMapping: 96.652
+21820: Memory usage after filter.prepare for DaycountMapping: 96.652
+21820: Memory usage before filter.prepare for Daycount2Mapping: 96.656
+21820: Memory usage after filter.prepare for Daycount2Mapping: 96.656
+21820: Memory usage before filter.prepare for IsUSPersonPartyMapping: 96.656
+21820: Memory usage after filter.prepare for IsUSPersonPartyMapping: 96.656
+21820: Memory usage before filter.prepare for IsUSPersonCPMapping: 96.656
+21820: Memory usage after filter.prepare for IsUSPersonCPMapping: 96.656
+21820: Memory usage before filter.prepare for ConfirmationStatusMapping: 96.656
+21820: Memory usage after filter.prepare for ConfirmationStatusMapping: 96.656
+21820: Memory usage before filter.prepare for RegulatedByMapping: 96.66
+21820: Memory usage after filter.prepare for RegulatedByMapping: 96.66
+21820: Memory usage before filter.prepare for AgreementIdMapping: 96.66
+21820: Memory usage after filter.prepare for AgreementIdMapping: 96.66
+21820: Memory usage before filter.prepare for SCSASiloCurrMapping: 96.66
+21820: Memory usage after filter.prepare for SCSASiloCurrMapping: 96.66
+21820: Memory usage before filter.prepare for MissingMetafieldDetector: 96.66
+21820: Memory usage after filter.prepare for MissingMetafieldDetector: 96.66
+21820: Memory usage before filter.prepare for PostProcessFilter: 96.66
+21820: Memory usage after filter.prepare for PostProcessFilter: 97.568
+21820: Memory usage before filter.prepare for VerificationFilter: 97.572
+21820: Memory usage after filter.prepare for VerificationFilter: 97.572
+21820: Memory usage before filter.prepare for DeactivatedPartiesFilter: 97.572
+21820: Memory usage after filter.prepare for DeactivatedPartiesFilter: 97.572
+21820: Memory usage before filter.prepare for StatisticsCollectorFilter: 97.572
+21820: Memory usage after filter.prepare for StatisticsCollectorFilter: 97.576
+21820: Memory usage after prepare filters: 97.58
+21820: Memory usage after _prepare: 97.58
+21820: Memory usage before main loop: 97.58
+21820: Memory usage before record 0: 97.824
+21820: Memory usage before filter HeaderDetectionFilter3 for record 0: 97.828
+21820: Memory usage before filter RowSkipperFilter for record 0: 97.832
+21820: Memory usage before filter PartyIdMapping for record 0: 97.832
+21820: Memory usage before filter CPIdMapping for record 0: 97.84
+21820: Memory usage before filter TradeIdMapping for record 0: 97.844
+21820: Memory usage before filter TradeId2Mapping for record 0: 97.844
+21820: Memory usage before filter CPTradeIdMapping for record 0: 97.848
+21820: Memory usage before filter TradeGroupIdMapping for record 0: 97.848
+21820: Memory usage before filter AgreementIdMapping for record 0: 97.848
+21820: Memory usage before filter BookMapping for record 0: 97.848
+21820: Memory usage before filter ProductClassMapping for record 0: 97.848
+21820: Memory usage before filter NotionalMapping for record 0: 97.848
+21820: Memory usage before filter Notional2Mapping for record 0: 97.86
+21820: Memory usage before filter TradeCurrMapping for record 0: 97.864
+21820: Memory usage before filter TradeCurr2Mapping for record 0: 97.864
+21820: Memory usage before filter StrikePriceMapping for record 0: 97.864
+21820: Memory usage before filter UnderlyingMapping for record 0: 97.864
+21820: Memory usage before filter TradeDateMapping for record 0: 97.864
+21820: Memory usage before filter StartDateMapping for record 0: 97.904
+21820: Memory usage before filter EndDateMapping for record 0: 97.908
+21820: Memory usage before filter IndependentAmountMapping for record 0: 97.908
+21820: Memory usage before filter SpreadMapping for record 0: 97.908
+21820: Memory usage before filter OptionTypeMapping for record 0: 97.908
+21820: Memory usage before filter MTMValueMapping for record 0: 97.908
+21820: Memory usage before filter MTMCurrMapping for record 0: 97.908
+21820: Memory usage before filter FreeText1Mapping for record 0: 97.908
+21820: Memory usage before filter FreeText2Mapping for record 0: 97.908
+21820: Memory usage before filter FreeText3Mapping for record 0: 97.908
+21820: Memory usage before filter FreeText4Mapping for record 0: 97.908
+21820: Memory usage before filter FreeText5Mapping for record 0: 97.908
+21820: Memory usage before filter AgreementTypeMapping for record 0: 97.908
+21820: Memory usage before filter ServiceMapping for record 0: 97.908
+21820: Memory usage before filter USIMapping for record 0: 97.908
+21820: Memory usage before filter UTIMapping for record 0: 97.912
+21820: Memory usage before filter FinalSettlementDateMapping for record 0: 97.912
+21820: Memory usage before filter SecondaryAssetClassMapping for record 0: 97.912
+21820: Memory usage before filter IsReportingPartyMapping for record 0: 97.912
+21820: Memory usage before filter AveragingMethodMapping for record 0: 97.912
+21820: Memory usage before filter AveragingMethod2Mapping for record 0: 97.912
+21820: Memory usage before filter HoursFromThroughMapping for record 0: 97.912
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 0: 97.912
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 0: 97.912
+21820: Memory usage before filter DaycountMapping for record 0: 97.912
+21820: Memory usage before filter Daycount2Mapping for record 0: 97.912
+21820: Memory usage before filter IsUSPersonPartyMapping for record 0: 97.912
+21820: Memory usage before filter IsUSPersonCPMapping for record 0: 97.912
+21820: Memory usage before filter ConfirmationStatusMapping for record 0: 97.912
+21820: Memory usage before filter RegulatedByMapping for record 0: 97.912
+21820: Memory usage before filter AgreementIdMapping for record 0: 97.912
+21820: Memory usage before filter SCSASiloCurrMapping for record 0: 97.912
+21820: Memory usage before filter MissingMetafieldDetector for record 0: 97.916
+21820: Memory usage before filter PostProcessFilter for record 0: 97.916
+21820: Memory usage before filter VerificationFilter for record 0: 97.968
+21820: Memory usage before filter DeactivatedPartiesFilter for record 0: 97.972
+21820: Memory usage before filter StatisticsCollectorFilter for record 0: 97.972
+21820: Memory usage before record 1: 98.66
+21820: Memory usage before filter HeaderDetectionFilter3 for record 1: 98.664
+21820: Memory usage before filter RowSkipperFilter for record 1: 98.664
+21820: Memory usage before filter PartyIdMapping for record 1: 98.664
+21820: Memory usage before filter CPIdMapping for record 1: 98.664
+21820: Memory usage before filter TradeIdMapping for record 1: 98.68
+21820: Memory usage before filter TradeId2Mapping for record 1: 98.684
+21820: Memory usage before filter CPTradeIdMapping for record 1: 98.684
+21820: Memory usage before filter TradeGroupIdMapping for record 1: 98.684
+21820: Memory usage before filter AgreementIdMapping for record 1: 98.684
+21820: Memory usage before filter BookMapping for record 1: 98.684
+21820: Memory usage before filter ProductClassMapping for record 1: 98.684
+21820: Memory usage before filter NotionalMapping for record 1: 98.684
+21820: Memory usage before filter Notional2Mapping for record 1: 98.684
+21820: Memory usage before filter TradeCurrMapping for record 1: 98.684
+21820: Memory usage before filter TradeCurr2Mapping for record 1: 98.684
+21820: Memory usage before filter StrikePriceMapping for record 1: 98.684
+21820: Memory usage before filter UnderlyingMapping for record 1: 98.684
+21820: Memory usage before filter TradeDateMapping for record 1: 98.684
+21820: Memory usage before filter StartDateMapping for record 1: 98.684
+21820: Memory usage before filter EndDateMapping for record 1: 98.684
+21820: Memory usage before filter IndependentAmountMapping for record 1: 98.684
+21820: Memory usage before filter SpreadMapping for record 1: 98.684
+21820: Memory usage before filter OptionTypeMapping for record 1: 98.684
+21820: Memory usage before filter MTMValueMapping for record 1: 98.684
+21820: Memory usage before filter MTMCurrMapping for record 1: 98.684
+21820: Memory usage before filter FreeText1Mapping for record 1: 98.684
+21820: Memory usage before filter FreeText2Mapping for record 1: 98.684
+21820: Memory usage before filter FreeText3Mapping for record 1: 98.684
+21820: Memory usage before filter FreeText4Mapping for record 1: 98.684
+21820: Memory usage before filter FreeText5Mapping for record 1: 98.684
+21820: Memory usage before filter AgreementTypeMapping for record 1: 98.684
+21820: Memory usage before filter ServiceMapping for record 1: 98.684
+21820: Memory usage before filter USIMapping for record 1: 98.684
+21820: Memory usage before filter UTIMapping for record 1: 98.684
+21820: Memory usage before filter FinalSettlementDateMapping for record 1: 98.684
+21820: Memory usage before filter SecondaryAssetClassMapping for record 1: 98.684
+21820: Memory usage before filter IsReportingPartyMapping for record 1: 98.684
+21820: Memory usage before filter AveragingMethodMapping for record 1: 98.684
+21820: Memory usage before filter AveragingMethod2Mapping for record 1: 98.684
+21820: Memory usage before filter HoursFromThroughMapping for record 1: 98.684
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 1: 98.684
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 1: 98.684
+21820: Memory usage before filter DaycountMapping for record 1: 98.684
+21820: Memory usage before filter Daycount2Mapping for record 1: 98.684
+21820: Memory usage before filter IsUSPersonPartyMapping for record 1: 98.684
+21820: Memory usage before filter IsUSPersonCPMapping for record 1: 98.684
+21820: Memory usage before filter ConfirmationStatusMapping for record 1: 98.684
+21820: Memory usage before filter RegulatedByMapping for record 1: 98.684
+21820: Memory usage before filter AgreementIdMapping for record 1: 98.684
+21820: Memory usage before filter SCSASiloCurrMapping for record 1: 98.684
+21820: Memory usage before filter MissingMetafieldDetector for record 1: 98.684
+21820: Memory usage before filter PostProcessFilter for record 1: 98.684
+21820: Memory usage before filter VerificationFilter for record 1: 98.684
+21820: Memory usage before filter DeactivatedPartiesFilter for record 1: 98.684
+21820: Memory usage before filter StatisticsCollectorFilter for record 1: 98.684
+21820: Memory usage before record 2: 98.684
+21820: Memory usage before filter HeaderDetectionFilter3 for record 2: 98.684
+21820: Memory usage before filter RowSkipperFilter for record 2: 98.684
+21820: Memory usage before filter PartyIdMapping for record 2: 98.684
+21820: Memory usage before filter CPIdMapping for record 2: 98.684
+21820: Memory usage before filter TradeIdMapping for record 2: 98.684
+21820: Memory usage before filter TradeId2Mapping for record 2: 98.684
+21820: Memory usage before filter CPTradeIdMapping for record 2: 98.684
+21820: Memory usage before filter TradeGroupIdMapping for record 2: 98.684
+21820: Memory usage before filter AgreementIdMapping for record 2: 98.684
+21820: Memory usage before filter BookMapping for record 2: 98.684
+21820: Memory usage before filter ProductClassMapping for record 2: 98.684
+21820: Memory usage before filter NotionalMapping for record 2: 98.684
+21820: Memory usage before filter Notional2Mapping for record 2: 98.684
+21820: Memory usage before filter TradeCurrMapping for record 2: 98.684
+21820: Memory usage before filter TradeCurr2Mapping for record 2: 98.684
+21820: Memory usage before filter StrikePriceMapping for record 2: 98.684
+21820: Memory usage before filter UnderlyingMapping for record 2: 98.684
+21820: Memory usage before filter TradeDateMapping for record 2: 98.684
+21820: Memory usage before filter StartDateMapping for record 2: 98.684
+21820: Memory usage before filter EndDateMapping for record 2: 98.684
+21820: Memory usage before filter IndependentAmountMapping for record 2: 98.684
+21820: Memory usage before filter SpreadMapping for record 2: 98.684
+21820: Memory usage before filter OptionTypeMapping for record 2: 98.684
+21820: Memory usage before filter MTMValueMapping for record 2: 98.684
+21820: Memory usage before filter MTMCurrMapping for record 2: 98.684
+21820: Memory usage before filter FreeText1Mapping for record 2: 98.684
+21820: Memory usage before filter FreeText2Mapping for record 2: 98.684
+21820: Memory usage before filter FreeText3Mapping for record 2: 98.684
+21820: Memory usage before filter FreeText4Mapping for record 2: 98.684
+21820: Memory usage before filter FreeText5Mapping for record 2: 98.684
+21820: Memory usage before filter AgreementTypeMapping for record 2: 98.684
+21820: Memory usage before filter ServiceMapping for record 2: 98.684
+21820: Memory usage before filter USIMapping for record 2: 98.684
+21820: Memory usage before filter UTIMapping for record 2: 98.684
+21820: Memory usage before filter FinalSettlementDateMapping for record 2: 98.684
+21820: Memory usage before filter SecondaryAssetClassMapping for record 2: 98.684
+21820: Memory usage before filter IsReportingPartyMapping for record 2: 98.684
+21820: Memory usage before filter AveragingMethodMapping for record 2: 98.684
+21820: Memory usage before filter AveragingMethod2Mapping for record 2: 98.684
+21820: Memory usage before filter HoursFromThroughMapping for record 2: 98.684
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 2: 98.684
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 2: 98.684
+21820: Memory usage before filter DaycountMapping for record 2: 98.684
+21820: Memory usage before filter Daycount2Mapping for record 2: 98.684
+21820: Memory usage before filter IsUSPersonPartyMapping for record 2: 98.684
+21820: Memory usage before filter IsUSPersonCPMapping for record 2: 98.684
+21820: Memory usage before filter ConfirmationStatusMapping for record 2: 98.684
+21820: Memory usage before filter RegulatedByMapping for record 2: 98.684
+21820: Memory usage before filter AgreementIdMapping for record 2: 98.684
+21820: Memory usage before filter SCSASiloCurrMapping for record 2: 98.684
+21820: Memory usage before filter MissingMetafieldDetector for record 2: 98.684
+21820: Memory usage before filter PostProcessFilter for record 2: 98.684
+21820: Memory usage before filter VerificationFilter for record 2: 98.684
+21820: Memory usage before filter DeactivatedPartiesFilter for record 2: 98.684
+21820: Memory usage before filter StatisticsCollectorFilter for record 2: 98.684
+21820: Memory usage before record 3: 98.684
+21820: Memory usage before filter HeaderDetectionFilter3 for record 3: 98.684
+21820: Memory usage before filter RowSkipperFilter for record 3: 98.684
+21820: Memory usage before filter PartyIdMapping for record 3: 98.684
+21820: Memory usage before filter CPIdMapping for record 3: 98.684
+21820: Memory usage before filter TradeIdMapping for record 3: 98.688
+21820: Memory usage before filter TradeId2Mapping for record 3: 98.688
+21820: Memory usage before filter CPTradeIdMapping for record 3: 98.688
+21820: Memory usage before filter TradeGroupIdMapping for record 3: 98.688
+21820: Memory usage before filter AgreementIdMapping for record 3: 98.688
+21820: Memory usage before filter BookMapping for record 3: 98.688
+21820: Memory usage before filter ProductClassMapping for record 3: 98.688
+21820: Memory usage before filter NotionalMapping for record 3: 98.688
+21820: Memory usage before filter Notional2Mapping for record 3: 98.688
+21820: Memory usage before filter TradeCurrMapping for record 3: 98.688
+21820: Memory usage before filter TradeCurr2Mapping for record 3: 98.688
+21820: Memory usage before filter StrikePriceMapping for record 3: 98.688
+21820: Memory usage before filter UnderlyingMapping for record 3: 98.688
+21820: Memory usage before filter TradeDateMapping for record 3: 98.688
+21820: Memory usage before filter StartDateMapping for record 3: 98.688
+21820: Memory usage before filter EndDateMapping for record 3: 98.688
+21820: Memory usage before filter IndependentAmountMapping for record 3: 98.688
+21820: Memory usage before filter SpreadMapping for record 3: 98.688
+21820: Memory usage before filter OptionTypeMapping for record 3: 98.688
+21820: Memory usage before filter MTMValueMapping for record 3: 98.688
+21820: Memory usage before filter MTMCurrMapping for record 3: 98.688
+21820: Memory usage before filter FreeText1Mapping for record 3: 98.688
+21820: Memory usage before filter FreeText2Mapping for record 3: 98.688
+21820: Memory usage before filter FreeText3Mapping for record 3: 98.688
+21820: Memory usage before filter FreeText4Mapping for record 3: 98.688
+21820: Memory usage before filter FreeText5Mapping for record 3: 98.688
+21820: Memory usage before filter AgreementTypeMapping for record 3: 98.688
+21820: Memory usage before filter ServiceMapping for record 3: 98.688
+21820: Memory usage before filter USIMapping for record 3: 98.688
+21820: Memory usage before filter UTIMapping for record 3: 98.688
+21820: Memory usage before filter FinalSettlementDateMapping for record 3: 98.688
+21820: Memory usage before filter SecondaryAssetClassMapping for record 3: 98.688
+21820: Memory usage before filter IsReportingPartyMapping for record 3: 98.688
+21820: Memory usage before filter AveragingMethodMapping for record 3: 98.688
+21820: Memory usage before filter AveragingMethod2Mapping for record 3: 98.688
+21820: Memory usage before filter HoursFromThroughMapping for record 3: 98.688
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 3: 98.688
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 3: 98.688
+21820: Memory usage before filter DaycountMapping for record 3: 98.688
+21820: Memory usage before filter Daycount2Mapping for record 3: 98.688
+21820: Memory usage before filter IsUSPersonPartyMapping for record 3: 98.688
+21820: Memory usage before filter IsUSPersonCPMapping for record 3: 98.688
+21820: Memory usage before filter ConfirmationStatusMapping for record 3: 98.688
+21820: Memory usage before filter RegulatedByMapping for record 3: 98.688
+21820: Memory usage before filter AgreementIdMapping for record 3: 98.688
+21820: Memory usage before filter SCSASiloCurrMapping for record 3: 98.688
+21820: Memory usage before filter MissingMetafieldDetector for record 3: 98.688
+21820: Memory usage before filter PostProcessFilter for record 3: 98.688
+21820: Memory usage before filter VerificationFilter for record 3: 98.688
+21820: Memory usage before filter DeactivatedPartiesFilter for record 3: 98.692
+21820: Memory usage before filter StatisticsCollectorFilter for record 3: 98.692
+21820: Memory usage before record 4: 98.692
+21820: Memory usage before filter HeaderDetectionFilter3 for record 4: 98.692
+21820: Memory usage before filter RowSkipperFilter for record 4: 98.692
+21820: Memory usage before filter PartyIdMapping for record 4: 98.692
+21820: Memory usage before filter CPIdMapping for record 4: 98.692
+21820: Memory usage before filter TradeIdMapping for record 4: 98.692
+21820: Memory usage before filter TradeId2Mapping for record 4: 98.692
+21820: Memory usage before filter CPTradeIdMapping for record 4: 98.692
+21820: Memory usage before filter TradeGroupIdMapping for record 4: 98.692
+21820: Memory usage before filter AgreementIdMapping for record 4: 98.692
+21820: Memory usage before filter BookMapping for record 4: 98.692
+21820: Memory usage before filter ProductClassMapping for record 4: 98.692
+21820: Memory usage before filter NotionalMapping for record 4: 98.692
+21820: Memory usage before filter Notional2Mapping for record 4: 98.692
+21820: Memory usage before filter TradeCurrMapping for record 4: 98.692
+21820: Memory usage before filter TradeCurr2Mapping for record 4: 98.692
+21820: Memory usage before filter StrikePriceMapping for record 4: 98.692
+21820: Memory usage before filter UnderlyingMapping for record 4: 98.692
+21820: Memory usage before filter TradeDateMapping for record 4: 98.692
+21820: Memory usage before filter StartDateMapping for record 4: 98.692
+21820: Memory usage before filter EndDateMapping for record 4: 98.692
+21820: Memory usage before filter IndependentAmountMapping for record 4: 98.692
+21820: Memory usage before filter SpreadMapping for record 4: 98.692
+21820: Memory usage before filter OptionTypeMapping for record 4: 98.692
+21820: Memory usage before filter MTMValueMapping for record 4: 98.692
+21820: Memory usage before filter MTMCurrMapping for record 4: 98.692
+21820: Memory usage before filter FreeText1Mapping for record 4: 98.692
+21820: Memory usage before filter FreeText2Mapping for record 4: 98.692
+21820: Memory usage before filter FreeText3Mapping for record 4: 98.692
+21820: Memory usage before filter FreeText4Mapping for record 4: 98.692
+21820: Memory usage before filter FreeText5Mapping for record 4: 98.692
+21820: Memory usage before filter AgreementTypeMapping for record 4: 98.692
+21820: Memory usage before filter ServiceMapping for record 4: 98.692
+21820: Memory usage before filter USIMapping for record 4: 98.692
+21820: Memory usage before filter UTIMapping for record 4: 98.692
+21820: Memory usage before filter FinalSettlementDateMapping for record 4: 98.692
+21820: Memory usage before filter SecondaryAssetClassMapping for record 4: 98.692
+21820: Memory usage before filter IsReportingPartyMapping for record 4: 98.692
+21820: Memory usage before filter AveragingMethodMapping for record 4: 98.692
+21820: Memory usage before filter AveragingMethod2Mapping for record 4: 98.692
+21820: Memory usage before filter HoursFromThroughMapping for record 4: 98.692
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 4: 98.692
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 4: 98.692
+21820: Memory usage before filter DaycountMapping for record 4: 98.692
+21820: Memory usage before filter Daycount2Mapping for record 4: 98.692
+21820: Memory usage before filter IsUSPersonPartyMapping for record 4: 98.692
+21820: Memory usage before filter IsUSPersonCPMapping for record 4: 98.692
+21820: Memory usage before filter ConfirmationStatusMapping for record 4: 98.692
+21820: Memory usage before filter RegulatedByMapping for record 4: 98.692
+21820: Memory usage before filter AgreementIdMapping for record 4: 98.692
+21820: Memory usage before filter SCSASiloCurrMapping for record 4: 98.692
+21820: Memory usage before filter MissingMetafieldDetector for record 4: 98.692
+21820: Memory usage before filter PostProcessFilter for record 4: 98.692
+21820: Memory usage before filter VerificationFilter for record 4: 98.692
+21820: Memory usage before filter DeactivatedPartiesFilter for record 4: 98.696
+21820: Memory usage before filter StatisticsCollectorFilter for record 4: 98.696
+21820: Memory usage before record 5: 98.696
+21820: Memory usage before filter HeaderDetectionFilter3 for record 5: 98.696
+21820: Memory usage before filter RowSkipperFilter for record 5: 98.696
+21820: Memory usage before filter PartyIdMapping for record 5: 98.696
+21820: Memory usage before filter CPIdMapping for record 5: 98.696
+21820: Memory usage before filter TradeIdMapping for record 5: 98.696
+21820: Memory usage before filter TradeId2Mapping for record 5: 98.696
+21820: Memory usage before filter CPTradeIdMapping for record 5: 98.696
+21820: Memory usage before filter TradeGroupIdMapping for record 5: 98.696
+21820: Memory usage before filter AgreementIdMapping for record 5: 98.696
+21820: Memory usage before filter BookMapping for record 5: 98.696
+21820: Memory usage before filter ProductClassMapping for record 5: 98.696
+21820: Memory usage before filter NotionalMapping for record 5: 98.696
+21820: Memory usage before filter Notional2Mapping for record 5: 98.696
+21820: Memory usage before filter TradeCurrMapping for record 5: 98.696
+21820: Memory usage before filter TradeCurr2Mapping for record 5: 98.696
+21820: Memory usage before filter StrikePriceMapping for record 5: 98.696
+21820: Memory usage before filter UnderlyingMapping for record 5: 98.696
+21820: Memory usage before filter TradeDateMapping for record 5: 98.696
+21820: Memory usage before filter StartDateMapping for record 5: 98.696
+21820: Memory usage before filter EndDateMapping for record 5: 98.696
+21820: Memory usage before filter IndependentAmountMapping for record 5: 98.696
+21820: Memory usage before filter SpreadMapping for record 5: 98.696
+21820: Memory usage before filter OptionTypeMapping for record 5: 98.696
+21820: Memory usage before filter MTMValueMapping for record 5: 98.696
+21820: Memory usage before filter MTMCurrMapping for record 5: 98.696
+21820: Memory usage before filter FreeText1Mapping for record 5: 98.696
+21820: Memory usage before filter FreeText2Mapping for record 5: 98.696
+21820: Memory usage before filter FreeText3Mapping for record 5: 98.696
+21820: Memory usage before filter FreeText4Mapping for record 5: 98.696
+21820: Memory usage before filter FreeText5Mapping for record 5: 98.696
+21820: Memory usage before filter AgreementTypeMapping for record 5: 98.696
+21820: Memory usage before filter ServiceMapping for record 5: 98.696
+21820: Memory usage before filter USIMapping for record 5: 98.696
+21820: Memory usage before filter UTIMapping for record 5: 98.696
+21820: Memory usage before filter FinalSettlementDateMapping for record 5: 98.696
+21820: Memory usage before filter SecondaryAssetClassMapping for record 5: 98.696
+21820: Memory usage before filter IsReportingPartyMapping for record 5: 98.696
+21820: Memory usage before filter AveragingMethodMapping for record 5: 98.696
+21820: Memory usage before filter AveragingMethod2Mapping for record 5: 98.696
+21820: Memory usage before filter HoursFromThroughMapping for record 5: 98.696
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 5: 98.696
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 5: 98.696
+21820: Memory usage before filter DaycountMapping for record 5: 98.696
+21820: Memory usage before filter Daycount2Mapping for record 5: 98.696
+21820: Memory usage before filter IsUSPersonPartyMapping for record 5: 98.696
+21820: Memory usage before filter IsUSPersonCPMapping for record 5: 98.696
+21820: Memory usage before filter ConfirmationStatusMapping for record 5: 98.696
+21820: Memory usage before filter RegulatedByMapping for record 5: 98.696
+21820: Memory usage before filter AgreementIdMapping for record 5: 98.696
+21820: Memory usage before filter SCSASiloCurrMapping for record 5: 98.696
+21820: Memory usage before filter MissingMetafieldDetector for record 5: 98.696
+21820: Memory usage before filter PostProcessFilter for record 5: 98.696
+21820: Memory usage before filter VerificationFilter for record 5: 98.696
+21820: Memory usage before filter DeactivatedPartiesFilter for record 5: 98.7
+21820: Memory usage before filter StatisticsCollectorFilter for record 5: 98.7
+21820: Memory usage before record 6: 98.7
+21820: Memory usage before filter HeaderDetectionFilter3 for record 6: 98.7
+21820: Memory usage before filter RowSkipperFilter for record 6: 98.7
+21820: Memory usage before filter PartyIdMapping for record 6: 98.7
+21820: Memory usage before filter CPIdMapping for record 6: 98.7
+21820: Memory usage before filter TradeIdMapping for record 6: 98.7
+21820: Memory usage before filter TradeId2Mapping for record 6: 98.7
+21820: Memory usage before filter CPTradeIdMapping for record 6: 98.7
+21820: Memory usage before filter TradeGroupIdMapping for record 6: 98.7
+21820: Memory usage before filter AgreementIdMapping for record 6: 98.7
+21820: Memory usage before filter BookMapping for record 6: 98.7
+21820: Memory usage before filter ProductClassMapping for record 6: 98.7
+21820: Memory usage before filter NotionalMapping for record 6: 98.7
+21820: Memory usage before filter Notional2Mapping for record 6: 98.7
+21820: Memory usage before filter TradeCurrMapping for record 6: 98.7
+21820: Memory usage before filter TradeCurr2Mapping for record 6: 98.7
+21820: Memory usage before filter StrikePriceMapping for record 6: 98.7
+21820: Memory usage before filter UnderlyingMapping for record 6: 98.7
+21820: Memory usage before filter TradeDateMapping for record 6: 98.7
+21820: Memory usage before filter StartDateMapping for record 6: 98.7
+21820: Memory usage before filter EndDateMapping for record 6: 98.7
+21820: Memory usage before filter IndependentAmountMapping for record 6: 98.7
+21820: Memory usage before filter SpreadMapping for record 6: 98.7
+21820: Memory usage before filter OptionTypeMapping for record 6: 98.7
+21820: Memory usage before filter MTMValueMapping for record 6: 98.7
+21820: Memory usage before filter MTMCurrMapping for record 6: 98.7
+21820: Memory usage before filter FreeText1Mapping for record 6: 98.7
+21820: Memory usage before filter FreeText2Mapping for record 6: 98.7
+21820: Memory usage before filter FreeText3Mapping for record 6: 98.7
+21820: Memory usage before filter FreeText4Mapping for record 6: 98.7
+21820: Memory usage before filter FreeText5Mapping for record 6: 98.7
+21820: Memory usage before filter AgreementTypeMapping for record 6: 98.7
+21820: Memory usage before filter ServiceMapping for record 6: 98.7
+21820: Memory usage before filter USIMapping for record 6: 98.7
+21820: Memory usage before filter UTIMapping for record 6: 98.7
+21820: Memory usage before filter FinalSettlementDateMapping for record 6: 98.7
+21820: Memory usage before filter SecondaryAssetClassMapping for record 6: 98.7
+21820: Memory usage before filter IsReportingPartyMapping for record 6: 98.7
+21820: Memory usage before filter AveragingMethodMapping for record 6: 98.7
+21820: Memory usage before filter AveragingMethod2Mapping for record 6: 98.7
+21820: Memory usage before filter HoursFromThroughMapping for record 6: 98.7
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 6: 98.7
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 6: 98.7
+21820: Memory usage before filter DaycountMapping for record 6: 98.7
+21820: Memory usage before filter Daycount2Mapping for record 6: 98.7
+21820: Memory usage before filter IsUSPersonPartyMapping for record 6: 98.7
+21820: Memory usage before filter IsUSPersonCPMapping for record 6: 98.7
+21820: Memory usage before filter ConfirmationStatusMapping for record 6: 98.7
+21820: Memory usage before filter RegulatedByMapping for record 6: 98.7
+21820: Memory usage before filter AgreementIdMapping for record 6: 98.7
+21820: Memory usage before filter SCSASiloCurrMapping for record 6: 98.7
+21820: Memory usage before filter MissingMetafieldDetector for record 6: 98.7
+21820: Memory usage before filter PostProcessFilter for record 6: 98.7
+21820: Memory usage before filter VerificationFilter for record 6: 98.7
+21820: Memory usage before filter DeactivatedPartiesFilter for record 6: 98.7
+21820: Memory usage before filter StatisticsCollectorFilter for record 6: 98.7
+21820: Memory usage before record 7: 98.7
+21820: Memory usage before filter HeaderDetectionFilter3 for record 7: 98.7
+21820: Memory usage before filter RowSkipperFilter for record 7: 98.7
+21820: Memory usage before filter PartyIdMapping for record 7: 98.7
+21820: Memory usage before filter CPIdMapping for record 7: 98.7
+21820: Memory usage before filter TradeIdMapping for record 7: 98.7
+21820: Memory usage before filter TradeId2Mapping for record 7: 98.7
+21820: Memory usage before filter CPTradeIdMapping for record 7: 98.7
+21820: Memory usage before filter TradeGroupIdMapping for record 7: 98.7
+21820: Memory usage before filter AgreementIdMapping for record 7: 98.7
+21820: Memory usage before filter BookMapping for record 7: 98.7
+21820: Memory usage before filter ProductClassMapping for record 7: 98.7
+21820: Memory usage before filter NotionalMapping for record 7: 98.7
+21820: Memory usage before filter Notional2Mapping for record 7: 98.7
+21820: Memory usage before filter TradeCurrMapping for record 7: 98.7
+21820: Memory usage before filter TradeCurr2Mapping for record 7: 98.7
+21820: Memory usage before filter StrikePriceMapping for record 7: 98.7
+21820: Memory usage before filter UnderlyingMapping for record 7: 98.7
+21820: Memory usage before filter TradeDateMapping for record 7: 98.7
+21820: Memory usage before filter StartDateMapping for record 7: 98.7
+21820: Memory usage before filter EndDateMapping for record 7: 98.7
+21820: Memory usage before filter IndependentAmountMapping for record 7: 98.7
+21820: Memory usage before filter SpreadMapping for record 7: 98.7
+21820: Memory usage before filter OptionTypeMapping for record 7: 98.7
+21820: Memory usage before filter MTMValueMapping for record 7: 98.7
+21820: Memory usage before filter MTMCurrMapping for record 7: 98.7
+21820: Memory usage before filter FreeText1Mapping for record 7: 98.7
+21820: Memory usage before filter FreeText2Mapping for record 7: 98.7
+21820: Memory usage before filter FreeText3Mapping for record 7: 98.7
+21820: Memory usage before filter FreeText4Mapping for record 7: 98.7
+21820: Memory usage before filter FreeText5Mapping for record 7: 98.7
+21820: Memory usage before filter AgreementTypeMapping for record 7: 98.7
+21820: Memory usage before filter ServiceMapping for record 7: 98.7
+21820: Memory usage before filter USIMapping for record 7: 98.7
+21820: Memory usage before filter UTIMapping for record 7: 98.7
+21820: Memory usage before filter FinalSettlementDateMapping for record 7: 98.7
+21820: Memory usage before filter SecondaryAssetClassMapping for record 7: 98.7
+21820: Memory usage before filter IsReportingPartyMapping for record 7: 98.7
+21820: Memory usage before filter AveragingMethodMapping for record 7: 98.7
+21820: Memory usage before filter AveragingMethod2Mapping for record 7: 98.7
+21820: Memory usage before filter HoursFromThroughMapping for record 7: 98.7
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 7: 98.7
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 7: 98.7
+21820: Memory usage before filter DaycountMapping for record 7: 98.7
+21820: Memory usage before filter Daycount2Mapping for record 7: 98.7
+21820: Memory usage before filter IsUSPersonPartyMapping for record 7: 98.7
+21820: Memory usage before filter IsUSPersonCPMapping for record 7: 98.7
+21820: Memory usage before filter ConfirmationStatusMapping for record 7: 98.7
+21820: Memory usage before filter RegulatedByMapping for record 7: 98.7
+21820: Memory usage before filter AgreementIdMapping for record 7: 98.7
+21820: Memory usage before filter SCSASiloCurrMapping for record 7: 98.7
+21820: Memory usage before filter MissingMetafieldDetector for record 7: 98.7
+21820: Memory usage before filter PostProcessFilter for record 7: 98.7
+21820: Memory usage before filter VerificationFilter for record 7: 98.7
+21820: Memory usage before filter DeactivatedPartiesFilter for record 7: 98.704
+21820: Memory usage before filter StatisticsCollectorFilter for record 7: 98.704
+21820: Memory usage before record 8: 98.704
+21820: Memory usage before filter HeaderDetectionFilter3 for record 8: 98.704
+21820: Memory usage before filter RowSkipperFilter for record 8: 98.704
+21820: Memory usage before filter PartyIdMapping for record 8: 98.704
+21820: Memory usage before filter CPIdMapping for record 8: 98.704
+21820: Memory usage before filter TradeIdMapping for record 8: 98.704
+21820: Memory usage before filter TradeId2Mapping for record 8: 98.704
+21820: Memory usage before filter CPTradeIdMapping for record 8: 98.704
+21820: Memory usage before filter TradeGroupIdMapping for record 8: 98.704
+21820: Memory usage before filter AgreementIdMapping for record 8: 98.704
+21820: Memory usage before filter BookMapping for record 8: 98.704
+21820: Memory usage before filter ProductClassMapping for record 8: 98.704
+21820: Memory usage before filter NotionalMapping for record 8: 98.704
+21820: Memory usage before filter Notional2Mapping for record 8: 98.704
+21820: Memory usage before filter TradeCurrMapping for record 8: 98.704
+21820: Memory usage before filter TradeCurr2Mapping for record 8: 98.704
+21820: Memory usage before filter StrikePriceMapping for record 8: 98.704
+21820: Memory usage before filter UnderlyingMapping for record 8: 98.704
+21820: Memory usage before filter TradeDateMapping for record 8: 98.704
+21820: Memory usage before filter StartDateMapping for record 8: 98.704
+21820: Memory usage before filter EndDateMapping for record 8: 98.704
+21820: Memory usage before filter IndependentAmountMapping for record 8: 98.704
+21820: Memory usage before filter SpreadMapping for record 8: 98.704
+21820: Memory usage before filter OptionTypeMapping for record 8: 98.704
+21820: Memory usage before filter MTMValueMapping for record 8: 98.704
+21820: Memory usage before filter MTMCurrMapping for record 8: 98.704
+21820: Memory usage before filter FreeText1Mapping for record 8: 98.704
+21820: Memory usage before filter FreeText2Mapping for record 8: 98.704
+21820: Memory usage before filter FreeText3Mapping for record 8: 98.704
+21820: Memory usage before filter FreeText4Mapping for record 8: 98.704
+21820: Memory usage before filter FreeText5Mapping for record 8: 98.704
+21820: Memory usage before filter AgreementTypeMapping for record 8: 98.704
+21820: Memory usage before filter ServiceMapping for record 8: 98.704
+21820: Memory usage before filter USIMapping for record 8: 98.704
+21820: Memory usage before filter UTIMapping for record 8: 98.704
+21820: Memory usage before filter FinalSettlementDateMapping for record 8: 98.704
+21820: Memory usage before filter SecondaryAssetClassMapping for record 8: 98.704
+21820: Memory usage before filter IsReportingPartyMapping for record 8: 98.704
+21820: Memory usage before filter AveragingMethodMapping for record 8: 98.704
+21820: Memory usage before filter AveragingMethod2Mapping for record 8: 98.704
+21820: Memory usage before filter HoursFromThroughMapping for record 8: 98.704
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 8: 98.704
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 8: 98.704
+21820: Memory usage before filter DaycountMapping for record 8: 98.704
+21820: Memory usage before filter Daycount2Mapping for record 8: 98.704
+21820: Memory usage before filter IsUSPersonPartyMapping for record 8: 98.704
+21820: Memory usage before filter IsUSPersonCPMapping for record 8: 98.704
+21820: Memory usage before filter ConfirmationStatusMapping for record 8: 98.704
+21820: Memory usage before filter RegulatedByMapping for record 8: 98.704
+21820: Memory usage before filter AgreementIdMapping for record 8: 98.704
+21820: Memory usage before filter SCSASiloCurrMapping for record 8: 98.704
+21820: Memory usage before filter MissingMetafieldDetector for record 8: 98.704
+21820: Memory usage before filter PostProcessFilter for record 8: 98.704
+21820: Memory usage before filter VerificationFilter for record 8: 98.704
+21820: Memory usage before filter DeactivatedPartiesFilter for record 8: 98.704
+21820: Memory usage before filter StatisticsCollectorFilter for record 8: 98.704
+21820: Memory usage before record 9: 98.704
+21820: Memory usage before filter HeaderDetectionFilter3 for record 9: 98.708
+21820: Memory usage before filter RowSkipperFilter for record 9: 98.708
+21820: Memory usage before filter PartyIdMapping for record 9: 98.708
+21820: Memory usage before filter CPIdMapping for record 9: 98.708
+21820: Memory usage before filter TradeIdMapping for record 9: 98.708
+21820: Memory usage before filter TradeId2Mapping for record 9: 98.708
+21820: Memory usage before filter CPTradeIdMapping for record 9: 98.708
+21820: Memory usage before filter TradeGroupIdMapping for record 9: 98.708
+21820: Memory usage before filter AgreementIdMapping for record 9: 98.708
+21820: Memory usage before filter BookMapping for record 9: 98.708
+21820: Memory usage before filter ProductClassMapping for record 9: 98.708
+21820: Memory usage before filter NotionalMapping for record 9: 98.708
+21820: Memory usage before filter Notional2Mapping for record 9: 98.712
+21820: Memory usage before filter TradeCurrMapping for record 9: 98.712
+21820: Memory usage before filter TradeCurr2Mapping for record 9: 98.712
+21820: Memory usage before filter StrikePriceMapping for record 9: 98.712
+21820: Memory usage before filter UnderlyingMapping for record 9: 98.712
+21820: Memory usage before filter TradeDateMapping for record 9: 98.712
+21820: Memory usage before filter StartDateMapping for record 9: 98.712
+21820: Memory usage before filter EndDateMapping for record 9: 98.712
+21820: Memory usage before filter IndependentAmountMapping for record 9: 98.712
+21820: Memory usage before filter SpreadMapping for record 9: 98.712
+21820: Memory usage before filter OptionTypeMapping for record 9: 98.712
+21820: Memory usage before filter MTMValueMapping for record 9: 98.712
+21820: Memory usage before filter MTMCurrMapping for record 9: 98.712
+21820: Memory usage before filter FreeText1Mapping for record 9: 98.712
+21820: Memory usage before filter FreeText2Mapping for record 9: 98.712
+21820: Memory usage before filter FreeText3Mapping for record 9: 98.712
+21820: Memory usage before filter FreeText4Mapping for record 9: 98.712
+21820: Memory usage before filter FreeText5Mapping for record 9: 98.712
+21820: Memory usage before filter AgreementTypeMapping for record 9: 98.712
+21820: Memory usage before filter ServiceMapping for record 9: 98.712
+21820: Memory usage before filter USIMapping for record 9: 98.712
+21820: Memory usage before filter UTIMapping for record 9: 98.712
+21820: Memory usage before filter FinalSettlementDateMapping for record 9: 98.712
+21820: Memory usage before filter SecondaryAssetClassMapping for record 9: 98.712
+21820: Memory usage before filter IsReportingPartyMapping for record 9: 98.712
+21820: Memory usage before filter AveragingMethodMapping for record 9: 98.712
+21820: Memory usage before filter AveragingMethod2Mapping for record 9: 98.712
+21820: Memory usage before filter HoursFromThroughMapping for record 9: 98.712
+21820: Memory usage before filter HoursFromThroughTimezoneMapping for record 9: 98.712
+21820: Memory usage before filter AdditionalRepositoriesMapping for record 9: 98.712
+21820: Memory usage before filter DaycountMapping for record 9: 98.712
+21820: Memory usage before filter Daycount2Mapping for record 9: 98.712
+21820: Memory usage before filter IsUSPersonPartyMapping for record 9: 98.712
+21820: Memory usage before filter IsUSPersonCPMapping for record 9: 98.712
+21820: Memory usage before filter ConfirmationStatusMapping for record 9: 98.712
+21820: Memory usage before filter RegulatedByMapping for record 9: 98.712
+21820: Memory usage before filter AgreementIdMapping for record 9: 98.712
+21820: Memory usage before filter SCSASiloCurrMapping for record 9: 98.712
+21820: Memory usage before filter MissingMetafieldDetector for record 9: 98.712
+21820: Memory usage before filter PostProcessFilter for record 9: 98.712
+21820: Memory usage before filter VerificationFilter for record 9: 98.712
+21820: Memory usage before filter DeactivatedPartiesFilter for record 9: 98.712
+21820: Memory usage before filter StatisticsCollectorFilter for record 9: 98.712
+21820: Memory usage after pipeline.process: 98.94

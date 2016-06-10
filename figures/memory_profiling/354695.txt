@@ -1,0 +1,624 @@
+22294: Memory usage before pipeline.process: 187.304
+22294: Memory usage before _prepare: 187.304
+22294: Memory usage before filter.prepare for DatasetInfoFilter: 187.304
+22294: Memory usage after filter.prepare for DatasetInfoFilter: 187.304
+22294: Memory usage before filter.prepare for NullTranslationFilter: 187.304
+22294: Memory usage after filter.prepare for NullTranslationFilter: 187.304
+22294: Memory usage before filter.prepare for HeaderDetectionFilter3: 187.304
+22294: Memory usage after filter.prepare for HeaderDetectionFilter3: 187.304
+22294: Memory usage before filter.prepare for RowSkipperFilter: 187.304
+22294: Memory usage after filter.prepare for RowSkipperFilter: 187.304
+22294: Memory usage before filter.prepare for PartyIdMapping: 187.304
+22294: Memory usage after filter.prepare for PartyIdMapping: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ProductClassMapping: 187.304
+22294: Memory usage after filter.prepare for ProductClassMapping: 187.304
+22294: Memory usage before filter.prepare for TradeIdMapping: 187.304
+22294: Memory usage after filter.prepare for TradeIdMapping: 187.304
+22294: Memory usage before filter.prepare for TradeId2Mapping: 187.304
+22294: Memory usage after filter.prepare for TradeId2Mapping: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for TradeDateMapping: 187.304
+22294: Memory usage after filter.prepare for TradeDateMapping: 187.304
+22294: Memory usage before filter.prepare for StartDateMapping: 187.304
+22294: Memory usage after filter.prepare for StartDateMapping: 187.304
+22294: Memory usage before filter.prepare for EndDateMapping: 187.304
+22294: Memory usage after filter.prepare for EndDateMapping: 187.304
+22294: Memory usage before filter.prepare for TradeCurrMapping: 187.304
+22294: Memory usage after filter.prepare for TradeCurrMapping: 187.304
+22294: Memory usage before filter.prepare for NotionalMapping: 187.304
+22294: Memory usage after filter.prepare for NotionalMapping: 187.304
+22294: Memory usage before filter.prepare for TradeCurr2Mapping: 187.304
+22294: Memory usage after filter.prepare for TradeCurr2Mapping: 187.304
+22294: Memory usage before filter.prepare for Notional2Mapping: 187.304
+22294: Memory usage after filter.prepare for Notional2Mapping: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for MTMValueMapping: 187.304
+22294: Memory usage after filter.prepare for MTMValueMapping: 187.304
+22294: Memory usage before filter.prepare for MTMDateMapping: 187.304
+22294: Memory usage after filter.prepare for MTMDateMapping: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for OptionTypeMapping: 187.304
+22294: Memory usage after filter.prepare for OptionTypeMapping: 187.304
+22294: Memory usage before filter.prepare for StrikePriceMapping: 187.304
+22294: Memory usage after filter.prepare for StrikePriceMapping: 187.304
+22294: Memory usage before filter.prepare for UnderlyingMapping: 187.304
+22294: Memory usage after filter.prepare for UnderlyingMapping: 187.304
+22294: Memory usage before filter.prepare for IndependentAmountMapping: 187.304
+22294: Memory usage after filter.prepare for IndependentAmountMapping: 187.304
+22294: Memory usage before filter.prepare for CPTradeIdMapping: 187.304
+22294: Memory usage after filter.prepare for CPTradeIdMapping: 187.304
+22294: Memory usage before filter.prepare for BookMapping: 187.304
+22294: Memory usage after filter.prepare for BookMapping: 187.304
+22294: Memory usage before filter.prepare for Underlying2Mapping: 187.304
+22294: Memory usage after filter.prepare for Underlying2Mapping: 187.304
+22294: Memory usage before filter.prepare for ExerciseDateMapping: 187.304
+22294: Memory usage after filter.prepare for ExerciseDateMapping: 187.304
+22294: Memory usage before filter.prepare for ESMAStatusCPMapping: 187.304
+22294: Memory usage after filter.prepare for ESMAStatusCPMapping: 187.304
+22294: Memory usage before filter.prepare for SwapswireIdMapping: 187.304
+22294: Memory usage after filter.prepare for SwapswireIdMapping: 187.304
+22294: Memory usage before filter.prepare for FreeText3Mapping: 187.304
+22294: Memory usage after filter.prepare for FreeText3Mapping: 187.304
+22294: Memory usage before filter.prepare for RegExpExtractFilter: 187.304
+22294: Memory usage after filter.prepare for RegExpExtractFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage after filter.prepare for ConditionalFilter: 187.304
+22294: Memory usage before filter.prepare for MissingMetafieldDetector: 187.304
+22294: Memory usage after filter.prepare for MissingMetafieldDetector: 187.304
+22294: Memory usage before filter.prepare for PostProcessFilter: 187.304
+22294: Memory usage after filter.prepare for PostProcessFilter: 405.56
+22294: Memory usage before filter.prepare for VerificationFilter: 405.56
+22294: Memory usage after filter.prepare for VerificationFilter: 405.56
+22294: Memory usage before filter.prepare for DeactivatedPartiesFilter: 405.56
+22294: Memory usage after filter.prepare for DeactivatedPartiesFilter: 405.56
+22294: Memory usage before filter.prepare for StatisticsCollectorFilter: 405.56
+22294: Memory usage after filter.prepare for StatisticsCollectorFilter: 405.56
+22294: Memory usage after prepare filters: 405.56
+22294: Memory usage after _prepare: 405.56
+22294: Memory usage before main loop: 405.56
+22294: Memory usage before record 0: 411.024
+22294: Memory usage before filter ConditionalFilter for record 0: 411.028
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.032
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.036
+22294: Memory usage before filter HeaderDetectionFilter3 for record 0: 411.036
+22294: Memory usage before filter NullTranslationFilter for record 0: 411.036
+22294: Memory usage before filter RowSkipperFilter for record 0: 411.036
+22294: Memory usage before filter PartyIdMapping for record 0: 411.036
+22294: Memory usage before filter ConditionalFilter for record 0: 411.04
+22294: Memory usage before filter ConditionalFilter for record 0: 411.044
+22294: Memory usage before record 1: 411.044
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 1: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 1: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 1: 411.048
+22294: Memory usage before filter PartyIdMapping for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before filter ConditionalFilter for record 1: 411.048
+22294: Memory usage before record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 2: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 2: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 2: 411.048
+22294: Memory usage before filter PartyIdMapping for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before filter ConditionalFilter for record 2: 411.048
+22294: Memory usage before record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 3: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 3: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 3: 411.048
+22294: Memory usage before filter PartyIdMapping for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before filter ConditionalFilter for record 3: 411.048
+22294: Memory usage before record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 4: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 4: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 4: 411.048
+22294: Memory usage before filter PartyIdMapping for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before filter ConditionalFilter for record 4: 411.048
+22294: Memory usage before record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 5: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 5: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 5: 411.048
+22294: Memory usage before filter PartyIdMapping for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before filter ConditionalFilter for record 5: 411.048
+22294: Memory usage before record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 6: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 6: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 6: 411.048
+22294: Memory usage before filter PartyIdMapping for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before filter ConditionalFilter for record 6: 411.048
+22294: Memory usage before record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 7: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 7: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 7: 411.048
+22294: Memory usage before filter PartyIdMapping for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before filter ConditionalFilter for record 7: 411.048
+22294: Memory usage before record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 8: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 8: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 8: 411.048
+22294: Memory usage before filter PartyIdMapping for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before filter ConditionalFilter for record 8: 411.048
+22294: Memory usage before record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter HeaderDetectionFilter3 for record 9: 411.048
+22294: Memory usage before filter NullTranslationFilter for record 9: 411.048
+22294: Memory usage before filter RowSkipperFilter for record 9: 411.048
+22294: Memory usage before filter PartyIdMapping for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage before filter ConditionalFilter for record 9: 411.048
+22294: Memory usage after pipeline.process: 1054.412
