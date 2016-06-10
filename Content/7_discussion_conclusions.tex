@@ -13,24 +13,22 @@ and making trade ID:s unique. Since \code{aggregate\_result} takes 0.4 seconds (
 it appears as though parallelization and aggregating the partial results result in noticable overhead for the tiny dataset.
 It is conceivable that the above results in the fact that only slowdown can be observed when parallelizing the tiny dataset.
 
-Even without the parallel aggregation step, the tiny dataset still results in slowdown.
-
-A steady, close to linear increase in memory usage can be observed, resulting in total memory usage several times above what is
-used for the sequential program.
+Even without the parallel aggregation step, the tiny dataset still results in slowdown. A steady, close to linear increase in memory usage can be observed,
+resulting in total memory usage several times above what is used for the sequential program.
 
 \subsection{Small dataset discussion}
 For the small dataset, some speedup scaling can be observed, with the maximum value around 2.1. As more workers are added, speedup is increased,
 flattening out around 8 workers. This fits with the fact that the testing machine has 8 cores, effectively making it able to utilize 
 true parallelism for a maximum of 8 workers. The impact of adding more workers decreases with each one that is added. In the profiling session
 \code{post\_process\_parallel} is shown to take up a relatively large portion of the execution time (22.5\%). Since this function is a separate,
-sequential and constant step, it is not affected by parallelization and therefore takes up varying percantages of the total time. Since more parallelization
-leads to faster execution of the parallel portion of the code, the post processing becomes more signifcant as workers are added, contributing to the fact
+sequential and constant step, it is not affected by parallelization and therefore takes up varying percentages of the total time. Since more parallelization
+leads to faster execution of the parallel portion of the code, the post processing becomes more significant as workers are added, contributing to the fact
 that adding more workers results in less and less increase in speedup.
 
 Without the post processing step, the small dataset gets slightly better speedup for 8 workers, 2.7X instead of 2.11X. This is still not close to
 the performance model calculations, which can be seen as disappointing.
 
-The memory usage grows in a similar manner to dataset 1, though the values are greater.
+The memory usage grows in a similar manner to the tiny dataset, though the values are greater.
 Real time shows relatively low standard deviations compared to the total time, indicating that real time is fairly accurate for each worker
 value.
 
@@ -39,7 +37,7 @@ The medium shows greater speedup than the small dataset, with a similar shape to
 around 3.8, evening out around 8 workers, once again showing the best results around the machine's core number. This further suggests that larger
 individal workload, this time a result of the larger dataset size, results in better speedup. Real time again shows
 low standard deviation. Memory usage for the worker numbers with the largest speedup values is around 3 GB for dataset 3, demonstrating
-that a large price in memory usage is paid for paralellization, which may impact performance negatively for large dataset sizes and
+that a large price in memory usage is paid for parallelization, which may impact performance negatively for large dataset sizes and
 worker numbers.
 
 The profiling session for the main process shows that \code{aggregate\_result} (30.138 s) takes a similar amount of time to the execution of
@@ -49,7 +47,7 @@ worker takes to execute. This suggests a small overhead in the form of worker st
 The post processing step takes up about 7.0\% of the execution time for 8 workers. This is less than for the small dataset, but may still contribute
 to the fact that adding workers results in less increase in speedup.
 
-Without the parallel processing, the medium dataset shows slighlty better speedup for 8 workers. However, this increase is only from 3.76X to 4.04X
+Without the parallel processing, the medium dataset shows slightly better speedup for 8 workers. However, this increase is only from 3.76X to 4.04X
 speedup, meaning that it still has relatively low efficiency.
 
 \subsection{Large dataset discussion}
@@ -64,7 +62,7 @@ dataset spend more time in the main row processing loop, likely contributing to 
 
 The post processing step takes up about 6.5\% of the execution time for 8 workers, close to the medium dataset.
 
-Without the parallel processing, the medium dataset shows slighlty better speedup for 8 workers. However, this increase is only from 4.3X to 4.6X
+Without the parallel processing, the large dataset shows slighlty better speedup for 8 workers. However, this increase is only from 4.3X to 4.6X
 speedup, meaning that it still has relatively low efficiency.
 
 
@@ -120,7 +118,7 @@ with processes (as opposed to threads), but also of overhead from worker startup
 passing model.
 
 The transformation problem in this thesis, and parallel programs with expensive worker startup, are heavily influenced by the size
-of the data. This means that developers faced with implemented parallelization of a similar systems should examine the data in their
+of the data. This means that developers faced with implementing parallelization of similar systems should examine the data in their
 problem domain in order to find an initial indication of whether the size of the datasets are, in general, large enough to benefit
 from parallelization.
 
@@ -134,7 +132,7 @@ was largely CPU bound, making it suitable for \code{multiprocessing} in combinat
 assumption, are helpful when parallelizing a complex program involving both CPU and I/O tasks.
 
 The method used in this thesis for finding parallelizability was relatively successful. When analyzing file formats for parallelizability,
-inherently serial, extra overhead, and embarrassingly parallel formats where found. The implementation then focused on parallelizing
+inherently serial, extra overhead, and embarrassingly parallel formats were found. The implementation then focused on parallelizing
 the extra overhead and embarrassingly parallel formats. This method could possibly be generalized to other parallelization problems
 in complex systems, by identifying a subsystem that is easily parallelizable and focusing on that part rather than the system as a whole.
 The subsystem might be either a subset of the code or of the datasets in the problem domain. In this thesis, the subsystem proved to be

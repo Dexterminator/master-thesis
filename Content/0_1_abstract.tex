@@ -1,6 +1,6 @@
 Financial data is often represented with rows of values, contained in a dataset. This data needs to be transformed into a common format in order for
 comparison and matching to be made, which can take a long time for larger datasets.
-The main goal of this master’s thesis is speeding up these transormation through parallelization using Python multiprocessing.
+The main goal of this master’s thesis is speeding up these transformation through parallelization using Python multiprocessing.
 The datasets in question consist of several rows representing trades, and are transformed into a common format using rules known as filters. In order to devise a
 parallelization strategy, the filters were analyzed in order to find ordering constraints, and the Python profiler cProfile was used to find bottlenecks
 and potential parallelization points. This analysis resulted in the use of a task-based approach for the implementation, in which the transformation
@@ -8,7 +8,7 @@ was divided into an initial sequential pre-processing step, a parallel step wher
 sequential post processing step. 
 
 The implementation was tested by transforming four datasets of differing sizes using up to 16 workers, and execution time and memory consumption
-was measured. The results for the tiny, small, and medium datasets showed a speedup of 0.5, 2.1, 3.8, and 4.81. They also showed linearly increasing
+was measured. The results for the tiny, small, medium, and large datasets showed a speedup of 0.5, 2.1, 3.8, and 4.81. They also showed linearly increasing
 memory consumption for all datasets.  The test transformations were also profiled in order to understand the parallel program’s behaviour for the
 different datasets. The experiments gave way to the conclusion that dataset size heavily influence the speedup, partly because of the fact that
 the sequential parts become less significant.  In addition, the large memory increase for larger amount of workers is noted as a major downside of

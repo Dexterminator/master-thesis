@@ -2,7 +2,7 @@ Finansiell data representeras ofta med rader av värden, samlade i en datamängd
 till ett standardformat för att möjliggöra jämförelser och matchning. Detta kan ta lång tid för stora
 datamängder. Huvudmålet för detta examensarbete är att snabba upp dessa transformationer genom parallellisering
 med hjälp av Python-modulen multiprocessing. Datamängderna omvandlas med hjälp av regler, kallade filter.
-Dessa filter analyserades för att identifiera begränsningar på ordningen i vilken datamänden kan behandlas,
+Dessa filter analyserades för att identifiera begränsningar på ordningen i vilken datamängden kan behandlas,
 och därigenom finna en parallelliseringsstrategi. Python-profileraren cProfile användes även för att hitta
 potentiella parallelliseringspunkter i koden. Denna analys resulterade i användandet av ett ``task''-baserat
 tillvägagångssätt, där transformationen delades in i ett sekventiellt pre-processingsteg, ett parallelt steg 

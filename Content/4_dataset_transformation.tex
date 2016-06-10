@@ -1,4 +1,4 @@
-In this section, the problem of dataset transformation is thoroughly described. Initially, technology used in the transformation is decsribed.
+In this section, the problem of dataset transformation is thoroughly described. Initially, technology used in the transformation is described.
 Then, performance analysis tools used to analyse the code and its performance are given an overview. The overall problem and its different parts
 are then individually described, after which an overview of the transformation program is given. After this, a profiling session of the program
 is shown, performance models are used to calculate potential speedup, and a parallelizability analysis is conducted. Finally, the implementation of
@@ -21,7 +21,7 @@ employed in order to ensure high availability, with data replicated across the n
 
 \section{Performance analysis tools}
 \subsection{cProfile}
-A Python profiler with a relatively low overhead, which can be invoked both directly in a Python program and form the command line \cite{26_2tppp2d}.
+A Python profiler with a relatively low overhead, which can be invoked both directly in a Python program and from the command line \cite{26_2tppp2d}.
 An example of the way cProfile is used in this thesis can be found in figure \ref{fig:profiler_example}. The output of a profiling session,
 \code{ncalls} is the number of times the function was called,
 \code{tottime} is total time spent in the function (excluding subfunctions), \code{cumtime} is the total time spent in the function
@@ -75,7 +75,7 @@ The different filter configurations may affect how parallelizable the processing
 \section{Filters}
 The filters are implemented as Python classes, which implement the interface of \code{prepare}, \code{pre\_process\_record}, \code{process\_record}, and
 \code{post\_process\_record}. \code{prepare} is called only once, before the processing of any rows has started, and may include caching values from the database in
-order to avoid an execssive amount of round trips to it. The records that the method names reference are rows in the dataset, represented as a Python class containing
+order to avoid an excessive amount of round trips to it. The records that the method names reference are rows in the dataset, represented as a Python class containing
 the fields in the dataset row as a Python dict. In the methods above, the filter has access to the current processing pipeline state, and the current record that is
 being processed. If a filter does not implement one of the listed methods, it falls back to a default, empty implementation.
 
@@ -268,7 +268,7 @@ interesting. Other functions with relatively high cumulative time are called fro
   \item \code{\_prepare} -- Called once before the program starts iterating over all rows, performing setup needed to perform the transformations properly.
     It has a relatively high \code{percall} and takes up 3.3\% of the total execution time.
 \end{itemize}
-The time spent in the functions above is 87.7\% of the toal time, and the majority of the rest of the code in \code{process} is contained in the body of the loop that iterates
+The time spent in the functions above is 87.7\% of the total time, and the majority of the rest of the code in \code{process} is contained in the body of the loop that iterates
 over and performs actions on every row. Since only \code{\_prepare} runs before the loop, and a small portion of code is run after the loop, about 4\% of the code 
 is run outside the loop. This means that around 96\% of the code is conceivably parallelizable, depending on the filters in the dataset's file format.\\
 
@@ -343,7 +343,7 @@ Hence, the filters that can affect the parallelization of a dataset are:
 \end{itemize}
 
 \section{Code inspection}
-After an initial code and file format inspection, the following conclusions where made:
+After an initial code and file format inspection, the following conclusions were made:
 \begin{itemize}
   \item The \textit{Header detection} filter is effectively performed only once, as it is ignored for all rows after the one where the header was found.
   \item The filters \textit{Global variable} and \textit{State variable} make the processing of every row depend on the previous, as the writing of the variables may happen on each row.
@@ -354,7 +354,7 @@ After an initial code and file format inspection, the following conclusions wher
 
 The conclusions above indicate that header detection may be done before creating the parallel processes, sending this data to each process when they are created.
 If the process of producing unique ID:s is then done as a post processing step, the following task DAGs illustrate how the dependencies when processing different
-file formats appear: In figure \ref{fig:embarrassing_dag}, the task DAG for a file format without a Global variable or State variable filter is illustrated.
+file formats appear: In figure \ref{fig:global_dag}, the task DAG for a file format without a Global variable or State variable filter is illustrated.
 In figure \ref{fig:embarrassing_dag}, the task DAG for a file format containing a Global variable is illustrated. Since the span is equal to the work
 in the file formats containing Global variables or State variables, parallelization of datasets with these formats will result in no speedup according to the %Illustrate work-span?
 work-span model (as $T_1 \leq T_\infty \Rightarrow S \leq 1$). File formats containing \textit{Stop processing} make it unfeasible to produce correct verification results
@@ -410,7 +410,7 @@ In accordance with section \ref{related_work}, the Python \code{multiprocessing}
 data as possible between processes and to avoid introducing excessive complexity to the codebase. The \code{multiprocessing.Queue} facility was chosen for communication between processes due to its
 noted performance and built-in synchronization \cite{singh_2013_parallel_padpwprfmm}.
 
-Before deciding to use the parallelized version of program, the list of filters in a file format is examined for any of the inherently serial filters
+Before deciding to use the parallelized version of the program, the list of filters in a file format is examined for any of the inherently serial filters
 \textit{Global variable}, \textit{State variable}, or \textit{Stop processing}. If any of these are found, the
 program falls back to its sequential version. Otherwise, the program carries on in accordance with figure \ref{fig:embarrassing_dag}. First, before creating any additional processes, the Header detection filter
 is applied row by row until it produces a result (commonly after a few rows). Next, a (tunable) number of processes, as well as two queues are created. A number of row spans, or chunks, are then created by splitting

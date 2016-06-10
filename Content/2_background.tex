@@ -8,7 +8,7 @@ In a typical multicore processor, several cores (which are similar to regular pr
 same system \cite[p. 44-50]{mccool_2012_structured_spppfec}. The cores consist of several \textit{functional units},
 which are the core components that perform arithmetic calculations. These functional units are able to perform multiple calculation
 instructions in parallel if these are not dependent on each other. This is known as \textit{instruction level parallelism}. In the multicore model,
-a hierarchal cache memory architecture is used. The small, fast cache memories closest to the functional units are called \textit{registers}.
+a hierarchical cache memory architecture is used. The small, fast cache memories closest to the functional units are called \textit{registers}.
 The next caches in the hierarchy are the data and instruction caches which are attached to each core. Subsequent, higher level caches that follow
 these are usually an order of magnitude slower for each cache level.
 
@@ -94,7 +94,7 @@ size \cite[p. 61-62]{mccool_2012_structured_spppfec}.
 The speedup $S$, for $n$ workers, and $s$ as the time spent in the serial part in the parallel system, is achieved by:
 
 \begin{displaymath}
-  S = n + (1-n) * s
+  S = n + (1-n) \cdot s
 \end{displaymath}
 
 \subsection{Work-span model} \label{work-span}
@@ -141,7 +141,7 @@ much as possible.
 
 \section{Python performance and parallel capabilities}
 There are several implementations of the Python language. This section will focus on CPython, the canonical and most popular
-Python implementation \cite{pythonimplementations_ppw}. This thesis uses Python 2.7.
+Python implementation \cite{pythonimplementations_ppw}. This thesis uses CPython 2.7.
 
 \subsection{Performance}
 The general performance of CPython is slower than other popular languages such as C and Java for several
