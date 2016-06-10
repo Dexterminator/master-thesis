@@ -26,9 +26,7 @@ leads to faster execution of the parallel portion of the code, the post processi
 that adding more workers results in less and less increase in speedup.
 
 Without the post processing step, the small dataset gets slightly better speedup for 8 workers, 2.7X instead of 2.11X. This is still not close to
-the performance model calculations, which can be seen as disappointing.
-
-The memory usage grows in a similar manner to the tiny dataset, though the values are greater.
+the performance model calculations, which can be seen as disappointing. The memory usage grows in a similar manner to the tiny dataset, though the values are greater.
 Real time shows relatively low standard deviations compared to the total time, indicating that real time is fairly accurate for each worker
 value.
 
@@ -60,10 +58,9 @@ By having more workers than cores, work can be more evenly scheduled among cores
 The profiling session also shows that \code{\_prepare} takes up less than 2\% of the processing time for the workers, meaning that workers for the large
 dataset spend more time in the main row processing loop, likely contributing to the fact that the larger dataset shows greater speedup.
 
-The post processing step takes up about 6.5\% of the execution time for 8 workers, close to the medium dataset.
-
-Without the parallel processing, the large dataset shows slighlty better speedup for 8 workers. However, this increase is only from 4.3X to 4.6X
-speedup, meaning that it still has relatively low efficiency.
+The post processing step takes up about 6.5\% of the execution time for 8 workers, close to the medium dataset. Without the parallel processing,
+the large dataset shows slighlty better speedup for 8 workers. However, this increase is only from 4.3X to 4.6X speedup, meaning that it still has
+relatively low efficiency.
 
 
 %\subsection{Dataset 4}
@@ -154,4 +151,7 @@ and uses only the Python \code{multiprocessing} module.
 \subsection{Future work}
 This thesis focused on parallelization on a single computer. Since \code{multiprocessing} uses a message passing approach with serialized data,
 it is conceivable that a future work in a distributed approach is interesting for the dataset transformation problem for larger datasets. Also,
-conducting experiments on even larger datasets may be of value as the trend points to greater speedup the larger the dataset.
+conducting experiments on even larger datasets may be of value as the trend points to greater speedup the larger the dataset. Another interesting
+future work would be to implement a mechanism that selects a suitable parallelization strategy given the size of a dataset and its file format, with
+the help of the results in this thesis.
+
