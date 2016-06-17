@@ -3,7 +3,7 @@ to give the reader a foundation in these relevant areas.
 
 \section{Multicore architecture}
 
-\subsection{Multicore processors}
+\subsection{Multicore processors} \label{multi_proc}
 In a typical multicore processor, several cores (which are similar to regular processors) work together in the
 same system \cite[p. 44-50]{mccool_2012_structured_spppfec}. The cores consist of several \textit{functional units},
 which are the core components that perform arithmetic calculations. These functional units are able to perform multiple calculation
@@ -19,6 +19,14 @@ have their own cache. In order to avoid unnecessary reads from the slower main m
 cores may read from another core that has the requested data cached. In a process called \textit{cache coherence}, shared cached values are kept up to date using one
 of several protocols. The effect that these different means of communication between processors has on performance in
 multicore programs should not be ignored.
+
+\subsection{Multiprocessor systems}
+In this thesis, a computer with two multiprocessors that work together is used. Multiprocessor systems such as this work by connecting the caches of the
+different processors, thereby extending the cache coherence protocol to multiple processors\cite[p. 48]{mccool_2012_structured_spppfec}. 
+Compared to the local memory access scheme described in section \ref{multi_proc}, access to a different processor is more expensive and takes more time.
+This architecture uses NUMA (non-uniform memory access), in which it is even more preferable to schedule threads on the processor or core where the data
+it uses is located. The problems related to NUMA and multiprocessor become more pronounced with a larger number of cores, meaning that the architecture of
+the two-processor system used in this thesis has a minor negative impact on performance.
 
 \section{Parallel shared memory programming}
 
