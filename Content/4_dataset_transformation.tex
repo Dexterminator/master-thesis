@@ -281,7 +281,7 @@ The following conclusions can be made from the analysis above:
   \item A relatively small portion of the code is spent in functions that perform I/O, indicating that the program is CPU bound and suitable for speedup using
     \code{multiprocessing}.
   \item Close to all of the code in \code{process} is run for each row, indicating that performing the transformation of different rows in different tasks is a
-    suitable granularity when implementing the parallelization.
+    suitable granularity when implementing the parallelization. This suggests that the program can utilize data parallelism.
   \item The fact that \code{\_prepare} takes up a non-negligible part of the program and is called before the processing of each row, it may introduce extra overhead
     when parallelizing, since it may need to be called for each worker.
 \end{itemize}
@@ -399,9 +399,10 @@ file format families relevant to this thesis:
 
 \begin{itemize}
 \item \textbf{Embarrassingly parallel file formats} --
-  File formats that with the exception of \textit{Header detection} contain only embarrassingly parallel filters. 
+  File formats that with the exception of \textit{Header detection} contain only embarrassingly parallel filters. Datasets with embarrassingly parallel file formats show data parallelism.
 \item \textbf{Extra overhead file formats} --
   Formats that in addition to \textit{Header detection} and a number of embarrassingly parallel filters also contain \textit{Mapping} with the make unique filter enabled.
+  Datasets with extra overhead file formats file formats show data parallelism.
 \item \textbf{Inherently serial file formats} --
   Formats that contain any of the inherently serial filters.
 \end{itemize}
