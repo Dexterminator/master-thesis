@@ -5,12 +5,12 @@ about the thesis as a whole are drawn.
 \subsection{Tiny dataset discussion}
 The tiny dataset shows poor results when parallelizing. For every worker number, only slowdown can be observed.
 The real time values for 10 and 12 workers show high standard deviations when comparing with the average value. It is conceivable that
-tasks such as creating processes have a more noticable impact for the low execution time.
+tasks such as creating processes have a more noticeable impact for the low execution time.
 
 The profiling session for the main process for the tiny dataset showed that \code{aggregate\_result} takes up 70\% of the time. Since this is the function
 that performs the main parallel processing of the dataset, about 30\% of the execution time is overhead due to for example header detection
 and making trade ID:s unique. Since \code{aggregate\_result} takes 0.4 seconds (15.7\% of execution time ) more to execute than it takes for a single worker to finish,
-it appears as though parallelization and aggregating the partial results result in noticable overhead for the tiny dataset.
+it appears as though parallelization and aggregating the partial results result in noticeable overhead for the tiny dataset.
 It is conceivable that the above results in the fact that only slowdown can be observed when parallelizing the tiny dataset.
 
 Even without the parallel aggregation step, the tiny dataset still results in slowdown. A steady, close to linear increase in memory usage can be observed,
@@ -31,9 +31,9 @@ Real time shows relatively low standard deviations compared to the total time, i
 value.
 
 \subsection{Medium dataset discussion}
-The medium shows greater speedup than the small dataset, with a similar shape to the speedup by worker curve. The maximum speedup is
+The medium dataset shows greater speedup than the small dataset, with a similar shape to the speedup by worker curve. The maximum speedup is
 around 3.8, evening out around 8 workers, once again showing the best results around the machine's core number. This further suggests that larger
-individal workload, this time a result of the larger dataset size, results in better speedup. Real time again shows
+individual workload, this time a result of the larger dataset size, results in better speedup. Real time again shows
 low standard deviation. Memory usage for the worker numbers with the largest speedup values is around 3 GB for dataset 3, demonstrating
 that a large price in memory usage is paid for parallelization, which may impact performance negatively for large dataset sizes and
 worker numbers.
@@ -89,7 +89,7 @@ base memory footprint of the process.
 As shown in section \ref{targeted_memory_profiling}, the mappings cached by the post process filter take up a clear majority of the memory,
 and is substantial in size. The cache is in place in order to avoid many round trips to the database in order to get faster execution. However,
 due to the fact that the worker processes cannot share any data when using \code{multiprocessing}, the data is duplicated across the processes,
-resulting in a net increase in memory usage. For larger datasets, this increase in memory usage is very noticable, and therefore a
+resulting in a net increase in memory usage. For larger datasets, this increase in memory usage is very noticeable, and therefore a
 significant price to pay for speedup.
 
 \subsection{Ethics and sustainable development}
@@ -114,7 +114,8 @@ saving power is an important goal.
 This section outlines the final conclusions drawn from this thesis.
 
 \subsection{Main conclusions}
-Using Python \code{multiprocessing} for parallelization resulted in true parallel speedup, but was not without issues.
+This thesis shows that using Python \code{multiprocessing} for parallelization of datasets by utilizing data parallelism
+and using a task-based approach is possible. However, this method was not without issues.
 Sharing data using only message passing results in relatively safe and readable code since excessive sharing of data is avoided.
 However, in the transformation program parallelized in this thesis, the fact that the processing pipeline including column mappings
 needed to be stored for each worker resulted in more overhead both regarding worker startup and memory consumption. This
@@ -157,7 +158,7 @@ of processing the datasets was written. Another delimitation of the thesis is th
 and uses only the Python \code{multiprocessing} module.
 
 \subsection{Future work}
-This thesis focused on parallelization on a single computer. Since \code{multiprocessing} uses a message passing approach with serialized data,
+This thesis focused on parallelization on a single shared memory system. Since \code{multiprocessing} uses a message passing approach with serialized data,
 it is conceivable that a future work in a distributed approach is interesting for the dataset transformation problem for larger datasets. Also,
 conducting experiments on even larger datasets may be of value as the trend points to greater speedup the larger the dataset. Another interesting
 future work would be to implement a mechanism that selects a suitable parallelization strategy given the size of a dataset and its file format, with

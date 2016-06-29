@@ -3,16 +3,17 @@ described in order to give the reader an initial view of what this thesis entail
 
 \section{Dataset transformation} \label{dataset_standardization}
 In financial applications concerning trading, it is common for customers to upload datasets containing several rows describing trades, which may be in different formats.
-One such application is triResolve, an application maintained by TriOptima, where this thesis is conducted.  In triResolve, customers resolve trade disputes in the
-OTC (Over-The-Counter) derivatives market, which may arise due to for example differences in valuation methods. The triResolve service is built in Python, to be able to resolve
-the trade disputes, customers upload the previously mentioned datasets to the service.
+One such application is triResolve, an application created in Python and maintained by TriOptima, where this thesis is conducted. 
+In triResolve, customers resolve trade disputes in the OTC (Over-The-Counter) derivatives market,
+which may arise due to for example differences in valuation methods.
+To be able to resolve the trade disputes, customers upload the previously mentioned trade datasets to the service.
 
 The datasets need to be processed in order to transform them into a standard format which makes comparisons between data from different customers possible.
 In some cases, the size of the dataset is large enough that this transformation is slow. Out of the possible techniques for optimizing the transformation code,
 this thesis will focus on parallelization. Since Python is the language used in triResolve, the parallelization of the existing program will be implemented using
 parallel programming tools available in the language. 
 
-When parallelizing a program, the workload is divided amongst multiple cores of a system, which execute the program in parallel.
+When parallelizing a program, the workload is divided among multiple cores of a system, which execute the program in parallel.
 For the dataset transformation problem, this means dividing the dataset, conceivably into chunks of rows, and performing the transformation of each of these chunks
 on separate cores.
 
@@ -78,7 +79,7 @@ shared memory systems are common laptops and workstations.
 \section{Motivation}
 The motivation of this thesis is to answer the following questions.
 
-\emph{Given the size of a dataset and its set of filters, is it possible to the determine 
+\emph{Given the size of a dataset and its set of filters, is it possible to determine 
 if parallelization of the data transformation using Python will be beneficial or not?}
 
 The thesis question gives rise to the following subquestions:
